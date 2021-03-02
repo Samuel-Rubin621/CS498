@@ -194,28 +194,28 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		{ "ToolTip", "Amount of enemies to spawn based on round" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1 = { "Enemy1", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy1), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1 = { "Enemy1", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy1), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2_MetaData[] = {
 		{ "Category", "RoundInformation" },
 		{ "ModuleRelativePath", "DefaultStartEnd.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2 = { "Enemy2", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy2), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2 = { "Enemy2", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy2), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3_MetaData[] = {
 		{ "Category", "RoundInformation" },
 		{ "ModuleRelativePath", "DefaultStartEnd.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3 = { "Enemy3", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy3), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3 = { "Enemy3", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy3), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy3_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4_MetaData[] = {
 		{ "Category", "RoundInformation" },
 		{ "ModuleRelativePath", "DefaultStartEnd.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4 = { "Enemy4", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy4), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4 = { "Enemy4", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRoundInformation, Enemy4), METADATA_PARAMS(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy4_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FRoundInformation_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRoundInformation_Statics::NewProp_Enemy2,
@@ -250,13 +250,21 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FRoundInformation_Hash() { return 2832355591U; }
+	uint32 Get_Z_Construct_UScriptStruct_FRoundInformation_Hash() { return 3591039324U; }
 	DEFINE_FUNCTION(ADefaultStartEnd::execSpawnEnemy)
 	{
 		P_GET_STRUCT(FEnemyData,Z_Param_EnemySpawningData);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->SpawnEnemy(Z_Param_EnemySpawningData);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADefaultStartEnd::execCallSpawner)
+	{
+		P_GET_STRUCT(FEnemyData,Z_Param_EnemySpawningData);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CallSpawner(Z_Param_EnemySpawningData);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ADefaultStartEnd::execStartRound)
@@ -277,11 +285,44 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 	{
 		UClass* Class = ADefaultStartEnd::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "CallSpawner", &ADefaultStartEnd::execCallSpawner },
 			{ "PreloadNextRound", &ADefaultStartEnd::execPreloadNextRound },
 			{ "SpawnEnemy", &ADefaultStartEnd::execSpawnEnemy },
 			{ "StartRound", &ADefaultStartEnd::execStartRound },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics
+	{
+		struct DefaultStartEnd_eventCallSpawner_Parms
+		{
+			FEnemyData EnemySpawningData;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_EnemySpawningData;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::NewProp_EnemySpawningData = { "EnemySpawningData", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultStartEnd_eventCallSpawner_Parms, EnemySpawningData), Z_Construct_UScriptStruct_FEnemyData, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::NewProp_EnemySpawningData,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultStartEnd.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultStartEnd, nullptr, "CallSpawner", nullptr, nullptr, sizeof(DefaultStartEnd_eventCallSpawner_Parms), Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultStartEnd_CallSpawner()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultStartEnd_CallSpawner_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADefaultStartEnd_PreloadNextRound_Statics
 	{
@@ -420,6 +461,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		(UObject* (*)())Z_Construct_UPackage__Script_TowerDefense,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultStartEnd_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADefaultStartEnd_CallSpawner, "CallSpawner" }, // 1509770045
 		{ &Z_Construct_UFunction_ADefaultStartEnd_PreloadNextRound, "PreloadNextRound" }, // 2270319292
 		{ &Z_Construct_UFunction_ADefaultStartEnd_SpawnEnemy, "SpawnEnemy" }, // 4176878852
 		{ &Z_Construct_UFunction_ADefaultStartEnd_StartRound, "StartRound" }, // 3025367646
@@ -548,7 +590,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultStartEnd, 2125436611);
+	IMPLEMENT_CLASS(ADefaultStartEnd, 241653812);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultStartEnd>()
 	{
 		return ADefaultStartEnd::StaticClass();

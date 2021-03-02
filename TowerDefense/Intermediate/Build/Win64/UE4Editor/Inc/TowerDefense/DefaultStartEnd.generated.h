@@ -33,6 +33,7 @@ template<> TOWERDEFENSE_API UScriptStruct* StaticStruct<struct FRoundInformation
 #define TowerDefense_Source_TowerDefense_DefaultStartEnd_h_43_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execSpawnEnemy); \
+	DECLARE_FUNCTION(execCallSpawner); \
 	DECLARE_FUNCTION(execStartRound); \
 	DECLARE_FUNCTION(execPreloadNextRound);
 
@@ -40,6 +41,7 @@ template<> TOWERDEFENSE_API UScriptStruct* StaticStruct<struct FRoundInformation
 #define TowerDefense_Source_TowerDefense_DefaultStartEnd_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSpawnEnemy); \
+	DECLARE_FUNCTION(execCallSpawner); \
 	DECLARE_FUNCTION(execStartRound); \
 	DECLARE_FUNCTION(execPreloadNextRound);
 

@@ -15,13 +15,13 @@ struct FRoundInformation : public FTableRowBase
 	GENERATED_BODY()
 
 	//Amount of enemies to spawn based on round
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 Enemy1;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 Enemy2;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 Enemy3;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 Enemy4;
 };
 
@@ -53,6 +53,8 @@ public:
 	void PreloadNextRound();
 	UFUNCTION(BlueprintCallable)
 	void StartRound();
+	UFUNCTION(BlueprintCallable)
+	void CallSpawner(FEnemyData EnemySpawningData);
 	UFUNCTION(BlueprintCallable)
 	void SpawnEnemy(FEnemyData EnemySpawningData);
 

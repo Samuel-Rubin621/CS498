@@ -25,17 +25,8 @@ void ADefaultEnemy::BeginPlay()
 	Super::BeginPlay();
 
 	AIController = Cast<AAIController>(GetController());
-	/*
-	TArray<AActor*> StartEnd;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), StartEndFilter, StartEnd);
-
-	if (StartEnd.Num() == 1)
-	{
-		EndPoint = GetActorLocation(StartEnd[0].EndPoint);
-	}
 
 	MoveToTarget();
-	*/
 }
 
 // Called every frame

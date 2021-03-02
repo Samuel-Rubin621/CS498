@@ -4,6 +4,7 @@
 #include "DefaultStartEnd.h"
 #include "Components/SceneComponent.h"
 #include "Components/BillboardComponent.h"
+#include "GameFramework/Actor.h"
 
 // Sets default values
 ADefaultStartEnd::ADefaultStartEnd()
@@ -65,51 +66,53 @@ void ADefaultStartEnd::PreloadNextRound()
 
 void ADefaultStartEnd::StartRound()
 {
-	if (bInRound)
+	UE_LOG(LogTemp, Warning, TEXT("Entering StartRound!"));
+	if (!bInRound)
 	{
 		bInRound = true;
 		if (Enemy1.AmountToSpawn > 0 && Enemy1.ClassToSpawn != nullptr)
 		{
-			SpawnEnemy(Enemy1);
+			CallSpawner(Enemy1);
 		}
 		if (Enemy2.AmountToSpawn > 0 && Enemy2.ClassToSpawn != nullptr)
 		{
-			SpawnEnemy(Enemy2);
+			CallSpawner(Enemy2);
 		}
 		if (Enemy3.AmountToSpawn > 0 && Enemy3.ClassToSpawn != nullptr)
 		{
-			SpawnEnemy(Enemy3);
+			CallSpawner(Enemy3);
 		}
 		if (Enemy4.AmountToSpawn > 0 && Enemy4.ClassToSpawn != nullptr)
 		{
-			SpawnEnemy(Enemy4);
+			CallSpawner(Enemy4);
 		}
 	}
+}
+
+void ADefaultStartEnd::CallSpawner(FEnemyData EnemySpawningData)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Entering CallSpawner"));
+	float Delay = 1.f;
+	FTimerDelegate TDelegate;
+	TDelegate.BindUFunction(this, FName("SpawnEnemy"), EnemySpawningData);
+
+	for (int i = 1; i < EnemySpawningData.AmountToSpawn + 1; i++)
+	{
+		FTimerHandle UnusedHandle;
+		GetWorldTimerManager().SetTimer(UnusedHandle, TDelegate, Delay * i, false);
+		UE_LOG(LogTemp, Warning, TEXT("Started Timer for class %d!"), EnemySpawningData.AmountToSpawn);
+	}
+	
+
+	
+
+
 }
 
 void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
 {
-	/*
-	FTimerHandle UnusedHandle;
-
-	for (int i = 1; i < EnemySpawningData.AmountToSpawn; i++)
-	{
-		if (GetWorldTimerManager().IsTimerActive(UnusedHandle))
-		{
-
-		}
-
-
-		
-
-	}
-
-	*/
-
-
+	UE_LOG(LogTemp, Warning, TEXT("Spawning Enemy %d!"), EnemySpawningData.AmountToSpawn);
 }
-
-
 
 
 
