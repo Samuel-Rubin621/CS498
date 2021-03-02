@@ -39,10 +39,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	//Declaration of enemy attributes
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Attributes")
-	class USkeletalMeshComponent* EnemyMesh;
+public:
 
 	//Declaration of enemy statistics
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")

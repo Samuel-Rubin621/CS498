@@ -89,6 +89,7 @@ void ADefaultStartEnd::StartRound()
 
 void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
 {
+	/*
 	FTimerHandle UnusedHandle;
 
 	for (int i = 1; i < EnemySpawningData.AmountToSpawn; i++)
@@ -103,7 +104,7 @@ void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
 
 	}
 
-
+	*/
 
 
 }

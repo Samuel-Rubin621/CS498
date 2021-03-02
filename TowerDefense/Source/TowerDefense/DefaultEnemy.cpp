@@ -12,9 +12,6 @@ ADefaultEnemy::ADefaultEnemy()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	EnemyMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("EnemyMesh"));
-	EnemyMesh->SetupAttachment(GetRootComponent());
-
 	EnemyDamage = 1;
 	EnemyMaxHealth = 1;
 	EnemyHealth = EnemyMaxHealth;

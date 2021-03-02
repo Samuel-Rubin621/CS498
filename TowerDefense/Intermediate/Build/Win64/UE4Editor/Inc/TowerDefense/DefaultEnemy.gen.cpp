@@ -18,7 +18,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
-	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_AAIController_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
@@ -138,10 +137,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyMesh_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EnemyMesh;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyDamage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_EnemyDamage;
@@ -192,16 +187,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		{ "ModuleRelativePath", "DefaultEnemy.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh_MetaData[] = {
-		{ "Category", "Enemy | Attributes" },
-		{ "Comment", "//Declaration of enemy attributes\n" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "DefaultEnemy.h" },
-		{ "ToolTip", "Declaration of enemy attributes" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh = { "EnemyMesh", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyMesh), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyDamage_MetaData[] = {
 		{ "Category", "Enemy | Statistics" },
@@ -262,7 +247,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_StartEndFilter = { "StartEndFilter", nullptr, (EPropertyFlags)0x0014000000020015, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, StartEndFilter), Z_Construct_UClass_ADefaultStartEnd_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_StartEndFilter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_StartEndFilter_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultEnemy_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMaxHealth,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyHealth,
@@ -300,7 +284,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultEnemy, 347152373);
+	IMPLEMENT_CLASS(ADefaultEnemy, 2417214054);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultEnemy>()
 	{
 		return ADefaultEnemy::StaticClass();

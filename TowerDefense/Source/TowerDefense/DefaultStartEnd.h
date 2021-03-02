@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Engine/DataTable.h"
+#include "DefaultEnemy.h"
 #include "DefaultStartEnd.generated.h"
 
 //Struct to get data from a table to fill values for waves
@@ -32,8 +33,8 @@ struct FEnemyData
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 AmountToSpawn;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	class ADefaultEnemy* ClassToSpawn;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class ADefaultEnemy> ClassToSpawn;
 };
 
 UCLASS()
@@ -75,12 +76,12 @@ public:
 	int32 Round;
 
 	//Amount of enemies to spawn based on round
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FEnemyData Enemy1;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FEnemyData Enemy2;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FEnemyData Enemy3;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FEnemyData Enemy4;
 };
