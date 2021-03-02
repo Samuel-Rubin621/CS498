@@ -7,6 +7,7 @@
 #include "Engine/DataTable.h"
 #include "DefaultStartEnd.generated.h"
 
+//Struct to get data from a table to fill values for waves
 USTRUCT(BlueprintType)
 struct FRoundInformation : public FTableRowBase
 {
@@ -21,6 +22,18 @@ struct FRoundInformation : public FTableRowBase
 	int32 Enemy3;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 Enemy4;
+};
+
+//Struct to store the number of enemies to spawn and which enemy to spawn
+USTRUCT(BlueprintType)
+struct FEnemyData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int32 AmountToSpawn;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class ADefaultEnemy* ClassToSpawn;
 };
 
 UCLASS()
@@ -39,6 +52,8 @@ public:
 	void PreloadNextRound();
 	UFUNCTION(BlueprintCallable)
 	void StartRound();
+	UFUNCTION(BlueprintCallable)
+	void SpawnEnemy(FEnemyData EnemySpawningData);
 
 protected:
 	// Called when the game starts or when spawned
@@ -61,11 +76,11 @@ public:
 
 	//Amount of enemies to spawn based on round
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	int32 Enemy1;
+	FEnemyData Enemy1;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	int32 Enemy2;
+	FEnemyData Enemy2;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	int32 Enemy3;
+	FEnemyData Enemy3;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	int32 Enemy4;
+	FEnemyData Enemy4;
 };

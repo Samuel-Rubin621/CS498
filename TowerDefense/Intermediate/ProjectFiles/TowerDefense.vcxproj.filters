@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{47A7B15F-3E09-42E6-9877-3E29FFBC67A6}</UniqueIdentifier>
+      <UniqueIdentifier>{22870C29-5839-4AE7-8F9D-9A7BC0016B80}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{B508A1CD-0094-41F9-A76B-D6F6D3EC65CC}</UniqueIdentifier>
+      <UniqueIdentifier>{DA3113FA-E663-4681-A619-2CDD7206CB83}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +30,32 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{4500B8C7-FB19-4F1A-B774-8D14D21177DE}</UniqueIdentifier>
+      <UniqueIdentifier>{338F6EEA-68A1-4936-A4C4-85625210AA29}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\DefaultEnemy.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\DefaultProjectile.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\DefaultProjectile.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\DefaultStartEnd.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\DefaultStartEnd.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\DefaultTower.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\DefaultTower.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
     <None Include="..\..\Source\TowerDefense\TowerDefense.Build.cs">
       <Filter>Source\TowerDefense</Filter>
     </None>

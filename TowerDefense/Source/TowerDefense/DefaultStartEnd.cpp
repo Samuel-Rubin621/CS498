@@ -34,6 +34,8 @@ void ADefaultStartEnd::BeginPlay()
 	Super::BeginPlay();
 
 	PreloadNextRound();
+
+	StartRound();
 	
 }
 
@@ -48,26 +50,63 @@ void ADefaultStartEnd::PreloadNextRound()
 {
 	if (RoundDataTable)
 	{
-		static const FString ContextString(TEXT("Round Information"));
+		static const FString ContextString(TEXT("Round Data Table"));
 		FRoundInformation* RoundInfo = RoundDataTable->FindRow<FRoundInformation>(FName(FString::FromInt(Round)), ContextString, true);
 		if (RoundInfo)
 		{
-			Enemy1 = RoundInfo->Enemy1;
-			Enemy2 = RoundInfo->Enemy2;
-			Enemy3 = RoundInfo->Enemy3;
-			Enemy4 = RoundInfo->Enemy4;
+			Enemy1.AmountToSpawn = RoundInfo->Enemy1;
+			Enemy2.AmountToSpawn = RoundInfo->Enemy2;
+			Enemy3.AmountToSpawn = RoundInfo->Enemy3;
+			Enemy4.AmountToSpawn = RoundInfo->Enemy4;
+			UE_LOG(LogTemp, Warning, TEXT("Set the amount to spawn"));
 		}
 	}
 }
 
 void ADefaultStartEnd::StartRound()
 {
-	bInRound = true;
+	if (bInRound)
+	{
+		bInRound = true;
+		if (Enemy1.AmountToSpawn > 0 && Enemy1.ClassToSpawn != nullptr)
+		{
+			SpawnEnemy(Enemy1);
+		}
+		if (Enemy2.AmountToSpawn > 0 && Enemy2.ClassToSpawn != nullptr)
+		{
+			SpawnEnemy(Enemy2);
+		}
+		if (Enemy3.AmountToSpawn > 0 && Enemy3.ClassToSpawn != nullptr)
+		{
+			SpawnEnemy(Enemy3);
+		}
+		if (Enemy4.AmountToSpawn > 0 && Enemy4.ClassToSpawn != nullptr)
+		{
+			SpawnEnemy(Enemy4);
+		}
+	}
+}
+
+void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
+{
+	FTimerHandle UnusedHandle;
+
+	for (int i = 1; i < EnemySpawningData.AmountToSpawn; i++)
+	{
+		if (GetWorldTimerManager().IsTimerActive(UnusedHandle))
+		{
+
+		}
+
+
+		
+
+	}
+
+
 
 
 }
-
-
 
 
 
