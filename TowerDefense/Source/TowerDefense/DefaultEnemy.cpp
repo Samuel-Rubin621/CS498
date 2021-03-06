@@ -30,7 +30,7 @@ void ADefaultEnemy::BeginPlay()
 	//Capsule->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 
 
-	float Delay = 1.f;
+	float Delay = 0.1f;
 	FTimerHandle UnusedHandle;
 	GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultEnemy::MoveToTarget, Delay, false);
 
