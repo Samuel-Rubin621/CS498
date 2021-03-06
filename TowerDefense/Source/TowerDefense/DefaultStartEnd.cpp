@@ -96,7 +96,7 @@ void ADefaultStartEnd::CallSpawner(FEnemyData EnemySpawningData)
 	for (int i = 1; i < EnemySpawningData.AmountToSpawn + 1; i++)
 	{
 		FTimerHandle UnusedHandle;
-		GetWorldTimerManager().SetTimer(UnusedHandle, TDelegate, Delay * i, false);
+		GetWorldTimerManager().SetTimer(UnusedHandle, TDelegate, EnemySpawningData.SpawnDelay * i, false);
 	}
 }
 

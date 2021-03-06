@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefense_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x8BA7EBBE,
+				0xC773E4A7,
 				0xE1EB4C0A,
 				METADATA_PARAMS(nullptr, 0)
 			};

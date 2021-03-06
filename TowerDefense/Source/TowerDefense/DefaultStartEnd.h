@@ -33,7 +33,9 @@ struct FEnemyData
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 AmountToSpawn;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float SpawnDelay;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	TSubclassOf<class ADefaultEnemy> ClassToSpawn;
 };
 
