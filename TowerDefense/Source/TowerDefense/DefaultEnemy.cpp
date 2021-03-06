@@ -26,7 +26,14 @@ void ADefaultEnemy::BeginPlay()
 
 	AIController = Cast<AAIController>(GetController());
 
-	MoveToTarget();
+	//UCapsuleComponent* Capsule = GetCapsuleComponent();
+	//Capsule->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+
+
+	float Delay = 1.f;
+	FTimerHandle UnusedHandle;
+	GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultEnemy::MoveToTarget, Delay, false);
+
 }
 
 // Called every frame

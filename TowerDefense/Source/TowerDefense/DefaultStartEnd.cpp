@@ -5,6 +5,7 @@
 #include "Components/SceneComponent.h"
 #include "Components/BillboardComponent.h"
 #include "GameFramework/Actor.h"
+#include "Engine/World.h"
 
 // Sets default values
 ADefaultStartEnd::ADefaultStartEnd()
@@ -35,8 +36,6 @@ void ADefaultStartEnd::BeginPlay()
 	Super::BeginPlay();
 
 	PreloadNextRound();
-
-	StartRound();
 	
 }
 
@@ -59,7 +58,6 @@ void ADefaultStartEnd::PreloadNextRound()
 			Enemy2.AmountToSpawn = RoundInfo->Enemy2;
 			Enemy3.AmountToSpawn = RoundInfo->Enemy3;
 			Enemy4.AmountToSpawn = RoundInfo->Enemy4;
-			UE_LOG(LogTemp, Warning, TEXT("Set the amount to spawn"));
 		}
 	}
 }
@@ -91,7 +89,6 @@ void ADefaultStartEnd::StartRound()
 
 void ADefaultStartEnd::CallSpawner(FEnemyData EnemySpawningData)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Entering CallSpawner"));
 	float Delay = 1.f;
 	FTimerDelegate TDelegate;
 	TDelegate.BindUFunction(this, FName("SpawnEnemy"), EnemySpawningData);
@@ -100,18 +97,22 @@ void ADefaultStartEnd::CallSpawner(FEnemyData EnemySpawningData)
 	{
 		FTimerHandle UnusedHandle;
 		GetWorldTimerManager().SetTimer(UnusedHandle, TDelegate, Delay * i, false);
-		UE_LOG(LogTemp, Warning, TEXT("Started Timer for class %d!"), EnemySpawningData.AmountToSpawn);
 	}
-	
-
-	
-
-
 }
 
 void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Spawning Enemy %d!"), EnemySpawningData.AmountToSpawn);
+	if (EnemySpawningData.ClassToSpawn)
+	{
+		UWorld* World = GetWorld();
+		FActorSpawnParameters SpawnParams;
+
+		if (World)
+		{
+			ADefaultEnemy* EnemySpawned = World->SpawnActor<ADefaultEnemy>(EnemySpawningData.ClassToSpawn, StartPoint->GetComponentLocation(), FRotator(0.f), SpawnParams);
+			EnemySpawned->EndPoint = EndPoint->GetComponentLocation();
+		}
+	}
 }
 
 
