@@ -1,0 +1,11 @@
+E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
+E:\GitHub\CS498\TowerDefense\Source\TowerDefense\TowerDefensePlayer.h
+E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayer.generated.h
+E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
+E:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
+E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
+E:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
+E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BillboardComponent.h
+E:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BillboardComponent.generated.h
+E:\GitHub\CS498\TowerDefense\Source\TowerDefense\TowerDefensePlayerController.h
+E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayerController.generated.h

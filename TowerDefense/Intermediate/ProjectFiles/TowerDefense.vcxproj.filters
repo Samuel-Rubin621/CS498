@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{22870C29-5839-4AE7-8F9D-9A7BC0016B80}</UniqueIdentifier>
+      <UniqueIdentifier>{5DE5ED9F-73AA-4E10-9B6C-4017F060325E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{DA3113FA-E663-4681-A619-2CDD7206CB83}</UniqueIdentifier>
+      <UniqueIdentifier>{CE7D3EAC-F2B5-40B5-89B8-F31AC0D32629}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{338F6EEA-68A1-4936-A4C4-85625210AA29}</UniqueIdentifier>
+      <UniqueIdentifier>{79401725-2933-4503-A773-AB1E09DB5C94}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -65,16 +65,16 @@
     <ClInclude Include="..\..\Source\TowerDefense\TowerDefense.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\TowerDefense\TowerDefenseCharacter.cpp">
-      <Filter>Source\TowerDefense</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TowerDefense\TowerDefenseCharacter.h">
-      <Filter>Source\TowerDefense</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\TowerDefenseGameMode.cpp">
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\TowerDefenseGameMode.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\TowerDefensePlayer.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\TowerDefensePlayer.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\TowerDefensePlayerController.cpp">

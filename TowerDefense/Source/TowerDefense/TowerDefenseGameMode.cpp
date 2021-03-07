@@ -2,7 +2,6 @@
 
 #include "TowerDefenseGameMode.h"
 #include "TowerDefensePlayerController.h"
-#include "TowerDefenseCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
 ATowerDefenseGameMode::ATowerDefenseGameMode()
@@ -11,7 +10,7 @@ ATowerDefenseGameMode::ATowerDefenseGameMode()
 	PlayerControllerClass = ATowerDefensePlayerController::StaticClass();
 
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/TopDownCPP/Blueprints/TopDownCharacter"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Gameplay/BP_TowerDefensePlayer"));
 	if (PlayerPawnBPClass.Class != nullptr)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
