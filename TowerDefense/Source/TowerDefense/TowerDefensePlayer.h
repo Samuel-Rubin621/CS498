@@ -27,9 +27,8 @@ public:
 	// Functions for moving around the word using WASD
 	void MoveForward(float Value);
 	void MoveRight(float Value);
-
-	// Function to look around
 	void LookAround(float Value);
+	void Zoom(float Value);
 
 protected:
 	// Called when the game starts or when spawned
@@ -51,5 +50,10 @@ public:
 	bool bRightMouseDown;
 	float MouseX;
 	float MouseY;
+	float ZoomRate;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
+	float MaxZoomIn;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
+	float MaxZoomOut;
 
 };

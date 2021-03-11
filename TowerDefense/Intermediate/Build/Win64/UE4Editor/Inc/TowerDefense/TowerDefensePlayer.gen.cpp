@@ -56,6 +56,14 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayer() {}
 #endif
 		static void NewProp_bRightMouseDown_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bRightMouseDown;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxZoomIn_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxZoomIn;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxZoomOut_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxZoomOut;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -120,12 +128,28 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayer() {}
 		((ATowerDefensePlayer*)Obj)->bRightMouseDown = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_bRightMouseDown = { "bRightMouseDown", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ATowerDefensePlayer), &Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_bRightMouseDown_SetBit, METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_bRightMouseDown_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_bRightMouseDown_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomIn_MetaData[] = {
+		{ "Category", "Controller" },
+		{ "ModuleRelativePath", "TowerDefensePlayer.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomIn = { "MaxZoomIn", nullptr, (EPropertyFlags)0x0010000000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayer, MaxZoomIn), METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomIn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomIn_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomOut_MetaData[] = {
+		{ "Category", "Controller" },
+		{ "ModuleRelativePath", "TowerDefensePlayer.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomOut = { "MaxZoomOut", nullptr, (EPropertyFlags)0x0010000000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayer, MaxZoomOut), METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomOut_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomOut_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATowerDefensePlayer_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_Billboard,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MainCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_PlayerController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_bRightMouseDown,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomIn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayer_Statics::NewProp_MaxZoomOut,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ATowerDefensePlayer_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ATowerDefensePlayer>::IsAbstract,
@@ -154,7 +178,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayer() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATowerDefensePlayer, 2725070376);
+	IMPLEMENT_CLASS(ATowerDefensePlayer, 1069782766);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ATowerDefensePlayer>()
 	{
 		return ATowerDefensePlayer::StaticClass();

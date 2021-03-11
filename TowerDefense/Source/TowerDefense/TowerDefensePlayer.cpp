@@ -26,6 +26,10 @@ ATowerDefensePlayer::ATowerDefensePlayer()
 	MainCamera->bUsePawnControlRotation = false;
 
 	bRightMouseDown = false;
+	ZoomRate = 100;
+
+	MaxZoomIn = 600.f;
+	MaxZoomOut = 2500.f;
 }
 
 // Called when the game starts or when spawned
@@ -61,6 +65,8 @@ void ATowerDefensePlayer::SetupPlayerInputComponent(UInputComponent* PlayerInput
 	PlayerInputComponent->BindAxis("MoveForward", this, &ATowerDefensePlayer::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ATowerDefensePlayer::MoveRight);
 	PlayerInputComponent->BindAxis("LookAround", this, &ATowerDefensePlayer::LookAround);
+	PlayerInputComponent->BindAxis("Zoom", this, &ATowerDefensePlayer::Zoom);
+
 
 }
 
@@ -94,5 +100,17 @@ void ATowerDefensePlayer::LookAround(float Value)
 		UE_LOG(LogTemp, Warning, TEXT("Turning"));
 		APlayerController* const PC = CastChecked<APlayerController>(Controller);
 		PC->AddYawInput(Value);
+	}
+}
+
+void ATowerDefensePlayer::Zoom(float Value)
+{
+	if (Value != 0)
+	{
+		CameraBoom->TargetArmLength = FMath::Clamp((CameraBoom->TargetArmLength + (Value * ZoomRate)), MaxZoomIn, MaxZoomOut);
+		/*
+		FVector NewCameraPosition = MainCamera->GetComponentLocation();
+		NewCameraPosition.Z = FMath::Clamp((NewCameraPosition.Z + 10.f), 20.f, 100.f);
+		MainCamera->AddRelativeLocation(NewCameraPosition);*/
 	}
 }
