@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "TowerDefensePlayer.generated.h"
 
 UCLASS()
-class TOWERDEFENSE_API ATowerDefensePlayer : public APawn
+class TOWERDEFENSE_API ATowerDefensePlayer : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -35,25 +35,31 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	// Component for visualizing the origin of the pawn
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UBillboardComponent* Billboard;
-	//Variables for camera and camera boom
+
+	// Components for camera and camera boom
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* MainCamera;
 
-	// Player controller variable
+	// Component for movement in the pawn
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UMovementComponent* PawnMovement;
+
+	// Player controller variables
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Controller")
 	class ATowerDefensePlayerController* PlayerController;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Controller")
-	bool bRightMouseDown;
-	float MouseX;
-	float MouseY;
-	float ZoomRate;
+
+	// Variables for using the mouse to zoom and look around
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
 	float MaxZoomIn;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
 	float MaxZoomOut;
-
+	bool bRightMouseDown;
+	float MouseX;
+	float MouseY;
+	float ZoomRate;
 };

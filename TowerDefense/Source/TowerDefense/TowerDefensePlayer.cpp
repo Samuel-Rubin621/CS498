@@ -10,11 +10,8 @@
 // Sets default values
 ATowerDefensePlayer::ATowerDefensePlayer()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	Billboard = CreateDefaultSubobject<UBillboardComponent>(TEXT("SceneComponent"));
-	RootComponent = Billboard;
 
 	// Setup camera and camera boom attachment
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -25,18 +22,22 @@ ATowerDefensePlayer::ATowerDefensePlayer()
 	MainCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	MainCamera->bUsePawnControlRotation = false;
 
+	// Setup movement component
+
+
+	// Set pawn defaults upon creation
 	bRightMouseDown = false;
 	ZoomRate = 100;
-
 	MaxZoomIn = 600.f;
 	MaxZoomOut = 2500.f;
+
 }
 
 // Called when the game starts or when spawned
 void ATowerDefensePlayer::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	PlayerController = Cast<ATowerDefensePlayerController>(GetController());
 }
 
@@ -85,12 +86,32 @@ void ATowerDefensePlayer::RightMouseUp()
 
 void ATowerDefensePlayer::MoveForward(float Value)
 {
+	if ((Controller != nullptr) && (Value != 0.0f))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Forward"));
 
+		// find out which way is forward
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
+
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		AddMovementInput(Direction, Value);
+	}
 }
 
 void ATowerDefensePlayer::MoveRight(float Value)
 {
+	if ((Controller != nullptr) && (Value != 0.0f))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Right"));
 
+		// find out which way is forward
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
+
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		AddMovementInput(Direction, Value);
+	}
 }
 
 void ATowerDefensePlayer::LookAround(float Value)

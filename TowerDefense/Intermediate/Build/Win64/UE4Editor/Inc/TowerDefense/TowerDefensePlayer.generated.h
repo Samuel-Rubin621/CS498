@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesATowerDefensePlayer(); \
 	friend struct Z_Construct_UClass_ATowerDefensePlayer_Statics; \
 public: \
-	DECLARE_CLASS(ATowerDefensePlayer, APawn, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/TowerDefense"), NO_API) \
+	DECLARE_CLASS(ATowerDefensePlayer, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/TowerDefense"), NO_API) \
 	DECLARE_SERIALIZER(ATowerDefensePlayer)
 
 
@@ -30,7 +30,7 @@ private: \
 	static void StaticRegisterNativesATowerDefensePlayer(); \
 	friend struct Z_Construct_UClass_ATowerDefensePlayer_Statics; \
 public: \
-	DECLARE_CLASS(ATowerDefensePlayer, APawn, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/TowerDefense"), NO_API) \
+	DECLARE_CLASS(ATowerDefensePlayer, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/TowerDefense"), NO_API) \
 	DECLARE_SERIALIZER(ATowerDefensePlayer)
 
 

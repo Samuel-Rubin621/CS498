@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "DefaultStartEnd.h"
 #include "AIController.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 ADefaultEnemy::ADefaultEnemy()
@@ -23,12 +24,11 @@ ADefaultEnemy::ADefaultEnemy()
 void ADefaultEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+	AActor::SetFolderPath("Enemies");
 
 	AIController = Cast<AAIController>(GetController());
 
-	//UCapsuleComponent* Capsule = GetCapsuleComponent();
-	//Capsule->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 
 	float Delay = 0.1f;
 	FTimerHandle UnusedHandle;
@@ -48,9 +48,11 @@ void ADefaultEnemy::MoveToTarget()
 	if (EnemyMovementStatus == EEnemyMovementStatus::EMS_Dead) return;
 
 	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
-	
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 	if (AIController)
 	{
+
+
 		FAIMoveRequest MoveRequest;
 		MoveRequest.SetGoalLocation(EndPoint);
 		MoveRequest.SetAcceptanceRadius(10.0f);

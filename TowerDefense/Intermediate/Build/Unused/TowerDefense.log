@@ -1,13 +1,13 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\GitHub\CS498).
-  Invalidating makefile for TowerDefenseEditor (TowerDefensePlayer.cpp modified)
+  Invalidating makefile for TowerDefenseEditor (DefaultEnemy.cpp modified)
   Building TowerDefenseEditor...
   Using Visual Studio 2019 14.28.29912 toolchain (E:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 4 actions with 12 processes...
-    [1/4] TowerDefensePlayer.cpp
-    [2/4] UE4Editor-TowerDefense-0001.lib
-       Creating library E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.lib and object E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.exp
-    [3/4] UE4Editor-TowerDefense-0001.dll
-       Creating library E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.suppressed.lib and object E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.suppressed.exp
+    [1/4] DefaultEnemy.cpp
+    [2/4] UE4Editor-TowerDefense-0020.lib
+       Creating library E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0020.lib and object E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0020.exp
+    [3/4] UE4Editor-TowerDefense-0020.dll
+       Creating library E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0020.suppressed.lib and object E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0020.suppressed.exp
     [4/4] TowerDefenseEditor.target
-  Total time in Parallel executor: 1.34 seconds
-  Total execution time: 2.87 seconds
+  Total time in Parallel executor: 2.06 seconds
+  Total execution time: 4.07 seconds
