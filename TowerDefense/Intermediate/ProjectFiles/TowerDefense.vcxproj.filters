@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{1C34DFB1-FC62-43D2-AB93-6DBC1798E775}</UniqueIdentifier>
+      <UniqueIdentifier>{52E6FA3B-A108-4043-A176-ABAA584936B4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{ABD9E3AD-3757-4A5F-802C-C318B9FC472A}</UniqueIdentifier>
+      <UniqueIdentifier>{0C2D9A63-4570-4528-9AA5-8A14BD1E6FB8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{5604B7EA-501B-4B00-AB26-D56BDC26EB11}</UniqueIdentifier>
+      <UniqueIdentifier>{46F5F587-7BE2-4AF4-938B-15A706C9851F}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
