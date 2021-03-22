@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{D27A8F30-663B-4D02-8487-9B855DC6AA4C}</UniqueIdentifier>
+      <UniqueIdentifier>{A1830E8E-BB33-4C0D-AB65-30892F4F37B4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{11A6639F-96CB-4503-A30D-54E7051D4518}</UniqueIdentifier>
+      <UniqueIdentifier>{B86A28C7-E29A-4082-81A9-2F0912683F7B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,12 +30,18 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{0F0B39FA-6F7F-450E-A981-1B6DF298156B}</UniqueIdentifier>
+      <UniqueIdentifier>{203A7854-67F8-46D8-9D0C-C95897121FAC}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\DefaultEnemy.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\DefaultGridTile.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\DefaultGridTile.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultProjectile.cpp">
@@ -81,12 +87,6 @@
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\TowerDefensePlayerController.h">
-      <Filter>Source\TowerDefense</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\TowerDefense\WorldGrid.cpp">
-      <Filter>Source\TowerDefense</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TowerDefense\WorldGrid.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
   </ItemGroup>
