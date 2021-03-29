@@ -1,9 +1,9 @@
-E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
-E:\GitHub\CS498\TowerDefense\Source\TowerDefense\TowerDefenseGameMode.h
-E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-E:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-E:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefenseGameMode.generated.h
-E:\GitHub\CS498\TowerDefense\Source\TowerDefense\TowerDefensePlayerController.h
-E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayerController.generated.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
+E:\CS498\TowerDefense\Source\TowerDefense\TowerDefenseGameMode.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefenseGameMode.generated.h
+E:\CS498\TowerDefense\Source\TowerDefense\TowerDefensePlayerController.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayerController.generated.h

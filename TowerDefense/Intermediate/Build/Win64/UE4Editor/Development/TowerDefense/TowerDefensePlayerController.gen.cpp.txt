@@ -1,5 +1,5 @@
-E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
-E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-E:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-E:\GitHub\CS498\TowerDefense\Source\TowerDefense/TowerDefensePlayerController.h
-E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayerController.generated.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+E:\CS498\TowerDefense\Source\TowerDefense/TowerDefensePlayerController.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayerController.generated.h

@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "TowerDefense",
-			"Path": "E:\\GitHub\\CS498\\TowerDefense\\Source\\TowerDefense.Target.cs",
+			"Path": "E:\\CS498\\TowerDefense\\Source\\TowerDefense.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "TowerDefenseEditor",
-			"Path": "E:\\GitHub\\CS498\\TowerDefense\\Source\\TowerDefenseEditor.Target.cs",
+			"Path": "E:\\CS498\\TowerDefense\\Source\\TowerDefenseEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

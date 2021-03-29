@@ -9,6 +9,7 @@
 ATowerDefensePlayerController::ATowerDefensePlayerController()
 {
 	bShowMouseCursor = true;
+	bEnableClickEvents = true;
 	DefaultMouseCursor = EMouseCursor::Default;
 }
 

@@ -72,7 +72,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFEnemyData
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyData_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "//Struct to store the number of enemies to spawn and which enemy to spawn\n" },
+		{ "Comment", "// Struct to store the number of enemies to spawn and which enemy to spawn\n" },
 		{ "ModuleRelativePath", "DefaultStartEnd.h" },
 		{ "ToolTip", "Struct to store the number of enemies to spawn and which enemy to spawn" },
 	};
@@ -135,7 +135,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFEnemyData
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FEnemyData_Hash() { return 827932598U; }
+	uint32 Get_Z_Construct_UScriptStruct_FEnemyData_Hash() { return 799589623U; }
 
 static_assert(std::is_polymorphic<FRoundInformation>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FRoundInformation cannot be polymorphic unless super FTableRowBase is polymorphic");
 
@@ -189,7 +189,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FRoundInformation_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "//Struct to get data from a table to fill values for waves\n" },
+		{ "Comment", "// Struct to get data from a table to fill values for waves\n" },
 		{ "ModuleRelativePath", "DefaultStartEnd.h" },
 		{ "ToolTip", "Struct to get data from a table to fill values for waves" },
 	};
@@ -262,7 +262,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FRoundInformation_Hash() { return 3591039324U; }
+	uint32 Get_Z_Construct_UScriptStruct_FRoundInformation_Hash() { return 1312859654U; }
 	DEFINE_FUNCTION(ADefaultStartEnd::execSpawnEnemy)
 	{
 		P_GET_STRUCT(FEnemyData,Z_Param_EnemySpawningData);

@@ -31,6 +31,7 @@ ADefaultTower::ADefaultTower()
 void ADefaultTower::BeginPlay()
 {
 	Super::BeginPlay();
+	AActor::SetFolderPath("Towers");
 
 	TowerRangeSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapBegin);
 	TowerRangeSphere->OnComponentEndOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapEnd);
@@ -158,9 +159,6 @@ void ADefaultTower::GetNewTarget()
 		CurrentTargetEnemy = NewTargetEnemy;
 	}
 }
-
-
-
 
 
 

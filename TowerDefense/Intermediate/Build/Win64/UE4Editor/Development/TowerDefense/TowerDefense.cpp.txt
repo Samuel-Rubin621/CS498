@@ -1,2 +1,2 @@
-E:\GitHub\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
-E:\GitHub\CS498\TowerDefense\Source\TowerDefense\TowerDefense.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
+E:\CS498\TowerDefense\Source\TowerDefense\TowerDefense.h

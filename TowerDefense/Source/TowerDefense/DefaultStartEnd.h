@@ -8,7 +8,7 @@
 #include "DefaultEnemy.h"
 #include "DefaultStartEnd.generated.h"
 
-//Struct to get data from a table to fill values for waves
+// Struct to get data from a table to fill values for waves
 USTRUCT(BlueprintType)
 struct FRoundInformation : public FTableRowBase
 {
@@ -25,7 +25,7 @@ struct FRoundInformation : public FTableRowBase
 	int32 Enemy4;
 };
 
-//Struct to store the number of enemies to spawn and which enemy to spawn
+// Struct to store the number of enemies to spawn and which enemy to spawn
 USTRUCT(BlueprintType)
 struct FEnemyData
 {

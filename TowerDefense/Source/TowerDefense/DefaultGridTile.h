@@ -18,14 +18,24 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
+	void TileSelected(UPrimitiveComponent* ClickedComp, FKey ButtonPressed);
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnTower(int TowerIntToBuild);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tile | Mesh")
-	class UStaticMeshComponent* MainTileMesh;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tile | Mesh")
-	class UStaticMeshComponent* DetailTileMesh;
+	class UStaticMeshComponent* TileMesh;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tile | Tower")
+	TArray<TSubclassOf<class ADefaultTower>> TowerList;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tile | Tower")
+	ADefaultTower* TowerSpawned;
 
 };
