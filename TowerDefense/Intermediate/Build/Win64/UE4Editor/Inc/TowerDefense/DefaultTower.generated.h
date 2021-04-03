@@ -19,6 +19,7 @@ struct FHitResult;
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_23_SPARSE_DATA
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_23_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execGetNewTarget); \
 	DECLARE_FUNCTION(execOnRangeOverlapEnd); \
 	DECLARE_FUNCTION(execOnRangeOverlapBegin);
@@ -26,6 +27,7 @@ struct FHitResult;
 
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execGetNewTarget); \
 	DECLARE_FUNCTION(execOnRangeOverlapEnd); \
 	DECLARE_FUNCTION(execOnRangeOverlapBegin);

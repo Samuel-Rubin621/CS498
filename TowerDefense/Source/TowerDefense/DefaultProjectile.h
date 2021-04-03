@@ -20,26 +20,31 @@ public:
 
 	//Functions called when projectile overlaps with objects
 	UFUNCTION()
-		virtual void OnProjectileOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	virtual void OnProjectileOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-	//Declaration of projectile components
+	// Declaration of projectile components
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile | Attributes")
 	class UStaticMeshComponent* ProjectileMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile | Attributes")
 	class USphereComponent* OverlapSphere;
 
-	//Declaration of projectile combat variables
+	// Declaration of projectile combat variables
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Projectile | Combat")
 	float Damage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile | Combat")
 	TSubclassOf<UDamageType> DamageTypeClass;
 
+	// Movement variables
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Projectile | AI")
 	class AAIController* AIController;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Projectile | AI")
+	FVector EnemyLocation;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Projectile | AI")
+	float ProjectileSpeed;
 
 };

@@ -1,0 +1,96 @@
+/MANIFEST:EMBED
+/MANIFESTINPUT:"F:\Epic Games\UE_4.26\Engine\Build\Windows\Resources\Default-Win64.manifest"
+/NOLOGO
+/DEBUG
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/FIXED:No
+/NXCOMPAT
+/STACK:12000000
+/DELAY:UNLOAD
+/DLL
+/PDBALTPATH:%_PDB%
+/OPT:NOREF
+/OPT:NOICF
+/INCREMENTAL:NO
+/ignore:4199
+/ignore:4099
+/DELAYLOAD:"d3d12.dll"
+/DELAYLOAD:"DBGHELP.DLL"
+/LIBPATH:"F:\Microsoft\Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\ucrt\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\um\x64"
+/NODEFAULTLIB:"LIBCMT"
+/NODEFAULTLIB:"LIBCPMT"
+/NODEFAULTLIB:"LIBCMTD"
+/NODEFAULTLIB:"LIBCPMTD"
+/NODEFAULTLIB:"MSVCRTD"
+/NODEFAULTLIB:"MSVCPRTD"
+/NODEFAULTLIB:"LIBC"
+/NODEFAULTLIB:"LIBCP"
+/NODEFAULTLIB:"LIBCD"
+/NODEFAULTLIB:"LIBCPD"
+/FUNCTIONPADMIN
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\TowerDefenseEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultEnemy.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultGridTile.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultProjectile.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultStartEnd.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultTower.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefense.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefenseGameMode.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayer.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayerController.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerOverlay.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultEnemy.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultGridTile.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultProjectile.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultStartEnd.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultTower.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefense.init.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefenseGameMode.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayer.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayerController.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerOverlay.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Default.rc2.res"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\UE4Editor-Engine.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\UMG\UE4Editor-UMG.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\CoreUObject\UE4Editor-CoreUObject.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\InputCore\UE4Editor-InputCore.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\HeadMountedDisplay\UE4Editor-HeadMountedDisplay.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\NavigationSystem\UE4Editor-NavigationSystem.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\AIModule\UE4Editor-AIModule.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\Slate\UE4Editor-Slate.lib"
+"F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\SlateCore\UE4Editor-SlateCore.lib"
+"delayimp.lib"
+"wininet.lib"
+"rpcrt4.lib"
+"ws2_32.lib"
+"dbghelp.lib"
+"comctl32.lib"
+"Winmm.lib"
+"kernel32.lib"
+"user32.lib"
+"gdi32.lib"
+"winspool.lib"
+"comdlg32.lib"
+"advapi32.lib"
+"shell32.lib"
+"ole32.lib"
+"oleaut32.lib"
+"uuid.lib"
+"odbc32.lib"
+"odbccp32.lib"
+"netapi32.lib"
+"iphlpapi.lib"
+"setupapi.lib"
+"dwmapi.lib"
+"imm32.lib"
+/OUT:"E:\CS498\TowerDefense\Binaries\Win64\UE4Editor-TowerDefense-0054.dll"
+/IMPLIB:"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0054.suppressed.lib"
+/PDB:"E:\CS498\TowerDefense\Binaries\Win64\UE4Editor-TowerDefense-0054.pdb"
+/ignore:4078
+/INCLUDE:IMPLEMENT_MODULE_TowerDefense

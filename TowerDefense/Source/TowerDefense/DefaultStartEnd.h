@@ -78,8 +78,13 @@ public:
 	bool bInRound;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
 	int32 Round;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
+	TArray<ADefaultEnemy*> EnemiesSpawnedThisRound;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
+	int32 TotalToSpawnThisRound;
 
-	//Amount of enemies to spawn based on round
+
+	// Amount of enemies to spawn based on round
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FEnemyData Enemy1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)

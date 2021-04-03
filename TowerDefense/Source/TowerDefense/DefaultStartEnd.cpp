@@ -54,10 +54,15 @@ void ADefaultStartEnd::PreloadNextRound()
 		FRoundInformation* RoundInfo = RoundDataTable->FindRow<FRoundInformation>(FName(FString::FromInt(Round)), ContextString, true);
 		if (RoundInfo)
 		{
+			TotalToSpawnThisRound = 0;
 			Enemy1.AmountToSpawn = RoundInfo->Enemy1;
+			TotalToSpawnThisRound += Enemy1.AmountToSpawn;
 			Enemy2.AmountToSpawn = RoundInfo->Enemy2;
+			TotalToSpawnThisRound += Enemy2.AmountToSpawn;
 			Enemy3.AmountToSpawn = RoundInfo->Enemy3;
+			TotalToSpawnThisRound += Enemy3.AmountToSpawn;
 			Enemy4.AmountToSpawn = RoundInfo->Enemy4;
+			TotalToSpawnThisRound += Enemy4.AmountToSpawn;
 		}
 	}
 }
@@ -111,6 +116,7 @@ void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
 		{
 			ADefaultEnemy* EnemySpawned = World->SpawnActor<ADefaultEnemy>(EnemySpawningData.ClassToSpawn, StartPoint->GetComponentLocation(), FRotator(0.f), SpawnParams);
 			EnemySpawned->EndPoint = EndPoint->GetComponentLocation();
+			EnemiesSpawnedThisRound.Add(EnemySpawned);
 		}
 	}
 }

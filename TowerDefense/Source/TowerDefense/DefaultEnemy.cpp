@@ -6,6 +6,7 @@
 #include "DefaultStartEnd.h"
 #include "AIController.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 ADefaultEnemy::ADefaultEnemy()
@@ -13,9 +14,15 @@ ADefaultEnemy::ADefaultEnemy()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	EnemyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EnemyMesh"));
+	EnemyMesh->SetupAttachment(GetRootComponent());
+	EnemyBodyCollision = CreateDefaultSubobject<USphereComponent>(TEXT("EnemyBodyCollision"));
+	EnemyBodyCollision->SetupAttachment(EnemyMesh);
+
+	GetCapsuleComponent()->SetCapsuleSize(10.f, 10.f, true);
 	EnemyDamage = 1;
 	EnemyMaxHealth = 1;
-	EnemyHealth = EnemyMaxHealth;
+	EnemyCurrentHealth = EnemyMaxHealth;
 	EnemySpeed = 1;
 
 }
@@ -51,8 +58,6 @@ void ADefaultEnemy::MoveToTarget()
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 	if (AIController)
 	{
-
-
 		FAIMoveRequest MoveRequest;
 		MoveRequest.SetGoalLocation(EndPoint);
 		MoveRequest.SetAcceptanceRadius(10.0f);
@@ -60,15 +65,20 @@ void ADefaultEnemy::MoveToTarget()
 		FNavPathSharedPtr NavPath;
 
 		AIController->MoveTo(MoveRequest, &NavPath);
-		/*
-		TArray<FNavPathPoint> PathPoints = NavPath->GetPathPoints();
-		for (auto Point : PathPoints)
-		{
-			FVector Location = Point.Location;
-
-			UKismetSystemLibrary::DrawDebugSphere(this, Location, 25.f, 8, FLinearColor::Green, 10.f, .5f);
-		}*/
 	}
 }
 
+float ADefaultEnemy::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
+{
+	EnemyCurrentHealth -= DamageAmount;
+	if (EnemyCurrentHealth <= 0)
+	{
+		Death();
+	}
+	return DamageAmount;
+}
 
+void ADefaultEnemy::Death()
+{
+	Destroy();
+}

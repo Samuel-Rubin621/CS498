@@ -18,6 +18,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_AAIController_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
@@ -88,6 +90,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(ADefaultEnemy::execDeath)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Death();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADefaultEnemy::execMoveToTarget)
 	{
 		P_FINISH;
@@ -99,9 +108,32 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	{
 		UClass* Class = ADefaultEnemy::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "Death", &ADefaultEnemy::execDeath },
 			{ "MoveToTarget", &ADefaultEnemy::execMoveToTarget },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADefaultEnemy_Death_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultEnemy_Death_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultEnemy_Death_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultEnemy, nullptr, "Death", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultEnemy_Death_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultEnemy_Death_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultEnemy_Death()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultEnemy_Death_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADefaultEnemy_MoveToTarget_Statics
 	{
@@ -137,6 +169,14 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyMesh_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EnemyMesh;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyBodyCollision_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EnemyBodyCollision;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyDamage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_EnemyDamage;
@@ -145,9 +185,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_EnemyMaxHealth;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyHealth_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyCurrentHealth_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_EnemyHealth;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_EnemyCurrentHealth;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemySpeed_MetaData[];
 #endif
@@ -178,6 +218,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_TowerDefense,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultEnemy_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADefaultEnemy_Death, "Death" }, // 3280357702
 		{ &Z_Construct_UFunction_ADefaultEnemy_MoveToTarget, "MoveToTarget" }, // 3440247670
 	};
 #if WITH_METADATA
@@ -188,9 +229,27 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh_MetaData[] = {
+		{ "Category", "Enemy" },
+		{ "Comment", "// Default enemy properties\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+		{ "ToolTip", "Default enemy properties" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh = { "EnemyMesh", nullptr, (EPropertyFlags)0x001000000009001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision_MetaData[] = {
+		{ "Category", "Enemy" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision = { "EnemyBodyCollision", nullptr, (EPropertyFlags)0x001000000009001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyBodyCollision), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyDamage_MetaData[] = {
 		{ "Category", "Enemy | Statistics" },
-		{ "Comment", "//Declaration of enemy statistics\n" },
+		{ "Comment", "// Declaration of enemy statistics\n" },
 		{ "ModuleRelativePath", "DefaultEnemy.h" },
 		{ "ToolTip", "Declaration of enemy statistics" },
 	};
@@ -204,12 +263,12 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMaxHealth = { "EnemyMaxHealth", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyMaxHealth), METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMaxHealth_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMaxHealth_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyHealth_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyCurrentHealth_MetaData[] = {
 		{ "Category", "Enemy | Statistics" },
 		{ "ModuleRelativePath", "DefaultEnemy.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyHealth = { "EnemyHealth", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyHealth), METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyHealth_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyHealth_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyCurrentHealth = { "EnemyCurrentHealth", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyCurrentHealth), METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyCurrentHealth_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyCurrentHealth_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemySpeed_MetaData[] = {
 		{ "Category", "Enemy | Statistics" },
@@ -220,7 +279,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_AIController_MetaData[] = {
 		{ "Category", "Enemy | Movement" },
+		{ "Comment", "// Variables for movement\n" },
 		{ "ModuleRelativePath", "DefaultEnemy.h" },
+		{ "ToolTip", "Variables for movement" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_AIController = { "AIController", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, AIController), Z_Construct_UClass_AAIController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_AIController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_AIController_MetaData)) };
@@ -247,9 +308,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_StartEndFilter = { "StartEndFilter", nullptr, (EPropertyFlags)0x0014000000020015, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, StartEndFilter), Z_Construct_UClass_ADefaultStartEnd_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_StartEndFilter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_StartEndFilter_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultEnemy_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMaxHealth,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyHealth,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyCurrentHealth,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemySpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_AIController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EndPoint,
@@ -284,7 +347,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultEnemy, 2417214054);
+	IMPLEMENT_CLASS(ADefaultEnemy, 1332736548);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultEnemy>()
 	{
 		return ADefaultEnemy::StaticClass();

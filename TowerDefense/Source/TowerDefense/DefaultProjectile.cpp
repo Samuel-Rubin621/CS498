@@ -19,7 +19,6 @@ ADefaultProjectile::ADefaultProjectile()
 
 	OverlapSphere = CreateDefaultSubobject<USphereComponent>(TEXT("OverlapSphere"));
 	OverlapSphere->SetupAttachment(GetRootComponent());
-
 }
 
 // Called when the game starts or when spawned
@@ -28,16 +27,24 @@ void ADefaultProjectile::BeginPlay()
 	Super::BeginPlay();
 
 	AIController = Cast<AAIController>(GetController());
+	if (AIController)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AIController is valid!"));
+	}
 
 	OverlapSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultProjectile::OnProjectileOverlapBegin);
-
 }
 
 // Called every frame
 void ADefaultProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
+	SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), EnemyLocation, DeltaTime, ProjectileSpeed));
+	if (GetActorLocation() == EnemyLocation)
+	{
+		Destroy();
+	}
 }
 
 void ADefaultProjectile::OnProjectileOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -48,9 +55,8 @@ void ADefaultProjectile::OnProjectileOverlapBegin(UPrimitiveComponent* Overlappe
 		if (DamageTypeClass)
 		{
 			UGameplayStatics::ApplyDamage(OverlappingEnemy, Damage, AIController, this, DamageTypeClass);
+			Destroy();
 		}
 	}
 }
-
-
 

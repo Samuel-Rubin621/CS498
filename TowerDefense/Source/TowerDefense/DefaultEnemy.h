@@ -35,22 +35,34 @@ public:
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status) { EnemyMovementStatus = Status; }
 	FORCEINLINE EEnemyMovementStatus GetEnemyMovementStatus() { return EnemyMovementStatus; }
 
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+
+	UFUNCTION()
+	void Death();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
+	
+	// Default enemy properties
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
+	class UStaticMeshComponent* EnemyMesh;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
+	class USphereComponent* EnemyBodyCollision;
 
-	//Declaration of enemy statistics
+	// Declaration of enemy statistics
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemyDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemyMaxHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
-	float EnemyHealth;
+	float EnemyCurrentHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemySpeed;
 
+	// Variables for movement
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
 	class AAIController* AIController;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")

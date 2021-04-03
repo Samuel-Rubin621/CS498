@@ -37,19 +37,27 @@ public:
 
 	UFUNCTION()
 	void GetNewTarget();
+	UFUNCTION()
+	void Shoot();
+
+	FORCEINLINE void ReloadingDone() { bReloading = false; }
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-	//Declaration of tower components
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Attributes")
+	// Declaration of tower components
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
 	class UStaticMeshComponent* TowerMesh;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Attributes")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
 	class USphereComponent* TowerRangeSphere;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
+	USphereComponent* FiringLocation;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
+	TSubclassOf<class ADefaultProjectile> Projectile;
 
-	//Declaration of tower statistics
+	// Declaration of tower statistics
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 TowerDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
@@ -57,7 +65,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
 	float TowerFireDelay;
 
-	//Declaration of target
+	// Declaration of target
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
 	class ADefaultEnemy* CurrentTargetEnemy;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
@@ -65,5 +73,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
 	TSubclassOf<ADefaultEnemy> EnemyFilter;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tower | Combat")
-	bool NoOverlappingEnemies;
+	bool bNoOverlappingEnemies;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tower | Combat")
+	bool bReloading;
 };

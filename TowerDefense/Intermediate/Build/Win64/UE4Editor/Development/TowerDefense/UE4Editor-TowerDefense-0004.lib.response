@@ -16,6 +16,7 @@
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefenseGameMode.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayer.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayerController.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerOverlay.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultEnemy.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultGridTile.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultProjectile.gen.cpp.obj"
@@ -25,6 +26,7 @@
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefenseGameMode.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayer.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayerController.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerOverlay.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Default.rc2.res"
 /OUT:"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0004.lib"
 /INCLUDE:IMPLEMENT_MODULE_TowerDefense

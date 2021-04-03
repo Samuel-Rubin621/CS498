@@ -5,6 +5,9 @@
 #include "Components/SphereComponent.h"
 #include "DefaultEnemy.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "DefaultProjectile.h"
+#include "TimerManager.h"
 
 
 // Sets default values
@@ -15,15 +18,17 @@ ADefaultTower::ADefaultTower()
 
 	TowerMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TowerMesh"));
 	RootComponent = TowerMesh;
-
 	TowerRangeSphere = CreateDefaultSubobject<USphereComponent>(TEXT("TowerRangeSphere"));
 	TowerRangeSphere->SetupAttachment(GetRootComponent());
+	FiringLocation = CreateDefaultSubobject<USphereComponent>(TEXT("FiringLocation"));
+	FiringLocation->SetupAttachment(GetRootComponent());
 
-	TowerDamage = 0;
+	TowerDamage = 1;
 	TowerRangeValue = 0.f;
-	TowerFireDelay = 0.f;
+	TowerFireDelay = 2.f;
 
-	NoOverlappingEnemies = true;
+	bNoOverlappingEnemies = false;
+	bReloading = false;
 
 }
 
@@ -43,11 +48,20 @@ void ADefaultTower::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!NoOverlappingEnemies)
+	if (CurrentTargetEnemy)
+	{
+		FRotator LookAtRotation = FRotator(0.f, UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), CurrentTargetEnemy->GetActorLocation()).Yaw - 90.f, 0.f);
+		SetActorRotation(LookAtRotation, ETeleportType::None);
+
+		if (!bReloading)
+		{
+			Shoot();
+		}
+	}
+	else if (!bNoOverlappingEnemies)
 	{
 		GetNewTarget();
 	}
-
 }
 
 void ADefaultTower::OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -84,6 +98,7 @@ void ADefaultTower::OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent
 			}
 		}
 	}
+	bNoOverlappingEnemies = false;
 }
 
 void ADefaultTower::OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
@@ -104,15 +119,18 @@ void ADefaultTower::OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void ADefaultTower::GetNewTarget()
 {
+	UE_LOG(LogTemp, Warning, TEXT("Looking for target in GetNewTarget()"));
 	TArray<AActor*> OverlappingEnemies;
-	GetOverlappingActors(OverlappingEnemies, EnemyFilter);
+	GetOverlappingActors(OverlappingEnemies, ADefaultEnemy::StaticClass());
 
 	if (OverlappingEnemies.Num() == 0)
 	{
-		NoOverlappingEnemies = true;
+		UE_LOG(LogTemp, Warning, TEXT("There are no enemies overlapping"));
+		bNoOverlappingEnemies = true;
 	}
 	else if (OverlappingEnemies.Num() == 1)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("There is one enemy overlapping"));
 		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		if (NewTargetEnemy)
 		{
@@ -121,6 +139,7 @@ void ADefaultTower::GetNewTarget()
 	}
 	else if (OverlappingEnemies.Num() > 1)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("There are multiple enemies overlapping"));
 		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		for (int i = 1; i < OverlappingEnemies.Num(); i++)
 		{
@@ -160,5 +179,16 @@ void ADefaultTower::GetNewTarget()
 	}
 }
 
+void ADefaultTower::Shoot()
+{
+	if (Projectile)
+	{
+		bReloading = true;
+		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActor<ADefaultProjectile>(Projectile, FiringLocation->GetComponentLocation(), FRotator(0.f));
+		SpawnedProjectile->EnemyLocation = CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation();
+		SpawnedProjectile->Damage = TowerDamage;
 
-
+		FTimerHandle UnusedHandle;
+		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, TowerFireDelay, false, -1.f);
+	}
+}
