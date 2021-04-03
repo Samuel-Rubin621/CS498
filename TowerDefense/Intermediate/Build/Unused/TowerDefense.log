@@ -1,27 +1,3 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\CS498).
-  Invalidating makefile for TowerDefenseEditor (DefaultTower.cpp modified)
-  Building TowerDefenseEditor...
-  Using Visual Studio 2019 14.28.29913 toolchain (F:\Microsoft\Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Distributing 4 actions to XGE
-  --------------------Build System Warning---------------------------------------
-  License is invalid:
-      License information is invalid. Please try reloading your license file using the Coordinator Monitor application on the Coordinator machine, or reinstall IncrediBuild.
-      This build will run in standalone mode.
-  
-  -------------------------------------------------------------------------------
-  --------------------Project: Default-------------------------------------------
-  DefaultTower.cpp (0:00.87 at +0:00)
-  UE4Editor-TowerDefense-0060.lib (0:00.09 at +0:00)
-     Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0060.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0060.exp
-  UE4Editor-TowerDefense-0060.dll (0:00.62 at +0:01)
-     Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0060.suppressed.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0060.suppressed.exp
-  TowerDefenseEditor.target (0:00.15 at +0:01)
-  ---------------------- Done ----------------------
-  
-      Rebuild All: 1 succeeded, 0 failed, 0 skipped
-  
-  1 build system warning(s):
-     - License is invalid
-  
-  Total time in XGE executor: 1.90 seconds
-  Total execution time: 3.49 seconds
+  Target is up to date
+  Total execution time: 0.50 seconds

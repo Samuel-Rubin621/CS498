@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{6731F1E6-9142-4750-B31D-C42FE7A02134}</UniqueIdentifier>
+      <UniqueIdentifier>{24982BF7-8D9D-4D68-B832-2B4F7ABBDEEA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{C75725B2-59FD-4A2A-A888-9A674DBBBA87}</UniqueIdentifier>
+      <UniqueIdentifier>{F06BDB9F-4864-4501-AF1E-B06AF1517D37}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{5F547A2C-137C-44B7-8A31-1EB584321949}</UniqueIdentifier>
+      <UniqueIdentifier>{015A13C0-A039-46FD-AEDE-4DCF62D90C46}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -50,6 +50,12 @@
     <ClInclude Include="..\..\Source\TowerDefense\DefaultProjectile.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\DefaultRuins.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\DefaultRuins.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultStartEnd.cpp">
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
@@ -60,6 +66,12 @@
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\DefaultTower.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\PawnTestPlayer.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\PawnTestPlayer.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <None Include="..\..\Source\TowerDefense\TowerDefense.Build.cs">
@@ -77,16 +89,16 @@
     <ClInclude Include="..\..\Source\TowerDefense\TowerDefenseGameMode.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\TowerDefense\TowerDefensePlayer.cpp">
-      <Filter>Source\TowerDefense</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TowerDefense\TowerDefensePlayer.h">
-      <Filter>Source\TowerDefense</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\TowerDefensePlayerController.cpp">
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\TowerDefensePlayerController.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\TowerDefensePlayerPawn.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\TowerDefensePlayerPawn.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\TowerOverlay.cpp">

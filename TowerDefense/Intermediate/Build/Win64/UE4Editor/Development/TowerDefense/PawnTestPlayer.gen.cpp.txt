@@ -1,0 +1,5 @@
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\Definitions.TowerDefense.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+E:\CS498\TowerDefense\Source\TowerDefense/PawnTestPlayer.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\PawnTestPlayer.generated.h

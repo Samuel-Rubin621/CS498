@@ -27,9 +27,8 @@ ADefaultTower::ADefaultTower()
 	TowerRangeValue = 0.f;
 	TowerFireDelay = 2.f;
 
-	bNoOverlappingEnemies = false;
+	bNoOverlappingEnemies = true;
 	bReloading = false;
-
 }
 
 // Called when the game starts or when spawned
