@@ -64,6 +64,10 @@ public:
 	float TowerRangeValue;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
 	float TowerFireDelay;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
+	int32 TowerCost;
+
+
 
 	// Declaration of target
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
@@ -76,4 +80,5 @@ public:
 	bool bNoOverlappingEnemies;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tower | Combat")
 	bool bReloading;
+
 };

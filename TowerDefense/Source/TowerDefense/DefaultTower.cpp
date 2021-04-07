@@ -118,18 +118,15 @@ void ADefaultTower::OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void ADefaultTower::GetNewTarget()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Looking for target in GetNewTarget()"));
 	TArray<AActor*> OverlappingEnemies;
 	GetOverlappingActors(OverlappingEnemies, ADefaultEnemy::StaticClass());
 
 	if (OverlappingEnemies.Num() == 0)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("There are no enemies overlapping"));
 		bNoOverlappingEnemies = true;
 	}
 	else if (OverlappingEnemies.Num() == 1)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("There is one enemy overlapping"));
 		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		if (NewTargetEnemy)
 		{
@@ -138,7 +135,6 @@ void ADefaultTower::GetNewTarget()
 	}
 	else if (OverlappingEnemies.Num() > 1)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("There are multiple enemies overlapping"));
 		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		for (int i = 1; i < OverlappingEnemies.Num(); i++)
 		{

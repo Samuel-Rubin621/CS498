@@ -72,6 +72,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	UBillboardComponent* EndPoint;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "References")
+	class ATowerDefenseGameMode* GameMode;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Wave | Spawning")
 	class UDataTable* RoundDataTable;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
@@ -79,10 +82,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
 	int32 Round;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-	TArray<ADefaultEnemy*> EnemiesSpawnedThisRound;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
 	int32 TotalToSpawnThisRound;
-
 
 	// Amount of enemies to spawn based on round
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)

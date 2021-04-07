@@ -8,8 +8,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
-struct FKey;
 #ifdef TOWERDEFENSE_DefaultGridTile_generated_h
 #error "DefaultGridTile.generated.h already included, missing '#pragma once' in DefaultGridTile.h"
 #endif
@@ -18,14 +16,12 @@ struct FKey;
 #define TowerDefense_Source_TowerDefense_DefaultGridTile_h_12_SPARSE_DATA
 #define TowerDefense_Source_TowerDefense_DefaultGridTile_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execSpawnTower); \
-	DECLARE_FUNCTION(execTileSelected);
+	DECLARE_FUNCTION(execSpawnTower);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultGridTile_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execSpawnTower); \
-	DECLARE_FUNCTION(execTileSelected);
+	DECLARE_FUNCTION(execSpawnTower);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultGridTile_h_12_INCLASS_NO_PURE_DECLS \

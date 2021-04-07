@@ -6,6 +6,7 @@
 #include "DefaultTower.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Engine/EngineTypes.h"
+#include "TowerDefenseGameMode.h"
 
 // Sets default values
 ADefaultGridTile::ADefaultGridTile()
@@ -21,8 +22,6 @@ ADefaultGridTile::ADefaultGridTile()
 void ADefaultGridTile::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	//TileMesh->OnClicked.AddDynamic(this, &ADefaultGridTile::TileSelected);
 
 }
 
@@ -33,11 +32,6 @@ void ADefaultGridTile::Tick(float DeltaTime)
 
 }
 
-void ADefaultGridTile::TileSelected(UPrimitiveComponent* ClickedComp, FKey ButtonPressed)
-{
-	
-}
-
 void ADefaultGridTile::SpawnTower(int TowerIntToBuild)
 {
 	UWorld* World = GetWorld();
@@ -45,8 +39,16 @@ void ADefaultGridTile::SpawnTower(int TowerIntToBuild)
 
 	if (World && !TowerSpawned)
 	{
-		TowerSpawned = World->SpawnActor<ADefaultTower>(TowerList[TowerIntToBuild], GetActorLocation(), FRotator(0.f), SpawnParams);
-		TowerSpawned->AttachToComponent(TileMesh, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TowerPlacementSocket"));
+		ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+		if (GameMode->CheckCurrentMoney(TowerList[TowerIntToBuild]->GetDefaultObject<ADefaultTower>()->TowerCost))
+		{
+			TowerSpawned = World->SpawnActor<ADefaultTower>(TowerList[TowerIntToBuild], GetActorLocation(), FRotator(0.f), SpawnParams);
+			TowerSpawned->AttachToComponent(TileMesh, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TowerPlacementSocket"));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Not enough money!"));
+		}
 	}
 }
 

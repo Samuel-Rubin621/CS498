@@ -18,9 +18,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION()
-	void TileSelected(UPrimitiveComponent* ClickedComp, FKey ButtonPressed);
-
 	UFUNCTION(BlueprintCallable)
 	void SpawnTower(int TowerIntToBuild);
 

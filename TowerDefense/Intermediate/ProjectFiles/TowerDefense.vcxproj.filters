@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{24982BF7-8D9D-4D68-B832-2B4F7ABBDEEA}</UniqueIdentifier>
+      <UniqueIdentifier>{5E106CCF-C643-4A99-B737-0320EF6C3080}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F06BDB9F-4864-4501-AF1E-B06AF1517D37}</UniqueIdentifier>
+      <UniqueIdentifier>{BCF08057-6414-4BEC-9BD4-B124FFF926C6}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{015A13C0-A039-46FD-AEDE-4DCF62D90C46}</UniqueIdentifier>
+      <UniqueIdentifier>{277D4A9A-F106-4744-AB81-7AC884A14152}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -68,12 +68,6 @@
     <ClInclude Include="..\..\Source\TowerDefense\DefaultTower.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\TowerDefense\PawnTestPlayer.cpp">
-      <Filter>Source\TowerDefense</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TowerDefense\PawnTestPlayer.h">
-      <Filter>Source\TowerDefense</Filter>
-    </ClInclude>
     <None Include="..\..\Source\TowerDefense\TowerDefense.Build.cs">
       <Filter>Source\TowerDefense</Filter>
     </None>
@@ -99,12 +93,6 @@
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\TowerDefensePlayerPawn.h">
-      <Filter>Source\TowerDefense</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\TowerDefense\TowerOverlay.cpp">
-      <Filter>Source\TowerDefense</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TowerDefense\TowerOverlay.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
   </ItemGroup>

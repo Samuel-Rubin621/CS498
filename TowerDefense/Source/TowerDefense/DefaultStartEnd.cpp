@@ -6,6 +6,7 @@
 #include "Components/BillboardComponent.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
+#include "TowerDefenseGameMode.h"
 
 // Sets default values
 ADefaultStartEnd::ADefaultStartEnd()
@@ -34,6 +35,8 @@ ADefaultStartEnd::ADefaultStartEnd()
 void ADefaultStartEnd::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 
 	PreloadNextRound();
 	
@@ -116,13 +119,15 @@ void ADefaultStartEnd::SpawnEnemy(FEnemyData EnemySpawningData)
 		{
 			ADefaultEnemy* EnemySpawned = World->SpawnActor<ADefaultEnemy>(EnemySpawningData.ClassToSpawn, StartPoint->GetComponentLocation(), FRotator(0.f), SpawnParams);
 			EnemySpawned->EndPoint = EndPoint->GetComponentLocation();
-			EnemiesSpawnedThisRound.Add(EnemySpawned);
+			GameMode->EnemiesSpawnedThisRound.Add(EnemySpawned);
+			TotalToSpawnThisRound--;
+			if (TotalToSpawnThisRound <= 0)
+			{
+				GameMode->bDoneSpawning = true;
+				Round++;
+				PreloadNextRound();
+			}
 		}
 	}
 }
-
-
-
-
-
 

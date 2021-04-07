@@ -17,8 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultGridTile();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
-	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
-	INPUTCORE_API UScriptStruct* Z_Construct_UScriptStruct_FKey();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower_NoRegister();
@@ -31,21 +29,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 		P_THIS->SpawnTower(Z_Param_TowerIntToBuild);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ADefaultGridTile::execTileSelected)
-	{
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_ClickedComp);
-		P_GET_STRUCT(FKey,Z_Param_ButtonPressed);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->TileSelected(Z_Param_ClickedComp,Z_Param_ButtonPressed);
-		P_NATIVE_END;
-	}
 	void ADefaultGridTile::StaticRegisterNativesADefaultGridTile()
 	{
 		UClass* Class = ADefaultGridTile::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "SpawnTower", &ADefaultGridTile::execSpawnTower },
-			{ "TileSelected", &ADefaultGridTile::execTileSelected },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -78,50 +66,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultGridTile_SpawnTower_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics
-	{
-		struct DefaultGridTile_eventTileSelected_Parms
-		{
-			UPrimitiveComponent* ClickedComp;
-			FKey ButtonPressed;
-		};
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ClickedComp_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ClickedComp;
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ButtonPressed;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ClickedComp_MetaData[] = {
-		{ "EditInline", "true" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ClickedComp = { "ClickedComp", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultGridTile_eventTileSelected_Parms, ClickedComp), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ClickedComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ClickedComp_MetaData)) };
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ButtonPressed = { "ButtonPressed", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultGridTile_eventTileSelected_Parms, ButtonPressed), Z_Construct_UScriptStruct_FKey, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ClickedComp,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ButtonPressed,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "DefaultGridTile.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultGridTile, nullptr, "TileSelected", nullptr, nullptr, sizeof(DefaultGridTile_eventTileSelected_Parms), Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ADefaultGridTile_TileSelected()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -159,7 +103,6 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultGridTile_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADefaultGridTile_SpawnTower, "SpawnTower" }, // 2040448517
-		{ &Z_Construct_UFunction_ADefaultGridTile_TileSelected, "TileSelected" }, // 936784898
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultGridTile_Statics::Class_MetaDataParams[] = {
@@ -223,7 +166,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultGridTile, 4173548268);
+	IMPLEMENT_CLASS(ADefaultGridTile, 4219016085);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultGridTile>()
 	{
 		return ADefaultGridTile::StaticClass();

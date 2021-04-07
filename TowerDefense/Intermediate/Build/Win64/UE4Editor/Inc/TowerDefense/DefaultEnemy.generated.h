@@ -17,12 +17,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define TowerDefense_Source_TowerDefense_DefaultEnemy_h_23_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execDeath); \
+	DECLARE_FUNCTION(execReachedTheEnd); \
 	DECLARE_FUNCTION(execMoveToTarget);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultEnemy_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execDeath); \
+	DECLARE_FUNCTION(execReachedTheEnd); \
 	DECLARE_FUNCTION(execMoveToTarget);
 
 

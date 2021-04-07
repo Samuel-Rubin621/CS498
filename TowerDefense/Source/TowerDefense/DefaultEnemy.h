@@ -32,6 +32,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void MoveToTarget();
 
+	UFUNCTION(BlueprintCallable)
+	void ReachedTheEnd();
+
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status) { EnemyMovementStatus = Status; }
 	FORCEINLINE EEnemyMovementStatus GetEnemyMovementStatus() { return EnemyMovementStatus; }
 
@@ -54,13 +57,16 @@ public:
 
 	// Declaration of enemy statistics
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
-	float EnemyDamage;
+	int32 EnemyDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemyMaxHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemyCurrentHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemySpeed;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
+	int32 EnemyValue;
+
 
 	// Variables for movement
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")

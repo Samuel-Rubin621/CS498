@@ -24,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultStartEnd() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBillboardComponent_NoRegister();
+	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 // End Cross Module References
 class UScriptStruct* FEnemyData::StaticStruct()
@@ -436,6 +437,10 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EndPoint;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RoundDataTable_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RoundDataTable;
@@ -448,11 +453,6 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Round_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Round;
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EnemiesSpawnedThisRound_Inner;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemiesSpawnedThisRound_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_EnemiesSpawnedThisRound;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TotalToSpawnThisRound_MetaData[];
 #endif
@@ -518,6 +518,13 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EndPoint = { "EndPoint", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultStartEnd, EndPoint), Z_Construct_UClass_UBillboardComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EndPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EndPoint_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_GameMode_MetaData[] = {
+		{ "Category", "References" },
+		{ "ModuleRelativePath", "DefaultStartEnd.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_GameMode = { "GameMode", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultStartEnd, GameMode), Z_Construct_UClass_ATowerDefenseGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_GameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_GameMode_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_RoundDataTable_MetaData[] = {
 		{ "Category", "Wave | Spawning" },
 		{ "ModuleRelativePath", "DefaultStartEnd.h" },
@@ -542,14 +549,6 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Round = { "Round", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultStartEnd, Round), METADATA_PARAMS(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Round_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Round_MetaData)) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound_Inner = { "EnemiesSpawnedThisRound", nullptr, (EPropertyFlags)0x0000000000020000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_ADefaultEnemy_NoRegister, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound_MetaData[] = {
-		{ "Category", "Wave | Spawning" },
-		{ "ModuleRelativePath", "DefaultStartEnd.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound = { "EnemiesSpawnedThisRound", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultStartEnd, EnemiesSpawnedThisRound), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_TotalToSpawnThisRound_MetaData[] = {
 		{ "Category", "Wave | Spawning" },
@@ -591,11 +590,10 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Scene,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_StartPoint,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EndPoint,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_GameMode,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_RoundDataTable,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_bInRound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Round,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound_Inner,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_EnemiesSpawnedThisRound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_TotalToSpawnThisRound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Enemy1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultStartEnd_Statics::NewProp_Enemy2,
@@ -629,7 +627,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultStartEnd, 4242808852);
+	IMPLEMENT_CLASS(ADefaultStartEnd, 2830376849);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultStartEnd>()
 	{
 		return ADefaultStartEnd::StaticClass();

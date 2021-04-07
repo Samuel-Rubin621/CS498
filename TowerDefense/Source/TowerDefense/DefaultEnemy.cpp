@@ -7,6 +7,7 @@
 #include "AIController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
+#include "TowerDefenseGameMode.h"
 
 // Sets default values
 ADefaultEnemy::ADefaultEnemy()
@@ -68,6 +69,14 @@ void ADefaultEnemy::MoveToTarget()
 	}
 }
 
+void ADefaultEnemy::ReachedTheEnd()
+{
+	ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+	GameMode->DecreaseLives(EnemyDamage);
+	GameMode->RemoveEnemyFromList(this);
+	Destroy();
+}
+
 float ADefaultEnemy::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
 {
 	EnemyCurrentHealth -= DamageAmount;
@@ -80,5 +89,8 @@ float ADefaultEnemy::TakeDamage(float DamageAmount, struct FDamageEvent const& D
 
 void ADefaultEnemy::Death()
 {
+	ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+	GameMode->IncreaseMoney(EnemyValue);
+	GameMode->RemoveEnemyFromList(this);
 	Destroy();
 }
