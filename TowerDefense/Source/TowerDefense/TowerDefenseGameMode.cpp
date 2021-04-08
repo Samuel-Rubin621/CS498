@@ -63,11 +63,7 @@ void ATowerDefenseGameMode::IncreaseMoney(int32 Value)
 
 bool ATowerDefenseGameMode::CheckCurrentMoney(int32 Value)
 {
-	if (Money >= Value)
-	{
-		DecreaseMoney(Value);
-		return true;
-	}
+	if (Money >= Value) return true;
 	else return false;
 }
 
@@ -78,6 +74,7 @@ void ATowerDefenseGameMode::RemoveEnemyFromList(ADefaultEnemy* EnemyToRemove)
 	if (EnemiesSpawnedThisRound.Num() <= 0 && bDoneSpawning && bInRound)
 	{
 		bInRound = false;
+		bDoneSpawning = false;
 		StartEnd->bInRound = false;
 		EndOfRound();
 	}

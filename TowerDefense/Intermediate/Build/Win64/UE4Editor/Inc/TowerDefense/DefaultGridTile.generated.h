@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class ADefaultTower;
 #ifdef TOWERDEFENSE_DefaultGridTile_generated_h
 #error "DefaultGridTile.generated.h already included, missing '#pragma once' in DefaultGridTile.h"
 #endif

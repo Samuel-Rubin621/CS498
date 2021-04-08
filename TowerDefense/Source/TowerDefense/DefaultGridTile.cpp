@@ -32,7 +32,7 @@ void ADefaultGridTile::Tick(float DeltaTime)
 
 }
 
-void ADefaultGridTile::SpawnTower(int TowerIntToBuild)
+void ADefaultGridTile::SpawnTower(TSubclassOf<ADefaultTower> TowerToSpawn)
 {
 	UWorld* World = GetWorld();
 	FActorSpawnParameters SpawnParams;
@@ -40,9 +40,10 @@ void ADefaultGridTile::SpawnTower(int TowerIntToBuild)
 	if (World && !TowerSpawned)
 	{
 		ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
-		if (GameMode->CheckCurrentMoney(TowerList[TowerIntToBuild]->GetDefaultObject<ADefaultTower>()->TowerCost))
+		if (GameMode->CheckCurrentMoney(TowerToSpawn->GetDefaultObject<ADefaultTower>()->TowerCost))
 		{
-			TowerSpawned = World->SpawnActor<ADefaultTower>(TowerList[TowerIntToBuild], GetActorLocation(), FRotator(0.f), SpawnParams);
+			GameMode->DecreaseMoney(TowerToSpawn->GetDefaultObject<ADefaultTower>()->TowerCost);
+			TowerSpawned = World->SpawnActor<ADefaultTower>(TowerToSpawn, GetActorLocation(), FRotator(0.f), SpawnParams);
 			TowerSpawned->AttachToComponent(TileMesh, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TowerPlacementSocket"));
 		}
 		else

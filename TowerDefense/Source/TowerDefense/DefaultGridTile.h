@@ -19,7 +19,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void SpawnTower(int TowerIntToBuild);
+	void SpawnTower(TSubclassOf<class ADefaultTower> TowerToSpawn);
 
 protected:
 	// Called when the game starts or when spawned
@@ -28,9 +28,6 @@ protected:
 public:	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tile | Mesh")
 	class UStaticMeshComponent* TileMesh;
-	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tile | Tower")
-	TArray<TSubclassOf<class ADefaultTower>> TowerList;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tile | Tower")
 	ADefaultTower* TowerSpawned;
