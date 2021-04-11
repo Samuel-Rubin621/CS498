@@ -14,3 +14,7 @@ F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedD
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\HeadMountedDisplay\Public\XRGestureConfig.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\XRGestureConfig.generated.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\HeadMountedDisplayFunctionLibrary.generated.h
+E:\CS498\TowerDefense\Source\TowerDefense\TowerDefensePlayerPawn.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerDefensePlayerPawn.generated.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
+F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
