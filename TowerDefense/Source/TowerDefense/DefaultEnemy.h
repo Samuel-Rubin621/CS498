@@ -56,17 +56,16 @@ public:
 	class USphereComponent* EnemyBodyCollision;
 
 	// Declaration of enemy statistics
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
 	int32 EnemyDamage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
 	float EnemyMaxHealth;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemyCurrentHealth;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
 	float EnemySpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
 	int32 EnemyValue;
-
 
 	// Variables for movement
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")

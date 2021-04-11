@@ -23,7 +23,6 @@ ADefaultEnemy::ADefaultEnemy()
 	GetCapsuleComponent()->SetCapsuleSize(10.f, 10.f, true);
 	EnemyDamage = 1;
 	EnemyMaxHealth = 1;
-	EnemyCurrentHealth = EnemyMaxHealth;
 	EnemySpeed = 1;
 
 }
@@ -33,6 +32,7 @@ void ADefaultEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 	AActor::SetFolderPath("Enemies");
+	EnemyCurrentHealth = EnemyMaxHealth;
 
 	AIController = Cast<AAIController>(GetController());
 

@@ -8,6 +8,8 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "DefaultProjectile.h"
 #include "TimerManager.h"
+#include "Sound/SoundCue.h"
+#include "Kismet/GameplayStatics.h"
 
 
 // Sets default values
@@ -20,11 +22,12 @@ ADefaultTower::ADefaultTower()
 	RootComponent = TowerMesh;
 	TowerRangeSphere = CreateDefaultSubobject<USphereComponent>(TEXT("TowerRangeSphere"));
 	TowerRangeSphere->SetupAttachment(GetRootComponent());
+	TowerRangeSphere->SetSphereRadius(1000.f);
 	FiringLocation = CreateDefaultSubobject<USphereComponent>(TEXT("FiringLocation"));
 	FiringLocation->SetupAttachment(GetRootComponent());
 
 	TowerDamage = 1;
-	TowerRangeValue = 0.f;
+	TowerFireDamage = 0;
 	TowerFireDelay = 2.f;
 
 	bNoOverlappingEnemies = true;
@@ -36,7 +39,6 @@ void ADefaultTower::BeginPlay()
 {
 	Super::BeginPlay();
 	AActor::SetFolderPath("Towers");
-
 	TowerRangeSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapBegin);
 	TowerRangeSphere->OnComponentEndOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapEnd);
 
@@ -178,6 +180,10 @@ void ADefaultTower::Shoot()
 {
 	if (Projectile)
 	{
+		if (ShootingSound)
+		{
+			UGameplayStatics::PlaySound2D(this, ShootingSound);
+		}
 		bReloading = true;
 		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActor<ADefaultProjectile>(Projectile, FiringLocation->GetComponentLocation(), FRotator(0.f));
 		SpawnedProjectile->EnemyLocation = CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation();
@@ -186,4 +192,25 @@ void ADefaultTower::Shoot()
 		FTimerHandle UnusedHandle;
 		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, TowerFireDelay, false, -1.f);
 	}
+}
+
+void ADefaultTower::IncreaseDamage(int32 Value)
+{
+	TowerDamage += Value;
+}
+
+
+void ADefaultTower::IncreaseFireDamage(int32 Value)
+{
+	TowerFireDamage += Value;
+}
+
+void ADefaultTower::IncreaseRange(float Value)
+{
+	TowerRangeSphere->SetSphereRadius(TowerRangeSphere->GetScaledSphereRadius() + Value);
+}
+
+void ADefaultTower::IncreaseFireRate(float Value)
+{
+	TowerFireDelay -= Value;
 }

@@ -42,6 +42,18 @@ public:
 
 	FORCEINLINE void ReloadingDone() { bReloading = false; }
 
+	// Functions for increasing stats
+	UFUNCTION(BlueprintCallable)
+	void IncreaseDamage(int32 Value);
+	UFUNCTION(BlueprintCallable)
+	void IncreaseFireDamage(int32 Value);
+	UFUNCTION(BlueprintCallable)
+	void IncreaseRange(float Value);
+	UFUNCTION(BlueprintCallable)
+	void IncreaseFireRate(float Value);
+
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -56,18 +68,18 @@ public:
 	USphereComponent* FiringLocation;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
 	TSubclassOf<class ADefaultProjectile> Projectile;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
+	class USoundCue* ShootingSound;
 
 	// Declaration of tower statistics
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 TowerDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
-	float TowerRangeValue;
+	int32 TowerFireDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
 	float TowerFireDelay;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 TowerCost;
-
-
 
 	// Declaration of target
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")

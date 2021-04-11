@@ -84,6 +84,7 @@ void ATowerDefensePlayerPawn::RightMouseDown()
 void ATowerDefensePlayerPawn::RightMouseUp()
 {
 	bRightMouseDown = false;
+	PlayerController->bEnableClickEvents = true;
 	PlayerController->bShowMouseCursor = true;
 }
 
@@ -91,8 +92,6 @@ void ATowerDefensePlayerPawn::MoveForward(float Value)
 {
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Forward"));
-
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
@@ -106,8 +105,6 @@ void ATowerDefensePlayerPawn::MoveRight(float Value)
 {
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Right"));
-
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
@@ -121,7 +118,6 @@ void ATowerDefensePlayerPawn::LookAround(float Value)
 {
 	if (Value != 0.f && Controller && Controller->IsLocalPlayerController() && bRightMouseDown)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Turning"));
 		APlayerController* const PC = CastChecked<APlayerController>(Controller);
 		PC->AddYawInput(Value);
 	}
@@ -132,9 +128,5 @@ void ATowerDefensePlayerPawn::Zoom(float Value)
 	if (Value != 0)
 	{
 		CameraBoom->TargetArmLength = FMath::Clamp((CameraBoom->TargetArmLength + (Value * ZoomRate)), MaxZoomIn, MaxZoomOut);
-		/*
-		FVector NewCameraPosition = MainCamera->GetComponentLocation();
-		NewCameraPosition.Z = FMath::Clamp((NewCameraPosition.Z + 10.f), 20.f, 100.f);
-		MainCamera->AddRelativeLocation(NewCameraPosition);*/
 	}
 }
