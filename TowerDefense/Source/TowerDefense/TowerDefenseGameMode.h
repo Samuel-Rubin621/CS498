@@ -9,6 +9,8 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMoneyChange, int32, Value);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLivesChange, int32, Value);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRoundBegin);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRoundCompletion, int32, Round);
 
 UCLASS(minimalapi)
 class ATowerDefenseGameMode : public AGameModeBase
@@ -35,25 +37,34 @@ public:
 	bool CheckCurrentMoney(int32 value);
 
 	// Functions for handling rounds
+	UFUNCTION()
+	void StartRound();
 	UFUNCTION(BlueprintCallable)
 	void RemoveEnemyFromList(ADefaultEnemy* EnemyToRemove);
 	UFUNCTION()
 	void EndOfRound();
 
+	// Events fired from the game mode
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 	FOnMoneyChange SetMoneyText;
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 	FOnLivesChange SetLivesText;
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+	FOnRoundBegin StartNextRound;
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+	FOnRoundCompletion EndRound;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lives")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
 	int32 Lives;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Money")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
 	int32 Money;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
+	int32 Round;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Reference")
 	class AInGameHUD* InGameHUD;
@@ -64,8 +75,6 @@ public:
 	bool bDoneSpawning;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
 	TArray<ADefaultEnemy*> EnemiesSpawnedThisRound;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
-	class APath* Path;
 
 
 };

@@ -15,13 +15,13 @@ struct FRoundInformation : public FTableRowBase
 
 	//Amount of enemies to spawn based on round
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		int32 Enemy1;
+	int32 Enemy1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		int32 Enemy2;
+	int32 Enemy2;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		int32 Enemy3;
+	int32 Enemy3;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		int32 Enemy4;
+	int32 Enemy4;
 };
 
 // Struct to store the number of enemies to spawn and which enemy to spawn
@@ -31,11 +31,11 @@ struct FEnemyData
 	GENERATED_BODY()
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		int32 AmountToSpawn;
+	int32 AmountToSpawn;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		float SpawnDelay;
+	float SpawnDelay;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-		TSubclassOf<class ADefaultEnemy> ClassToSpawn;
+	TSubclassOf<class ADefaultEnemy> ClassToSpawn;
 };
 
 UCLASS()
@@ -51,13 +51,13 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-		void PreloadNextRound();
+	void PreloadNextRound(int32 Round);
 	UFUNCTION(BlueprintCallable)
-		void StartRound();
+	void StartRound();
 	UFUNCTION(BlueprintCallable)
-		void CallSpawner(FEnemyData EnemySpawningData);
+	void CallSpawner(FEnemyData EnemySpawningData);
 	UFUNCTION(BlueprintCallable)
-		void SpawnEnemy(FEnemyData EnemySpawningData);
+	void SpawnEnemy(FEnemyData EnemySpawningData);
 
 protected:
 	// Called when the game starts or when spawned
@@ -65,31 +65,27 @@ protected:
 
 public:
 	UPROPERTY(VisibleAnywhere)
-		class USplineComponent* SplinePath;
+	class USplineComponent* SplinePath;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "References")
-		class ATowerDefenseGameMode* GameMode;
+	class ATowerDefenseGameMode* GameMode;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Path")
-		TArray<FVector> PathPoints;
+	TArray<FVector> PathPoints;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Wave | Spawning")
-		class UDataTable* RoundDataTable;
+	class UDataTable* RoundDataTable;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-		bool bInRound;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-		int32 Round;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-		int32 TotalToSpawnThisRound;
+	int32 TotalToSpawnThisRound;
 
 	// Amount of enemies to spawn based on round
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		FEnemyData Enemy1;
+	FEnemyData Enemy1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		FEnemyData Enemy2;
+	FEnemyData Enemy2;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		FEnemyData Enemy3;
+	FEnemyData Enemy3;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		FEnemyData Enemy4;
+	FEnemyData Enemy4;
 
 };

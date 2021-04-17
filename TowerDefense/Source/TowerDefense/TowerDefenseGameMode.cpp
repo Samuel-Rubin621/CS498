@@ -4,16 +4,16 @@
 #include "TowerDefensePlayerController.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Blueprint/UserWidget.h"
-#include "DefaultStartEnd.h"
+#include "Path.h"
 #include "UI/InGameHUD.h"
 #include "UI/ScreenOverlay.h"
 
 ATowerDefenseGameMode::ATowerDefenseGameMode()
 {
-	// use our custom PlayerController class
+	// Use the custom player controller class
 	PlayerControllerClass = ATowerDefensePlayerController::StaticClass();
 
-	// set default pawn class to our Blueprinted character
+	// Set the default actor to be controlled by the player
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Gameplay/BP_TowerDefensePlayerPawn"));
 	if (PlayerPawnBPClass.Class != nullptr)
 	{
@@ -22,7 +22,7 @@ ATowerDefenseGameMode::ATowerDefenseGameMode()
 
 	Lives = 100;
 	Money = 1000;
-
+	Round = 0;
 	bDoneSpawning = false;
 	bInRound = false;
 }
@@ -34,6 +34,7 @@ void ATowerDefenseGameMode::BeginPlay()
 
 }
 
+#pragma region Lives
 void ATowerDefenseGameMode::DecreaseLives(int32 Value)
 {
 	Lives -= Value;
@@ -54,7 +55,9 @@ void ATowerDefenseGameMode::GameOver()
 {
 
 }
+#pragma endregion
 
+#pragma region Money
 void ATowerDefenseGameMode::DecreaseMoney(int32 Value)
 {
 	Money -= Value;
@@ -72,21 +75,34 @@ bool ATowerDefenseGameMode::CheckCurrentMoney(int32 Value)
 	if (Money >= Value) return true;
 	else return false;
 }
+#pragma endregion
+
+#pragma region RoundHandler
+void ATowerDefenseGameMode::StartRound()
+{
+	bInRound = true;
+	StartNextRound.Broadcast();
+}
 
 void ATowerDefenseGameMode::RemoveEnemyFromList(ADefaultEnemy* EnemyToRemove)
 {
 	EnemiesSpawnedThisRound.Remove(EnemyToRemove);
-	UE_LOG(LogTemp, Warning, TEXT("Enemy Removed!"));
-	if (EnemiesSpawnedThisRound.Num() <= 0 && bDoneSpawning && bInRound)
+
+	if (EnemiesSpawnedThisRound.Num() <= 0 && bDoneSpawning)
 	{
-		bInRound = false;
-		bDoneSpawning = false;
-		Path->bInRound = false;
 		EndOfRound();
 	}
 }
 
 void ATowerDefenseGameMode::EndOfRound()
 {
+	UE_LOG(LogTemp, Warning, TEXT("EndOFRound()"));
+	if (Lives > 0)
+	{
+		Round++;
+		EndRound.Broadcast(Round);
+		bInRound = false;
+		bDoneSpawning = false;
+	}
 }
-
+#pragma endregion

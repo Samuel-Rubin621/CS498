@@ -2,6 +2,7 @@
 
 
 #include "ScreenOverlay.h"
+#include "TowerDefense/TowerDefenseGameMode.h"
 
 UScreenOverlay::UScreenOverlay(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -12,10 +13,18 @@ void UScreenOverlay::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	StartRoundButton->OnClicked.AddDynamic(this, &UScreenOverlay::ButtonClickTesting);
+	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+	StartRoundButton->OnClicked.AddDynamic(this, &UScreenOverlay::StartRound);
+	GameMode->EndRound.AddDynamic(this, &UScreenOverlay::EndRound);
 }
 
-void UScreenOverlay::ButtonClickTesting()
+void UScreenOverlay::StartRound()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Button was pressed!"));
+	GameMode->StartRound();
+	StartRoundButton->SetVisibility(ESlateVisibility::Hidden);
+}
+
+void UScreenOverlay::EndRound(int32 Round)
+{
+	StartRoundButton->SetVisibility(ESlateVisibility::Visible);
 }

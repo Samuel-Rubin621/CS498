@@ -7,9 +7,6 @@
 #include "Runtime/UMG/Public/UMG.h"
 #include "ScreenOverlay.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class TOWERDEFENSE_API UScreenOverlay : public UUserWidget
 {
@@ -20,13 +17,19 @@ public:
 	virtual void NativeConstruct() override;
 
 	UFUNCTION()
-	void ButtonClickTesting();
+	void StartRound();
+	UFUNCTION()
+	void EndRound(int32 Round);
 
-	/** All variables below this point! */
+	/***** Only variables declared beyond this point! *****/
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UButton* StartRoundButton;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class ULives* LivesWidget;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UMoney* MoneyWidget;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")
+	class ATowerDefenseGameMode* GameMode;
 };

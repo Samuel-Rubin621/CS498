@@ -14,6 +14,26 @@ class ADefaultEnemy;
 #endif
 #define TOWERDEFENSE_TowerDefenseGameMode_generated_h
 
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_13_DELEGATE \
+struct _Script_TowerDefense_eventOnRoundCompletion_Parms \
+{ \
+	int32 Round; \
+}; \
+static inline void FOnRoundCompletion_DelegateWrapper(const FMulticastScriptDelegate& OnRoundCompletion, int32 Round) \
+{ \
+	_Script_TowerDefense_eventOnRoundCompletion_Parms Parms; \
+	Parms.Round=Round; \
+	OnRoundCompletion.ProcessMulticastDelegate<UObject>(&Parms); \
+}
+
+
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_12_DELEGATE \
+static inline void FOnRoundBegin_DelegateWrapper(const FMulticastScriptDelegate& OnRoundBegin) \
+{ \
+	OnRoundBegin.ProcessMulticastDelegate<UObject>(NULL); \
+}
+
+
 #define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_11_DELEGATE \
 struct _Script_TowerDefense_eventOnLivesChange_Parms \
 { \
@@ -40,11 +60,12 @@ static inline void FOnMoneyChange_DelegateWrapper(const FMulticastScriptDelegate
 }
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_SPARSE_DATA
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_RPC_WRAPPERS \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_SPARSE_DATA
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execEndOfRound); \
 	DECLARE_FUNCTION(execRemoveEnemyFromList); \
+	DECLARE_FUNCTION(execStartRound); \
 	DECLARE_FUNCTION(execCheckCurrentMoney); \
 	DECLARE_FUNCTION(execIncreaseMoney); \
 	DECLARE_FUNCTION(execDecreaseMoney); \
@@ -53,10 +74,11 @@ static inline void FOnMoneyChange_DelegateWrapper(const FMulticastScriptDelegate
 	DECLARE_FUNCTION(execDecreaseLives);
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execEndOfRound); \
 	DECLARE_FUNCTION(execRemoveEnemyFromList); \
+	DECLARE_FUNCTION(execStartRound); \
 	DECLARE_FUNCTION(execCheckCurrentMoney); \
 	DECLARE_FUNCTION(execIncreaseMoney); \
 	DECLARE_FUNCTION(execDecreaseMoney); \
@@ -65,7 +87,7 @@ static inline void FOnMoneyChange_DelegateWrapper(const FMulticastScriptDelegate
 	DECLARE_FUNCTION(execDecreaseLives);
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_INCLASS_NO_PURE_DECLS \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATowerDefenseGameMode(); \
 	friend struct Z_Construct_UClass_ATowerDefenseGameMode_Statics; \
@@ -74,7 +96,7 @@ public: \
 	DECLARE_SERIALIZER(ATowerDefenseGameMode)
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_INCLASS \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesATowerDefenseGameMode(); \
 	friend struct Z_Construct_UClass_ATowerDefenseGameMode_Statics; \
@@ -83,7 +105,7 @@ public: \
 	DECLARE_SERIALIZER(ATowerDefenseGameMode)
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_STANDARD_CONSTRUCTORS \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	TOWERDEFENSE_API ATowerDefenseGameMode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATowerDefenseGameMode) \
@@ -96,7 +118,7 @@ private: \
 public:
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_ENHANCED_CONSTRUCTORS \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	TOWERDEFENSE_API ATowerDefenseGameMode(ATowerDefenseGameMode&&); \
@@ -107,28 +129,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATowerDefenseGameMode); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATowerDefenseGameMode)
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_PRIVATE_PROPERTY_OFFSET
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_13_PROLOG
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_GENERATED_BODY_LEGACY \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_PRIVATE_PROPERTY_OFFSET
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_15_PROLOG
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_PRIVATE_PROPERTY_OFFSET \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_SPARSE_DATA \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_RPC_WRAPPERS \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_INCLASS \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_STANDARD_CONSTRUCTORS \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_PRIVATE_PROPERTY_OFFSET \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_SPARSE_DATA \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_RPC_WRAPPERS \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_INCLASS \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_GENERATED_BODY \
+#define TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_PRIVATE_PROPERTY_OFFSET \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_SPARSE_DATA \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_INCLASS_NO_PURE_DECLS \
-	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_16_ENHANCED_CONSTRUCTORS \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_PRIVATE_PROPERTY_OFFSET \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_SPARSE_DATA \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_INCLASS_NO_PURE_DECLS \
+	TowerDefense_Source_TowerDefense_TowerDefenseGameMode_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

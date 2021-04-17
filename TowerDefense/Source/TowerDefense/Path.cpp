@@ -22,9 +22,6 @@ APath::APath()
 	{
 		RoundDataTable = RoundDataObject.Object;
 	}
-
-	bInRound = false;
-	Round = 1;
 }
 
 // Called when the game starts or when spawned
@@ -33,6 +30,11 @@ void APath::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+	if (GameMode)
+	{
+		GameMode->StartNextRound.AddDynamic(this, &APath::StartRound);
+		GameMode->EndRound.AddDynamic(this, &APath::PreloadNextRound);
+	}
 
 	// Get spline path to pass to enemy
 	int32 NumberOfSplinePoints = SplinePath->GetNumberOfSplinePoints();
@@ -41,8 +43,9 @@ void APath::BeginPlay()
 	{
 		PathPoints.Add(SplinePath->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World));
 	}
+	PathPoints.RemoveAt(0);
 
-	PreloadNextRound();
+	PreloadNextRound(1);
 }
 
 // Called every frame
@@ -51,7 +54,7 @@ void APath::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void APath::PreloadNextRound()
+void APath::PreloadNextRound(int32 Round)
 {
 	if (RoundDataTable)
 	{
@@ -74,10 +77,8 @@ void APath::PreloadNextRound()
 
 void APath::StartRound()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Entering StartRound!"));
-	if (!bInRound)
+	if (GameMode->bInRound)
 	{
-		bInRound = true;
 		if (Enemy1.AmountToSpawn > 0 && Enemy1.ClassToSpawn != nullptr)
 		{
 			CallSpawner(Enemy1);
@@ -108,6 +109,8 @@ void APath::CallSpawner(FEnemyData EnemySpawningData)
 		FTimerHandle UnusedHandle;
 		GetWorldTimerManager().SetTimer(UnusedHandle, TDelegate, EnemySpawningData.SpawnDelay * i, false);
 	}
+
+	return;
 }
 
 void APath::SpawnEnemy(FEnemyData EnemySpawningData)
@@ -121,14 +124,12 @@ void APath::SpawnEnemy(FEnemyData EnemySpawningData)
 		{
 			ADefaultEnemy* EnemySpawned = World->SpawnActor<ADefaultEnemy>(EnemySpawningData.ClassToSpawn,
 				SplinePath->GetLocationAtSplinePoint(0, ESplineCoordinateSpace::World), FRotator(0.f), SpawnParams);
-			EnemySpawned->PathPoints = PathPoints;
+			EnemySpawned->EnemyAIController->PathPoints = PathPoints;
 			GameMode->EnemiesSpawnedThisRound.Add(EnemySpawned);
 			TotalToSpawnThisRound--;
 			if (TotalToSpawnThisRound <= 0)
 			{
 				GameMode->bDoneSpawning = true;
-				Round++;
-				PreloadNextRound();
 			}
 		}
 	}
