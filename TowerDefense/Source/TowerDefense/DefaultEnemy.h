@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "AIController.h"
+#include "Navigation/PathFollowingComponent.h"
 #include "DefaultEnemy.generated.h"
 
 UENUM(BlueprintType)
@@ -24,56 +26,59 @@ class TOWERDEFENSE_API ADefaultEnemy : public ACharacter
 
 public:
 	// Sets default values for this character's properties
-	ADefaultEnemy();
+		ADefaultEnemy();
 
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+		virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void MoveToTarget();
+		void MoveToTarget(FVector NextMoveTarget);
+	UFUNCTION()
+		//void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result);
+
 
 	UFUNCTION(BlueprintCallable)
-	void ReachedTheEnd();
+		void ReachedTheEnd();
 
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status) { EnemyMovementStatus = Status; }
 	FORCEINLINE EEnemyMovementStatus GetEnemyMovementStatus() { return EnemyMovementStatus; }
 
-	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+		virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 	UFUNCTION()
-	void Death();
+		void Death();
 
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+		virtual void BeginPlay() override;
 
 public:
 	
 	// Default enemy properties
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
-	class UStaticMeshComponent* EnemyMesh;
+		class UStaticMeshComponent* EnemyMesh;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
-	class USphereComponent* EnemyBodyCollision;
+		class USphereComponent* EnemyBodyCollision;
 
 	// Declaration of enemy statistics
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	int32 EnemyDamage;
+		int32 EnemyDamage;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	float EnemyMaxHealth;
+		float EnemyMaxHealth;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
-	float EnemyCurrentHealth;
+		float EnemyCurrentHealth;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	float EnemySpeed;
+		float EnemySpeed;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	int32 EnemyValue;
+		int32 EnemyValue;
 
 	// Variables for movement
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
-	class AAIController* AIController;
+		class AEnemyAIController* AIController;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
-	FVector EndPoint;
+		TArray<FVector> PathPoints;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
-	EEnemyMovementStatus EnemyMovementStatus;
+		EEnemyMovementStatus EnemyMovementStatus;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
-	TSubclassOf<class ADefaultStartEnd> StartEndFilter;
+		TSubclassOf<class ADefaultStartEnd> StartEndFilter;
 };

@@ -7,6 +7,8 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\TowerDefenseEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\InGameHUD.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\ScreenOverlay.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultEnemy.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultGridTile.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultProjectile.cpp.obj"
@@ -23,6 +25,8 @@
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultRuins.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultStartEnd.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\DefaultTower.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\InGameHUD.gen.cpp.obj"
+"E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\ScreenOverlay.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefense.init.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefenseGameMode.gen.cpp.obj"
 "E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\TowerDefensePlayerController.gen.cpp.obj"

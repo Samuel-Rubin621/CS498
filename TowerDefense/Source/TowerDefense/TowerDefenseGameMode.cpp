@@ -5,6 +5,8 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Blueprint/UserWidget.h"
 #include "DefaultStartEnd.h"
+#include "UI/InGameHUD.h"
+#include "UI/ScreenOverlay.h"
 
 ATowerDefenseGameMode::ATowerDefenseGameMode()
 {
@@ -35,6 +37,7 @@ void ATowerDefenseGameMode::BeginPlay()
 void ATowerDefenseGameMode::DecreaseLives(int32 Value)
 {
 	Lives -= Value;
+	SetLivesText.Broadcast(Lives);
 	if (Lives <= 0)
 	{
 		GameOver();
@@ -44,6 +47,7 @@ void ATowerDefenseGameMode::DecreaseLives(int32 Value)
 void ATowerDefenseGameMode::IncreaseLives(int32 Value)
 {
 	Lives += Value;
+	SetLivesText.Broadcast(Lives);
 }
 
 void ATowerDefenseGameMode::GameOver()
@@ -54,11 +58,13 @@ void ATowerDefenseGameMode::GameOver()
 void ATowerDefenseGameMode::DecreaseMoney(int32 Value)
 {
 	Money -= Value;
+	SetMoneyText.Broadcast(Money);
 }
 
 void ATowerDefenseGameMode::IncreaseMoney(int32 Value)
 {
 	Money += Value;
+	SetMoneyText.Broadcast(Money);
 }
 
 bool ATowerDefenseGameMode::CheckCurrentMoney(int32 Value)
@@ -75,8 +81,12 @@ void ATowerDefenseGameMode::RemoveEnemyFromList(ADefaultEnemy* EnemyToRemove)
 	{
 		bInRound = false;
 		bDoneSpawning = false;
-		StartEnd->bInRound = false;
+		Path->bInRound = false;
 		EndOfRound();
 	}
+}
+
+void ATowerDefenseGameMode::EndOfRound()
+{
 }
 

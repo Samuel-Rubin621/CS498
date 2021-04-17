@@ -59,10 +59,10 @@ void ATowerDefensePlayerController::RightMouseDown()
 
 void ATowerDefensePlayerController::RightMouseUp()
 {
-	bRightMouseDown = false;
-	bEnableClickEvents = true;
 	bShowMouseCursor = true;
-
+	bRightMouseDown = false;
+	bEnableMouseOverEvents = true;
+	bEnableClickEvents = true;
 }
 
 void ATowerDefensePlayerController::LookAround(float Value)

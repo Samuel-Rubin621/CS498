@@ -4,7 +4,7 @@
 #include "DefaultEnemy.h"
 #include "Kismet/GameplayStatics.h"
 #include "DefaultStartEnd.h"
-#include "AIController.h"
+#include "EnemyAIController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
 #include "TowerDefenseGameMode.h"
@@ -34,14 +34,18 @@ void ADefaultEnemy::BeginPlay()
 	AActor::SetFolderPath("Enemies");
 	EnemyCurrentHealth = EnemyMaxHealth;
 
-	AIController = Cast<AAIController>(GetController());
+	AIController = Cast<AEnemyAIController>(GetController());
 
+	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+	/*
+	FTimerDelegate MoveToTargetDelegate;
+	MoveToTargetDelegate.BindUFunction(this, FName("MoveToTarget"), PathPoints[0]);
 
-	float Delay = 0.1f;
 	FTimerHandle UnusedHandle;
-	GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultEnemy::MoveToTarget, Delay, false);
-
+	GetWorldTimerManager().SetTimer(UnusedHandle, MoveToTargetDelegate, 0.1f, false);
+	*/
 }
 
 // Called every frame
@@ -50,25 +54,33 @@ void ADefaultEnemy::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
-void ADefaultEnemy::MoveToTarget()
+/*
+void ADefaultEnemy::MoveToTarget(FVector NextMoveTarget)
 {
 	if (EnemyMovementStatus == EEnemyMovementStatus::EMS_Dead) return;
 
 	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+
 	if (AIController)
 	{
-		FAIMoveRequest MoveRequest;
-		MoveRequest.SetGoalLocation(EndPoint);
-		MoveRequest.SetAcceptanceRadius(10.0f);
-
-		FNavPathSharedPtr NavPath;
-
-		AIController->MoveTo(MoveRequest, &NavPath);
+		AIController->MoveToLocation(NextMoveTarget);
 	}
 }
 
+void ADefaultEnemy::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result)
+{
+	PathPoints.RemoveAt(0);
+	if (PathPoints.Num() > 0)
+	{
+		MoveToTarget(PathPoints[0]);
+	}
+	else
+	{
+		ReachedTheEnd();
+	}
+}
+*/
 void ADefaultEnemy::ReachedTheEnd()
 {
 	ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
