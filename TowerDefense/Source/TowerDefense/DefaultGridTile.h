@@ -18,6 +18,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
+	void TileSelected(AActor* TouchedActor, FKey ButtonPressed);
+
 	UFUNCTION(BlueprintCallable)
 	void SpawnTower(TSubclassOf<class ADefaultTower> TowerToSpawn);
 
@@ -30,6 +33,5 @@ public:
 	class UStaticMeshComponent* TileMesh;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tile | Tower")
-	ADefaultTower* TowerSpawned;
-
+	ADefaultTower* SpawnedTower;
 };

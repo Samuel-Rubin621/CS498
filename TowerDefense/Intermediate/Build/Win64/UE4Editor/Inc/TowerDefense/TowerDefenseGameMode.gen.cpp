@@ -22,7 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy_NoRegister();
-	TOWERDEFENSE_API UClass* Z_Construct_UClass_AInGameHUD_NoRegister();
+	TOWERDEFENSE_API UClass* Z_Construct_UClass_UScreenOverlay_NoRegister();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_TowerDefense_OnRoundCompletion__DelegateSignature_Statics
 	{
@@ -540,9 +540,9 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Round;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InGameHUD_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ScreenOverlay_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_InGameHUD;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ScreenOverlay;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bInRound_MetaData[];
 #endif
@@ -637,12 +637,13 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Round = { "Round", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefenseGameMode, Round), METADATA_PARAMS(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Round_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Round_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_InGameHUD_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay_MetaData[] = {
 		{ "Category", "Reference" },
+		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "TowerDefenseGameMode.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_InGameHUD = { "InGameHUD", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefenseGameMode, InGameHUD), Z_Construct_UClass_AInGameHUD_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_InGameHUD_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_InGameHUD_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay = { "ScreenOverlay", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefenseGameMode, ScreenOverlay), Z_Construct_UClass_UScreenOverlay_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound_MetaData[] = {
 		{ "Category", "Rounds" },
@@ -681,7 +682,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Lives,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Money,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Round,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_InGameHUD,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bDoneSpawning,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_EnemiesSpawnedThisRound_Inner,
@@ -714,7 +715,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATowerDefenseGameMode, 2782492551);
+	IMPLEMENT_CLASS(ATowerDefenseGameMode, 613357736);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ATowerDefenseGameMode>()
 	{
 		return ATowerDefenseGameMode::StaticClass();

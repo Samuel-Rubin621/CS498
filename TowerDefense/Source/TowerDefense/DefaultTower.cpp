@@ -10,6 +10,8 @@
 #include "TimerManager.h"
 #include "Sound/SoundCue.h"
 #include "Kismet/GameplayStatics.h"
+#include "TowerDefenseGameMode.h"
+#include "UI/ScreenOverlay.h"
 
 
 // Sets default values
@@ -38,10 +40,14 @@ ADefaultTower::ADefaultTower()
 void ADefaultTower::BeginPlay()
 {
 	Super::BeginPlay();
+
 	AActor::SetFolderPath("Towers");
+
+	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+
 	TowerRangeSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapBegin);
 	TowerRangeSphere->OnComponentEndOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapEnd);
-
+	OnClicked.AddDynamic(this, &ADefaultTower::TowerSelected);
 }
 
 // Called every frame
@@ -199,7 +205,6 @@ void ADefaultTower::IncreaseDamage(int32 Value)
 	TowerDamage += Value;
 }
 
-
 void ADefaultTower::IncreaseFireDamage(int32 Value)
 {
 	TowerFireDamage += Value;
@@ -213,4 +218,12 @@ void ADefaultTower::IncreaseRange(float Value)
 void ADefaultTower::IncreaseFireRate(float Value)
 {
 	TowerFireDelay -= Value;
+}
+
+void ADefaultTower::TowerSelected(AActor* TouchedActor, FKey ButtonPressed)
+{
+	UScreenOverlay* ScreenOverlay = GameMode->ScreenOverlay;
+	ScreenOverlay->PurchasePanel->SetVisibility(ESlateVisibility::Hidden);
+	ScreenOverlay->TowerPanel->SetupTowerWidgetInformation(this);
+	ScreenOverlay->TowerPanel->SetVisibility(ESlateVisibility::Visible);
 }

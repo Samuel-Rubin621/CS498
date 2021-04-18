@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Runtime/UMG/Public/UMG.h"
+#include "TowerPanel.h"
+#include "PurchasePanel.h"
 #include "ScreenOverlay.generated.h"
 
 UCLASS()
@@ -29,6 +31,10 @@ public:
 	class ULives* LivesWidget;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UMoney* MoneyWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UPurchasePanel* PurchasePanel;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UTowerPanel* TowerPanel;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;

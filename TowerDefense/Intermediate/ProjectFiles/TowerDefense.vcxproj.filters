@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F7E4F694-6B15-4AE4-9F7D-531C89F75070}</UniqueIdentifier>
+      <UniqueIdentifier>{D99C554A-2927-4199-8C4E-85B50165920F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F1FF2155-BDB4-4662-AF29-36E789FECD8F}</UniqueIdentifier>
+      <UniqueIdentifier>{22183E32-BD0D-4480-ABF5-DE0F506AC220}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{D48A32E1-6BE6-458E-BFEC-52ED77D94CFC}</UniqueIdentifier>
+      <UniqueIdentifier>{A18470F5-49EF-4A9B-A7FA-D5AA01BC88CB}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -108,7 +108,7 @@
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <Filter Include="Source\TowerDefense\UI">
-      <UniqueIdentifier>{6DB8E079-418A-45BE-8562-2041CA4C554E}</UniqueIdentifier>
+      <UniqueIdentifier>{05DCDE25-6CE4-4112-AA71-3BF3CB83D5F9}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\UI\InGameHUD.cpp">
       <Filter>Source\TowerDefense\UI</Filter>
@@ -128,10 +128,22 @@
     <ClInclude Include="..\..\Source\TowerDefense\UI\Money.h">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\UI\PurchasePanel.cpp">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\UI\PurchasePanel.h">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\UI\ScreenOverlay.cpp">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\UI\ScreenOverlay.h">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\UI\TowerPanel.cpp">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\UI\TowerPanel.h">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClInclude>
   </ItemGroup>

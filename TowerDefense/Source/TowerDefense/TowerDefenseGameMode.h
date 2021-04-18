@@ -67,7 +67,7 @@ public:
 	int32 Round;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Reference")
-	class AInGameHUD* InGameHUD;
+	class UScreenOverlay* ScreenOverlay;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
 	bool bInRound;

@@ -7,6 +7,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Engine/EngineTypes.h"
 #include "TowerDefenseGameMode.h"
+#include "UI/ScreenOverlay.h"
 
 // Sets default values
 ADefaultGridTile::ADefaultGridTile()
@@ -23,6 +24,7 @@ void ADefaultGridTile::BeginPlay()
 {
 	Super::BeginPlay();
 
+	OnClicked.AddDynamic(this, &ADefaultGridTile::TileSelected);
 }
 
 // Called every frame
@@ -32,19 +34,41 @@ void ADefaultGridTile::Tick(float DeltaTime)
 
 }
 
+void ADefaultGridTile::TileSelected(AActor* TouchedActor, FKey ButtonPressed)
+{
+	ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+	if (GameMode)
+	{
+		if (SpawnedTower)
+		{
+			UScreenOverlay* ScreenOverlay = GameMode->ScreenOverlay;
+			ScreenOverlay->PurchasePanel->SetVisibility(ESlateVisibility::Hidden);
+			ScreenOverlay->TowerPanel->SetupTowerWidgetInformation(SpawnedTower);
+			ScreenOverlay->TowerPanel->SetVisibility(ESlateVisibility::Visible);
+		}
+		else
+		{
+			UScreenOverlay* ScreenOverlay = GameMode->ScreenOverlay;
+			ScreenOverlay->TowerPanel->SetVisibility(ESlateVisibility::Hidden);
+			ScreenOverlay->PurchasePanel->RefreshWidget(this);
+			ScreenOverlay->PurchasePanel->SetVisibility(ESlateVisibility::Visible);
+		}
+	}
+}
+
 void ADefaultGridTile::SpawnTower(TSubclassOf<ADefaultTower> TowerToSpawn)
 {
 	UWorld* World = GetWorld();
 	FActorSpawnParameters SpawnParams;
 
-	if (World && !TowerSpawned)
+	if (World && !SpawnedTower)
 	{
 		ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 		if (GameMode->CheckCurrentMoney(TowerToSpawn->GetDefaultObject<ADefaultTower>()->TowerCost))
 		{
 			GameMode->DecreaseMoney(TowerToSpawn->GetDefaultObject<ADefaultTower>()->TowerCost);
-			TowerSpawned = World->SpawnActor<ADefaultTower>(TowerToSpawn, GetActorLocation(), FRotator(0.f), SpawnParams);
-			TowerSpawned->AttachToComponent(TileMesh, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TowerPlacementSocket"));
+			SpawnedTower = World->SpawnActor<ADefaultTower>(TowerToSpawn, GetActorLocation(), FRotator(0.f), SpawnParams);
+			SpawnedTower->AttachToComponent(TileMesh, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("TowerPlacementSocket"));
 		}
 		else
 		{

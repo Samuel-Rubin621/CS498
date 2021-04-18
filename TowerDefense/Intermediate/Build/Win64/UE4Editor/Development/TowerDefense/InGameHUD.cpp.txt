@@ -1008,5 +1008,11 @@ F:\Epic Games\UE_4.26\Engine\Source\Runtime\MovieScene\Public\MovieSceneSequence
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\MovieScene\MovieSceneSequenceTickManager.generated.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UMGSequenceTickManager.generated.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UMGSequencePlayer.generated.h
+E:\CS498\TowerDefense\Source\TowerDefense\UI\TowerPanel.h
+E:\CS498\TowerDefense\Source\TowerDefense/DefaultTower.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\DefaultTower.generated.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerPanel.generated.h
+E:\CS498\TowerDefense\Source\TowerDefense\UI\PurchasePanel.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\PurchasePanel.generated.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\ScreenOverlay.generated.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\InGameHUD.generated.h

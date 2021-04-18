@@ -8,8 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
 class AActor;
+struct FKey;
+class UPrimitiveComponent;
 struct FHitResult;
 #ifdef TOWERDEFENSE_DefaultTower_generated_h
 #error "DefaultTower.generated.h already included, missing '#pragma once' in DefaultTower.h"
@@ -19,6 +20,7 @@ struct FHitResult;
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_23_SPARSE_DATA
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_23_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execTowerSelected); \
 	DECLARE_FUNCTION(execIncreaseFireRate); \
 	DECLARE_FUNCTION(execIncreaseRange); \
 	DECLARE_FUNCTION(execIncreaseFireDamage); \
@@ -31,6 +33,7 @@ struct FHitResult;
 
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execTowerSelected); \
 	DECLARE_FUNCTION(execIncreaseFireRate); \
 	DECLARE_FUNCTION(execIncreaseRange); \
 	DECLARE_FUNCTION(execIncreaseFireDamage); \

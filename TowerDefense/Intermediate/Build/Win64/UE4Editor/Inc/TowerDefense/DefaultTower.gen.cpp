@@ -21,12 +21,14 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	INPUTCORE_API UScriptStruct* Z_Construct_UScriptStruct_FKey();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy_NoRegister();
+	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 // End Cross Module References
 	static UEnum* ETowerPositionTargeting_StaticEnum()
 	{
@@ -92,6 +94,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
 		}
 		return ReturnEnum;
+	}
+	DEFINE_FUNCTION(ADefaultTower::execTowerSelected)
+	{
+		P_GET_OBJECT(AActor,Z_Param_TouchedActor);
+		P_GET_STRUCT(FKey,Z_Param_ButtonPressed);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TowerSelected(Z_Param_TouchedActor,Z_Param_ButtonPressed);
+		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ADefaultTower::execIncreaseFireRate)
 	{
@@ -175,6 +186,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 			{ "OnRangeOverlapBegin", &ADefaultTower::execOnRangeOverlapBegin },
 			{ "OnRangeOverlapEnd", &ADefaultTower::execOnRangeOverlapEnd },
 			{ "Shoot", &ADefaultTower::execShoot },
+			{ "TowerSelected", &ADefaultTower::execTowerSelected },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -495,6 +507,42 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics
+	{
+		struct DefaultTower_eventTowerSelected_Parms
+		{
+			AActor* TouchedActor;
+			FKey ButtonPressed;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TouchedActor;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ButtonPressed;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::NewProp_TouchedActor = { "TouchedActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultTower_eventTowerSelected_Parms, TouchedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::NewProp_ButtonPressed = { "ButtonPressed", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultTower_eventTowerSelected_Parms, ButtonPressed), Z_Construct_UScriptStruct_FKey, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::NewProp_TouchedActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::NewProp_ButtonPressed,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultTower.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultTower, nullptr, "TowerSelected", nullptr, nullptr, sizeof(DefaultTower_eventTowerSelected_Parms), Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultTower_TowerSelected()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultTower_TowerSelected_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ADefaultTower_NoRegister()
 	{
 		return ADefaultTower::StaticClass();
@@ -565,6 +613,10 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 #endif
 		static void NewProp_bReloading_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bReloading;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -582,6 +634,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		{ &Z_Construct_UFunction_ADefaultTower_OnRangeOverlapBegin, "OnRangeOverlapBegin" }, // 2939746493
 		{ &Z_Construct_UFunction_ADefaultTower_OnRangeOverlapEnd, "OnRangeOverlapEnd" }, // 2861145947
 		{ &Z_Construct_UFunction_ADefaultTower_Shoot, "Shoot" }, // 3004646099
+		{ &Z_Construct_UFunction_ADefaultTower_TowerSelected, "TowerSelected" }, // 2622731798
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::Class_MetaDataParams[] = {
@@ -705,6 +758,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		((ADefaultTower*)Obj)->bReloading = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading = { "bReloading", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADefaultTower), &Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_GameMode_MetaData[] = {
+		{ "Category", "References" },
+		{ "ModuleRelativePath", "DefaultTower.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_GameMode = { "GameMode", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, GameMode), Z_Construct_UClass_ATowerDefenseGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_GameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_GameMode_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultTower_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerRangeSphere,
@@ -721,6 +781,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_GameMode,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultTower_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultTower>::IsAbstract,
@@ -749,7 +810,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultTower, 1904232236);
+	IMPLEMENT_CLASS(ADefaultTower, 3244144177);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultTower>()
 	{
 		return ADefaultTower::StaticClass();

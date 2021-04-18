@@ -14,6 +14,11 @@ void UScreenOverlay::NativeConstruct()
 	Super::NativeConstruct();
 
 	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+	GameMode->ScreenOverlay = this;
+
+	PurchasePanel->SetVisibility(ESlateVisibility::Hidden);
+	TowerPanel->SetVisibility(ESlateVisibility::Hidden);
+
 	StartRoundButton->OnClicked.AddDynamic(this, &UScreenOverlay::StartRound);
 	GameMode->EndRound.AddDynamic(this, &UScreenOverlay::EndRound);
 }

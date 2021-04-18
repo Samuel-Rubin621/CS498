@@ -52,7 +52,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void IncreaseFireRate(float Value);
 
-
+	UFUNCTION()
+	void TowerSelected(AActor* TouchedActor, FKey ButtonPressed);
 
 protected:
 	// Called when the game starts or when spawned
@@ -93,4 +94,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tower | Combat")
 	bool bReloading;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")
+	class ATowerDefenseGameMode* GameMode;
 };

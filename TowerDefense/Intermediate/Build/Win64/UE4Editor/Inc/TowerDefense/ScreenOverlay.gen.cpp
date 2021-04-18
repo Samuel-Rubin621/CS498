@@ -20,6 +20,8 @@ void EmptyLinkFunctionForGeneratedCodeScreenOverlay() {}
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ULives_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_UMoney_NoRegister();
+	TOWERDEFENSE_API UClass* Z_Construct_UClass_UPurchasePanel_NoRegister();
+	TOWERDEFENSE_API UClass* Z_Construct_UClass_UTowerPanel_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UScreenOverlay::execEndRound)
@@ -124,6 +126,14 @@ void EmptyLinkFunctionForGeneratedCodeScreenOverlay() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MoneyWidget;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PurchasePanel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PurchasePanel;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerPanel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TowerPanel;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
@@ -176,6 +186,24 @@ void EmptyLinkFunctionForGeneratedCodeScreenOverlay() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UScreenOverlay_Statics::NewProp_MoneyWidget = { "MoneyWidget", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScreenOverlay, MoneyWidget), Z_Construct_UClass_UMoney_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UScreenOverlay_Statics::NewProp_MoneyWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScreenOverlay_Statics::NewProp_MoneyWidget_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScreenOverlay_Statics::NewProp_PurchasePanel_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "ScreenOverlay" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/ScreenOverlay.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UScreenOverlay_Statics::NewProp_PurchasePanel = { "PurchasePanel", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScreenOverlay, PurchasePanel), Z_Construct_UClass_UPurchasePanel_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UScreenOverlay_Statics::NewProp_PurchasePanel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScreenOverlay_Statics::NewProp_PurchasePanel_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScreenOverlay_Statics::NewProp_TowerPanel_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "ScreenOverlay" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/ScreenOverlay.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UScreenOverlay_Statics::NewProp_TowerPanel = { "TowerPanel", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScreenOverlay, TowerPanel), Z_Construct_UClass_UTowerPanel_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UScreenOverlay_Statics::NewProp_TowerPanel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScreenOverlay_Statics::NewProp_TowerPanel_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScreenOverlay_Statics::NewProp_GameMode_MetaData[] = {
 		{ "Category", "References" },
 		{ "ModuleRelativePath", "UI/ScreenOverlay.h" },
@@ -186,6 +214,8 @@ void EmptyLinkFunctionForGeneratedCodeScreenOverlay() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScreenOverlay_Statics::NewProp_StartRoundButton,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScreenOverlay_Statics::NewProp_LivesWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScreenOverlay_Statics::NewProp_MoneyWidget,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScreenOverlay_Statics::NewProp_PurchasePanel,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScreenOverlay_Statics::NewProp_TowerPanel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScreenOverlay_Statics::NewProp_GameMode,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UScreenOverlay_Statics::StaticCppClassTypeInfo = {
@@ -215,7 +245,7 @@ void EmptyLinkFunctionForGeneratedCodeScreenOverlay() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UScreenOverlay, 4180539287);
+	IMPLEMENT_CLASS(UScreenOverlay, 485878230);
 	template<> TOWERDEFENSE_API UClass* StaticClass<UScreenOverlay>()
 	{
 		return UScreenOverlay::StaticClass();

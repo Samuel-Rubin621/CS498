@@ -28,6 +28,5 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
 	TSubclassOf<UUserWidget> ScreenOverlayClass;
 
-private:
 	UScreenOverlay* ScreenOverlay;
 };

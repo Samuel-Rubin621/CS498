@@ -19,6 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	INPUTCORE_API UScriptStruct* Z_Construct_UScriptStruct_FKey();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ADefaultGridTile::execSpawnTower)
@@ -29,11 +31,21 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 		P_THIS->SpawnTower(Z_Param_TowerToSpawn);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ADefaultGridTile::execTileSelected)
+	{
+		P_GET_OBJECT(AActor,Z_Param_TouchedActor);
+		P_GET_STRUCT(FKey,Z_Param_ButtonPressed);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TileSelected(Z_Param_TouchedActor,Z_Param_ButtonPressed);
+		P_NATIVE_END;
+	}
 	void ADefaultGridTile::StaticRegisterNativesADefaultGridTile()
 	{
 		UClass* Class = ADefaultGridTile::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "SpawnTower", &ADefaultGridTile::execSpawnTower },
+			{ "TileSelected", &ADefaultGridTile::execTileSelected },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -69,6 +81,42 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics
+	{
+		struct DefaultGridTile_eventTileSelected_Parms
+		{
+			AActor* TouchedActor;
+			FKey ButtonPressed;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TouchedActor;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ButtonPressed;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_TouchedActor = { "TouchedActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultGridTile_eventTileSelected_Parms, TouchedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ButtonPressed = { "ButtonPressed", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultGridTile_eventTileSelected_Parms, ButtonPressed), Z_Construct_UScriptStruct_FKey, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_TouchedActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::NewProp_ButtonPressed,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultGridTile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultGridTile, nullptr, "TileSelected", nullptr, nullptr, sizeof(DefaultGridTile_eventTileSelected_Parms), Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultGridTile_TileSelected()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultGridTile_TileSelected_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ADefaultGridTile_NoRegister()
 	{
 		return ADefaultGridTile::StaticClass();
@@ -85,9 +133,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TileMesh;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerSpawned_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SpawnedTower_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TowerSpawned;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SpawnedTower;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -98,6 +146,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultGridTile_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADefaultGridTile_SpawnTower, "SpawnTower" }, // 2876652116
+		{ &Z_Construct_UFunction_ADefaultGridTile_TileSelected, "TileSelected" }, // 919116410
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultGridTile_Statics::Class_MetaDataParams[] = {
@@ -114,15 +163,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TileMesh = { "TileMesh", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultGridTile, TileMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TileMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TileMesh_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TowerSpawned_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_SpawnedTower_MetaData[] = {
 		{ "Category", "Tile | Tower" },
 		{ "ModuleRelativePath", "DefaultGridTile.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TowerSpawned = { "TowerSpawned", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultGridTile, TowerSpawned), Z_Construct_UClass_ADefaultTower_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TowerSpawned_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TowerSpawned_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_SpawnedTower = { "SpawnedTower", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultGridTile, SpawnedTower), Z_Construct_UClass_ADefaultTower_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_SpawnedTower_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_SpawnedTower_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultGridTile_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TileMesh,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_TowerSpawned,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultGridTile_Statics::NewProp_SpawnedTower,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultGridTile_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultGridTile>::IsAbstract,
@@ -151,7 +200,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultGridTile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultGridTile, 3218925012);
+	IMPLEMENT_CLASS(ADefaultGridTile, 1272987317);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultGridTile>()
 	{
 		return ADefaultGridTile::StaticClass();
