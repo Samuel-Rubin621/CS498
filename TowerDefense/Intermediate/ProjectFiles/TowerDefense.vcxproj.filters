@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{D99C554A-2927-4199-8C4E-85B50165920F}</UniqueIdentifier>
+      <UniqueIdentifier>{575DD517-ED75-4C58-9657-E1A9B7A7FDEC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{22183E32-BD0D-4480-ABF5-DE0F506AC220}</UniqueIdentifier>
+      <UniqueIdentifier>{A96AE00D-EC91-4584-ACAD-02DED714A926}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{A18470F5-49EF-4A9B-A7FA-D5AA01BC88CB}</UniqueIdentifier>
+      <UniqueIdentifier>{F1881D2B-7E50-473D-9E5D-392C2265709B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -108,7 +108,7 @@
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <Filter Include="Source\TowerDefense\UI">
-      <UniqueIdentifier>{05DCDE25-6CE4-4112-AA71-3BF3CB83D5F9}</UniqueIdentifier>
+      <UniqueIdentifier>{BEE72866-8BF9-4B47-8117-97D00E2A3AE3}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\UI\InGameHUD.cpp">
       <Filter>Source\TowerDefense\UI</Filter>
@@ -120,6 +120,12 @@
       <Filter>Source\TowerDefense\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\UI\Lives.h">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\UI\MainMenu.cpp">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\UI\MainMenu.h">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\UI\Money.cpp">
@@ -138,6 +144,12 @@
       <Filter>Source\TowerDefense\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\UI\ScreenOverlay.h">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\UI\SettingsMenu.cpp">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\UI\SettingsMenu.h">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\UI\TowerPanel.cpp">

@@ -29,7 +29,7 @@ ADefaultTower::ADefaultTower()
 	FiringLocation->SetupAttachment(GetRootComponent());
 
 	Damage = 100;
-	FireDamage = 0;
+	FireDamageRating = 0;
 	FireRate = 100;
 
 	bNoOverlappingEnemies = true;
@@ -205,9 +205,9 @@ void ADefaultTower::IncreaseDamage(int32 Value)
 	Damage += Value;
 }
 
-void ADefaultTower::IncreaseFireDamage(int32 Value)
+void ADefaultTower::IncreaseFireDamageRating(int32 Value)
 {
-	FireDamage += Value;
+	FireDamageRating += Value;
 }
 
 void ADefaultTower::IncreaseRange(float Value)

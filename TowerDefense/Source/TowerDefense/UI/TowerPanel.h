@@ -45,6 +45,8 @@ public:
 	UTextBlock* RangeText;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UTextBlock* FireRateText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UTextBlock* FireDamageText;
 
 	// Image variables
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))

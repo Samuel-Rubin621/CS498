@@ -57,7 +57,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void IncreaseDamage(int32 Value);
 	UFUNCTION(BlueprintCallable)
-	void IncreaseFireDamage(int32 Value);
+	void IncreaseFireDamageRating(int32 Value);
 	UFUNCTION(BlueprintCallable)
 	void IncreaseRange(float Value);
 	UFUNCTION(BlueprintCallable)
@@ -87,7 +87,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 Damage;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 FireDamage;
+	int32 FireDamageRating;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 FireRate;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")

@@ -91,6 +91,10 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireRateText;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireDamageText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireDamageText;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerImage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TowerImage;
@@ -178,6 +182,15 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText = { "FireRateText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, FireRateText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TowerPanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText = { "FireDamageText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, FireDamageText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_TowerImage_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "TowerPanel" },
@@ -235,6 +248,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_DamageText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_RangeText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_TowerImage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_BallistaImage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_CannonImage,
@@ -270,7 +284,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UTowerPanel, 3171922564);
+	IMPLEMENT_CLASS(UTowerPanel, 1008814861);
 	template<> TOWERDEFENSE_API UClass* StaticClass<UTowerPanel>()
 	{
 		return UTowerPanel::StaticClass();

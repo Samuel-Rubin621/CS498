@@ -1,27 +1,13 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\CS498).
-  Parsing headers for TowerDefenseEditor
-    Running UnrealHeaderTool "E:\CS498\TowerDefense\TowerDefense.uproject" "E:\CS498\TowerDefense\Intermediate\Build\Win64\TowerDefenseEditor\Development\TowerDefenseEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\sa\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for TowerDefenseEditor in 4.4489324 seconds
   Building TowerDefenseEditor...
   Using Visual Studio 2019 14.28.29914 toolchain (F:\Microsoft\Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 16 actions with 12 processes...
-    [1/16] TowerDefense.init.gen.cpp
-    [2/16] DefaultTower.gen.cpp
-    [3/16] PurchasePanel.gen.cpp
-    [4/16] TowerPanel.cpp
-    [5/16] PurchasePanel.cpp
-    [6/16] TowerPanel.gen.cpp
-    [7/16] ScreenOverlay.gen.cpp
-    [8/16] InGameHUD.cpp
-    [9/16] InGameHUD.gen.cpp
-    [10/16] DefaultGridTile.cpp
-    [11/16] TowerDefenseGameMode.cpp
-    [12/16] ScreenOverlay.cpp
-    [13/16] DefaultTower.cpp
-    [14/16] UE4Editor-TowerDefense-0008.lib
-       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0008.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0008.exp
-    [15/16] UE4Editor-TowerDefense-0008.dll
-       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0008.suppressed.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0008.suppressed.exp
-    [16/16] TowerDefenseEditor.target
-  Total time in Parallel executor: 18.97 seconds
-  Total execution time: 24.16 seconds
+  Building 5 actions with 12 processes...
+    [1/5] SettingsMenu.cpp
+    [2/5] MainMenu.cpp
+    [3/5] UE4Editor-TowerDefense-0013.lib
+       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.exp
+    [4/5] UE4Editor-TowerDefense-0013.dll
+       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.suppressed.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.suppressed.exp
+    [5/5] TowerDefenseEditor.target
+  Total time in Parallel executor: 11.36 seconds
+  Total execution time: 11.99 seconds

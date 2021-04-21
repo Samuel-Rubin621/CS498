@@ -54,6 +54,7 @@ void UTowerPanel::SetTowerImage()
 void UTowerPanel::SetTowerDetailsTextComponents()
 {
 	DamageText->SetText(FText::FromString(FString::FromInt(SelectedTower->Damage)));
+	FireDamageText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireDamageRating)));
 	RangeText->SetText(FText::FromString(FString::FromInt(SelectedTower->TowerRangeSphere->GetUnscaledSphereRadius())));
 	FireRateText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireRate)));
 }
