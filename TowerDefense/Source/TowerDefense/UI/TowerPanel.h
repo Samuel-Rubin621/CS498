@@ -5,19 +5,11 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Button.h"
+#include "Components/Image.h"
+#include "Components/TextBlock.h"
+#include "Engine/Texture2D.h"
 #include "TowerDefense/DefaultTower.h"
 #include "TowerPanel.generated.h"
-
-UENUM(BlueprintType)
-enum class ETowerName : uint8
-{
-	TN_BP_Ballista_C	UMETA(DisplayName = "Ballista"),
-	TN_BP_Cannon_C		UMETA(DisplayName = "Cannon"),
-	TN_BP_Catapult_C	UMETA(DisplayName = "Catapult"),
-	TN_BP_Turret_C		UMETA(DisplayName = "Turret"),
-
-	TN_MAX				UMETA(DisplayName = "DefaultMax")
-};
 
 /**
  * 
@@ -39,19 +31,35 @@ public:
 
 	// Functions for setting up the information on the widget using the passed in tower reference
 	void SetTowerImage();
-	void SetDamageText();
-	void SetRangeText();
+	void SetTowerDetailsTextComponents();
 
 	/***** Only variables declared beyond this point! *****/
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	class UButton* CloseMenuButton;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")
-	class ATowerDefenseGameMode* GameMode;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "References")
-	class ADefaultTower* SelectedTower;
+	// Text blocks displaying the tower information
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UTextBlock* DamageText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UTextBlock* RangeText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UTextBlock* FireRateText;
 
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "References")
-	//TArray<class UPaperSprite*> TowerSprites;
+	// Image variables
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UImage* TowerImage;
+	UPROPERTY(EditDefaultsOnly)
+	UTexture2D* BallistaImage;
+	UPROPERTY(EditDefaultsOnly)
+	UTexture2D* CannonImage;
+	UPROPERTY(EditDefaultsOnly)
+	UTexture2D* CatapultImage;
+	UPROPERTY(EditDefaultsOnly)
+	UTexture2D* TurretImage;
+
+	UPROPERTY(BlueprintReadOnly, Category = "References")
+	class ATowerDefenseGameMode* GameMode;
+	UPROPERTY(BlueprintReadOnly, Category = "References")
+	class ADefaultTower* SelectedTower;
 };

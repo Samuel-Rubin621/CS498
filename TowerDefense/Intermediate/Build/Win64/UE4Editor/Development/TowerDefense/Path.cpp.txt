@@ -6,8 +6,6 @@ F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataT
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\Path.generated.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SplineComponent.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SplineComponent.generated.h
-F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BillboardComponent.h
-F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BillboardComponent.generated.h
 E:\CS498\TowerDefense\Source\TowerDefense\TowerDefenseGameMode.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h

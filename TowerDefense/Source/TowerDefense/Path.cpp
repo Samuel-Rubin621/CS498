@@ -4,7 +4,6 @@
 #include "Path.h"
 #include "GameFramework/Actor.h"
 #include "Components/SplineComponent.h"
-#include "Components/BillboardComponent.h"
 #include "Engine/World.h"
 #include "TowerDefenseGameMode.h"
 
@@ -43,7 +42,6 @@ void APath::BeginPlay()
 	{
 		PathPoints.Add(SplinePath->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World));
 	}
-	PathPoints.RemoveAt(0);
 
 	PreloadNextRound(1);
 }
@@ -77,7 +75,7 @@ void APath::PreloadNextRound(int32 Round)
 
 void APath::StartRound()
 {
-	if (GameMode->bInRound)
+	if (GameMode->bActiveRound)
 	{
 		if (Enemy1.AmountToSpawn > 0 && Enemy1.ClassToSpawn != nullptr)
 		{

@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 // Cross Module References
-	TOWERDEFENSE_API UEnum* Z_Construct_UEnum_TowerDefense_ETowerPositionTargeting();
+	TOWERDEFENSE_API UEnum* Z_Construct_UEnum_TowerDefense_ETowerType();
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
+	TOWERDEFENSE_API UEnum* Z_Construct_UEnum_TowerDefense_ETowerPositionTargeting();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
@@ -30,6 +31,71 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 // End Cross Module References
+	static UEnum* ETowerType_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_TowerDefense_ETowerType, Z_Construct_UPackage__Script_TowerDefense(), TEXT("ETowerType"));
+		}
+		return Singleton;
+	}
+	template<> TOWERDEFENSE_API UEnum* StaticEnum<ETowerType>()
+	{
+		return ETowerType_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ETowerType(ETowerType_StaticEnum, TEXT("/Script/TowerDefense"), TEXT("ETowerType"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_TowerDefense_ETowerType_Hash() { return 3012518180U; }
+	UEnum* Z_Construct_UEnum_TowerDefense_ETowerType()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_TowerDefense();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("ETowerType"), 0, Get_Z_Construct_UEnum_TowerDefense_ETowerType_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "ETowerType::TT_Ballista", (int64)ETowerType::TT_Ballista },
+				{ "ETowerType::TT_Cannon", (int64)ETowerType::TT_Cannon },
+				{ "ETowerType::TT_Catapult", (int64)ETowerType::TT_Catapult },
+				{ "ETowerType::TT_Turret", (int64)ETowerType::TT_Turret },
+				{ "ETowerType::TT_MAX", (int64)ETowerType::TT_MAX },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "DefaultTower.h" },
+				{ "TT_Ballista.DisplayName", "Ballista" },
+				{ "TT_Ballista.Name", "ETowerType::TT_Ballista" },
+				{ "TT_Cannon.DisplayName", "Cannon" },
+				{ "TT_Cannon.Name", "ETowerType::TT_Cannon" },
+				{ "TT_Catapult.DisplayName", "Catapult" },
+				{ "TT_Catapult.Name", "ETowerType::TT_Catapult" },
+				{ "TT_MAX.DisplayName", "DefaultMax" },
+				{ "TT_MAX.Name", "ETowerType::TT_MAX" },
+				{ "TT_Turret.DisplayName", "Turret" },
+				{ "TT_Turret.Name", "ETowerType::TT_Turret" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_TowerDefense,
+				nullptr,
+				"ETowerType",
+				"ETowerType",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	static UEnum* ETowerPositionTargeting_StaticEnum()
 	{
 		static UEnum* Singleton = nullptr;
@@ -575,17 +641,17 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ShootingSound;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerDamage_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_TowerDamage;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Damage;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerFireDamage_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireDamage_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_TowerFireDamage;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_FireDamage;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerFireDelay_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireRate_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_TowerFireDelay;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_FireRate;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerCost_MetaData[];
 #endif
@@ -599,6 +665,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerTargeting_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_TowerTargeting;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_TowerType_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerType_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_TowerType;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyFilter_MetaData[];
 #endif
@@ -683,35 +754,35 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_ShootingSound = { "ShootingSound", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, ShootingSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_ShootingSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_ShootingSound_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerDamage_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_Damage_MetaData[] = {
 		{ "Category", "Tower | Statistics" },
 		{ "Comment", "// Declaration of tower statistics\n" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 		{ "ToolTip", "Declaration of tower statistics" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerDamage = { "TowerDamage", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerDamage), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerDamage_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, Damage), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_Damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_Damage_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDamage_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireDamage_MetaData[] = {
 		{ "Category", "Tower | Statistics" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDamage = { "TowerFireDamage", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerFireDamage), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDamage_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireDamage = { "FireDamage", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, FireDamage), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireDamage_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDelay_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireRate_MetaData[] = {
 		{ "Category", "Tower | Statistics" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDelay = { "TowerFireDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerFireDelay), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDelay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDelay_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireRate = { "FireRate", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, FireRate), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireRate_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost_MetaData[] = {
 		{ "Category", "Tower | Statistics" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost = { "TowerCost", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerCost), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost = { "TowerCost", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerCost), METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_CurrentTargetEnemy_MetaData[] = {
 		{ "Category", "Tower | Combat" },
@@ -725,20 +796,28 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerTargeting_MetaData[] = {
 		{ "Category", "Tower | Combat" },
+		{ "Comment", "// Declaration of enum variables\n" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
+		{ "ToolTip", "Declaration of enum variables" },
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerTargeting = { "TowerTargeting", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerTargeting), Z_Construct_UEnum_TowerDefense_ETowerPositionTargeting, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerTargeting_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerTargeting_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType_MetaData[] = {
 		{ "Category", "Tower | Combat" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter = { "EnemyFilter", nullptr, (EPropertyFlags)0x0014000000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, EnemyFilter), Z_Construct_UClass_ADefaultEnemy_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter_MetaData)) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType = { "TowerType", nullptr, (EPropertyFlags)0x0010000000010005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, TowerType), Z_Construct_UEnum_TowerDefense_ETowerType, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter_MetaData[] = {
+		{ "ModuleRelativePath", "DefaultTower.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter = { "EnemyFilter", nullptr, (EPropertyFlags)0x0014000000000000, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultTower, EnemyFilter), Z_Construct_UClass_ADefaultEnemy_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_MetaData[] = {
-		{ "Category", "Tower | Combat" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 	};
 #endif
@@ -746,10 +825,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 	{
 		((ADefaultTower*)Obj)->bNoOverlappingEnemies = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies = { "bNoOverlappingEnemies", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADefaultTower), &Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies = { "bNoOverlappingEnemies", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADefaultTower), &Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData[] = {
-		{ "Category", "Tower | Combat" },
 		{ "ModuleRelativePath", "DefaultTower.h" },
 	};
 #endif
@@ -757,7 +835,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 	{
 		((ADefaultTower*)Obj)->bReloading = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading = { "bReloading", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADefaultTower), &Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading = { "bReloading", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADefaultTower), &Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultTower_Statics::NewProp_GameMode_MetaData[] = {
 		{ "Category", "References" },
@@ -771,13 +849,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_FiringLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_Projectile,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_ShootingSound,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerDamage,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDamage,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerFireDelay,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_Damage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireDamage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_FireRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerCost,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_CurrentTargetEnemy,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerTargeting_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerTargeting,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_TowerType,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_EnemyFilter,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_bNoOverlappingEnemies,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultTower_Statics::NewProp_bReloading,
@@ -810,7 +890,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultTower() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultTower, 3244144177);
+	IMPLEMENT_CLASS(ADefaultTower, 410939059);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultTower>()
 	{
 		return ADefaultTower::StaticClass();

@@ -24,7 +24,7 @@ ATowerDefenseGameMode::ATowerDefenseGameMode()
 	Money = 1000;
 	Round = 0;
 	bDoneSpawning = false;
-	bInRound = false;
+	bActiveRound = false;
 }
 
 // Called when the game starts or when spawned
@@ -80,7 +80,7 @@ bool ATowerDefenseGameMode::CheckCurrentMoney(int32 Value)
 #pragma region RoundHandler
 void ATowerDefenseGameMode::StartRound()
 {
-	bInRound = true;
+	bActiveRound = true;
 	StartNextRound.Broadcast();
 }
 
@@ -101,7 +101,7 @@ void ATowerDefenseGameMode::EndOfRound()
 	{
 		Round++;
 		EndRound.Broadcast(Round);
-		bInRound = false;
+		bActiveRound = false;
 		bDoneSpawning = false;
 	}
 }

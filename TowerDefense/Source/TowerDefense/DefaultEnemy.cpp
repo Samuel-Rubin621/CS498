@@ -36,7 +36,6 @@ void ADefaultEnemy::BeginPlay()
 
 	EnemyAIController = Cast<AEnemyAIController>(GetController());
 
-	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 }

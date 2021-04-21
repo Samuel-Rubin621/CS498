@@ -17,6 +17,17 @@ enum class ETowerPositionTargeting : uint8
 	TPT_MAX			UMETA(DisplayName = "DefaultMax")
 };
 
+UENUM(BlueprintType)
+enum class ETowerType : uint8
+{
+	TT_Ballista		UMETA(DisplayName = "Ballista"),
+	TT_Cannon		UMETA(DisplayName = "Cannon"),
+	TT_Catapult		UMETA(DisplayName = "Catapult"),
+	TT_Turret		UMETA(DisplayName = "Turret"),
+
+	TT_MAX			UMETA(DisplayName = "DefaultMax")
+};
+
 UCLASS()
 class TOWERDEFENSE_API ADefaultTower : public AActor
 {
@@ -73,25 +84,31 @@ public:
 	class USoundCue* ShootingSound;
 
 	// Declaration of tower statistics
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 TowerDamage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 TowerFireDamage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
-	float TowerFireDelay;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Statistics")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
+	int32 Damage;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
+	int32 FireDamage;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
+	int32 FireRate;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 TowerCost;
 
 	// Declaration of target
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
 	class ADefaultEnemy* CurrentTargetEnemy;
+
+	// Declaration of enum variables
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
 	ETowerPositionTargeting TowerTargeting;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Combat")
+	ETowerType TowerType;
+
+
+	UPROPERTY()
 	TSubclassOf<ADefaultEnemy> EnemyFilter;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tower | Combat")
+	UPROPERTY()
 	bool bNoOverlappingEnemies;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tower | Combat")
+	UPROPERTY()
 	bool bReloading;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")

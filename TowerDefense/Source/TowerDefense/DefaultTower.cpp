@@ -28,9 +28,9 @@ ADefaultTower::ADefaultTower()
 	FiringLocation = CreateDefaultSubobject<USphereComponent>(TEXT("FiringLocation"));
 	FiringLocation->SetupAttachment(GetRootComponent());
 
-	TowerDamage = 1;
-	TowerFireDamage = 0;
-	TowerFireDelay = 2.f;
+	Damage = 100;
+	FireDamage = 0;
+	FireRate = 100;
 
 	bNoOverlappingEnemies = true;
 	bReloading = false;
@@ -193,21 +193,21 @@ void ADefaultTower::Shoot()
 		bReloading = true;
 		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActor<ADefaultProjectile>(Projectile, FiringLocation->GetComponentLocation(), FRotator(0.f));
 		SpawnedProjectile->EnemyLocation = CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation();
-		SpawnedProjectile->Damage = TowerDamage;
+		SpawnedProjectile->Damage = Damage;
 
 		FTimerHandle UnusedHandle;
-		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, TowerFireDelay, false, -1.f);
+		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, float(200 / FireRate), false, -1.f);
 	}
 }
 
 void ADefaultTower::IncreaseDamage(int32 Value)
 {
-	TowerDamage += Value;
+	Damage += Value;
 }
 
 void ADefaultTower::IncreaseFireDamage(int32 Value)
 {
-	TowerFireDamage += Value;
+	FireDamage += Value;
 }
 
 void ADefaultTower::IncreaseRange(float Value)
@@ -217,7 +217,7 @@ void ADefaultTower::IncreaseRange(float Value)
 
 void ADefaultTower::IncreaseFireRate(float Value)
 {
-	TowerFireDelay -= Value;
+	FireRate -= Value;
 }
 
 void ADefaultTower::TowerSelected(AActor* TouchedActor, FKey ButtonPressed)

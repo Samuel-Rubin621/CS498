@@ -70,7 +70,7 @@ public:
 	class UScreenOverlay* ScreenOverlay;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
-	bool bInRound;
+	bool bActiveRound;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
 	bool bDoneSpawning;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")

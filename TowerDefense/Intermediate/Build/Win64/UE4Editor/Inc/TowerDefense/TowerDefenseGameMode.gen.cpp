@@ -544,10 +544,10 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ScreenOverlay;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bInRound_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bActiveRound_MetaData[];
 #endif
-		static void NewProp_bInRound_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bInRound;
+		static void NewProp_bActiveRound_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bActiveRound;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bDoneSpawning_MetaData[];
 #endif
@@ -645,16 +645,16 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay = { "ScreenOverlay", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefenseGameMode, ScreenOverlay), Z_Construct_UClass_UScreenOverlay_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound_MetaData[] = {
 		{ "Category", "Rounds" },
 		{ "ModuleRelativePath", "TowerDefenseGameMode.h" },
 	};
 #endif
-	void Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound_SetBit(void* Obj)
+	void Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound_SetBit(void* Obj)
 	{
-		((ATowerDefenseGameMode*)Obj)->bInRound = 1;
+		((ATowerDefenseGameMode*)Obj)->bActiveRound = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound = { "bInRound", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ATowerDefenseGameMode), &Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound_SetBit, METADATA_PARAMS(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound = { "bActiveRound", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ATowerDefenseGameMode), &Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound_SetBit, METADATA_PARAMS(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bDoneSpawning_MetaData[] = {
 		{ "Category", "Rounds" },
@@ -683,7 +683,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Money,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_Round,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_ScreenOverlay,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bInRound,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bActiveRound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_bDoneSpawning,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_EnemiesSpawnedThisRound_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefenseGameMode_Statics::NewProp_EnemiesSpawnedThisRound,
@@ -715,7 +715,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefenseGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATowerDefenseGameMode, 613357736);
+	IMPLEMENT_CLASS(ATowerDefenseGameMode, 3699022873);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ATowerDefenseGameMode>()
 	{
 		return ATowerDefenseGameMode::StaticClass();

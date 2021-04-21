@@ -24,23 +24,4 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
-	UPROPERTY(VisibleAnywhere)
-	class USceneComponent* Scene;
-	UPROPERTY(EditAnywhere)
-	class UBillboardComponent* StartPoint;
-	UPROPERTY(EditAnywhere)
-	UBillboardComponent* EndPoint;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "References")
-	class ATowerDefenseGameMode* GameMode;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Wave | Spawning")
-	class UDataTable* RoundDataTable;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-	bool bInRound;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-	int32 Round;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wave | Spawning")
-	int32 TotalToSpawnThisRound;
 };

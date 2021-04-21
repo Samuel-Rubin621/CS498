@@ -27,9 +27,12 @@ void AEnemyAIController::OnPossess(APawn* ControlledPawn)
 	
 	// Set the reference to the Enemy.
 	Enemy = Cast<ADefaultEnemy>(GetCharacter());
+	NextPathPoint = 1;
+	FTimerDelegate TimerDelegate;
+	TimerDelegate.BindUFunction(this, FName("MoveToNextPathPoint"), NextPathPoint);
 
 	FTimerHandle UnusedHandle;
-	GetWorldTimerManager().SetTimer(UnusedHandle, this, &AEnemyAIController::MoveToNextPathPoint, 0.1f, false);
+	GetWorldTimerManager().SetTimer(UnusedHandle, TimerDelegate, 0.1f, false);
 }
 
 void AEnemyAIController::Tick(float DeltaSeconds)
@@ -48,10 +51,10 @@ void AEnemyAIController::OnMoveCompleted(FAIRequestID RequestID, const FPathFoll
 {
 	Super::OnMoveCompleted(RequestID, Result);
 
-	PathPoints.RemoveAt(0);
-	if (Enemy->EnemyMovementStatus != EEnemyMovementStatus::EMS_Dead && PathPoints.Num() > 0)
+	NextPathPoint++;
+	if (Enemy->EnemyMovementStatus != EEnemyMovementStatus::EMS_Dead && NextPathPoint < PathPoints.Num())
 	{
-		MoveToNextPathPoint();
+		MoveToNextPathPoint(NextPathPoint);
 	}
 	else
 	{
@@ -63,7 +66,7 @@ void AEnemyAIController::OnMoveCompleted(FAIRequestID RequestID, const FPathFoll
 	}
 }
 
-void AEnemyAIController::MoveToNextPathPoint()
+void AEnemyAIController::MoveToNextPathPoint(int32 NextLocation)
 {
-	MoveToLocation(PathPoints[0]);
+	MoveToLocation(PathPoints[NextLocation]);
 }
