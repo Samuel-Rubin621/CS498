@@ -23,8 +23,6 @@ ADefaultEnemy::ADefaultEnemy()
 	GetCapsuleComponent()->SetCapsuleSize(10.f, 10.f, true);
 	EnemyDamage = 1;
 	EnemyMaxHealth = 1;
-	EnemySpeed = 1;
-
 }
 
 // Called when the game starts or when spawned

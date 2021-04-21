@@ -7,6 +7,7 @@
 #include "Engine/World.h"
 #include "TowerDefensePlayerPawn.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 
 ATowerDefensePlayerController::ATowerDefensePlayerController()
 {
@@ -61,8 +62,7 @@ void ATowerDefensePlayerController::RightMouseUp()
 {
 	bShowMouseCursor = true;
 	bRightMouseDown = false;
-	bEnableMouseOverEvents = true;
-	bEnableClickEvents = true;
+	UWidgetBlueprintLibrary::SetInputMode_GameAndUI(this);
 }
 
 void ATowerDefensePlayerController::LookAround(float Value)

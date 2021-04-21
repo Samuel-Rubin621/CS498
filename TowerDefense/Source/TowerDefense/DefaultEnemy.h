@@ -59,13 +59,11 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
 	float EnemyCurrentHealth;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	float EnemySpeed;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
 	int32 EnemyValue;
 
 	// Variables for movement
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
 	class AEnemyAIController* EnemyAIController;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Enemy | Movement")
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
 	EEnemyMovementStatus EnemyMovementStatus;
 };
