@@ -6,7 +6,7 @@
 
 UTowerPanel::UTowerPanel(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-
+	
 }
 
 void UTowerPanel::NativeConstruct()

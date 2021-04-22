@@ -28,9 +28,8 @@ public:
 	UFUNCTION()
 	void CloseMenuButtonClicked();
 
-	void SetupTowerWidgetInformation(ADefaultTower* TowerOnTile);
-
 	// Functions for setting up the information on the widget using the passed in tower reference
+	void SetupTowerWidgetInformation(ADefaultTower* TowerOnTile);
 	void SetTowerImage();
 	void SetTowerDetailsTextComponents();
 
@@ -60,10 +59,6 @@ public:
 	UTexture2D* CatapultImage;
 	UPROPERTY(EditDefaultsOnly)
 	UTexture2D* TurretImage;
-
-	// Dropdown list for changing the targeting type of the tower
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UComboBoxString* TargetingTypeSelection;
 
 	UPROPERTY(BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;
