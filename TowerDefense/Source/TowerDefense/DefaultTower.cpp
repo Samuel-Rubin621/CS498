@@ -29,7 +29,7 @@ ADefaultTower::ADefaultTower()
 	FiringLocation->SetupAttachment(GetRootComponent());
 
 	Damage = 100;
-	FireDamageRating = 0;
+	FireDamage = 0;
 	FireRate = 100;
 
 	bNoOverlappingEnemies = true;
@@ -191,9 +191,11 @@ void ADefaultTower::Shoot()
 			UGameplayStatics::PlaySound2D(this, ShootingSound);
 		}
 		bReloading = true;
-		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActor<ADefaultProjectile>(Projectile, FiringLocation->GetComponentLocation(), FRotator(0.f));
-		SpawnedProjectile->EnemyLocation = CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation();
-		SpawnedProjectile->Damage = Damage;
+
+		FTransform SpawnLocation = FTransform(FiringLocation->GetComponentLocation());
+		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActorDeferred<ADefaultProjectile>(Projectile, SpawnLocation);
+		SpawnedProjectile->Initialize(Damage, FireDamage, CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation());
+		SpawnedProjectile->FinishSpawning(SpawnLocation);
 
 		FTimerHandle UnusedHandle;
 		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, float(200 / FireRate), false, -1.f);
@@ -205,9 +207,9 @@ void ADefaultTower::IncreaseDamage(int32 Value)
 	Damage += Value;
 }
 
-void ADefaultTower::IncreaseFireDamageRating(int32 Value)
+void ADefaultTower::IncreaseFireDamage(int32 Value)
 {
-	FireDamageRating += Value;
+	FireDamage += Value;
 }
 
 void ADefaultTower::IncreaseRange(float Value)

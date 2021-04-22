@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class USplineComponent;
 #ifdef TOWERDEFENSE_DefaultEnemy_generated_h
 #error "DefaultEnemy.generated.h already included, missing '#pragma once' in DefaultEnemy.h"
 #endif
@@ -16,12 +17,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define TowerDefense_Source_TowerDefense_DefaultEnemy_h_25_SPARSE_DATA
 #define TowerDefense_Source_TowerDefense_DefaultEnemy_h_25_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execDeath);
+	DECLARE_FUNCTION(execDeath); \
+	DECLARE_FUNCTION(execInitialize);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultEnemy_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execDeath);
+	DECLARE_FUNCTION(execDeath); \
+	DECLARE_FUNCTION(execInitialize);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultEnemy_h_25_INCLASS_NO_PURE_DECLS \

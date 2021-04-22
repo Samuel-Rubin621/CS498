@@ -27,21 +27,11 @@ public:
 	// Called every frame.
 	virtual void Tick(float DeltaSeconds) override;
 
-	virtual FRotator GetControlRotation() const override;
-
-	virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
-
-	UFUNCTION()
-	void MoveToNextPathPoint(int32 NextLocation);
-
-
 	/***** Only variables declared beyond this point! *****/
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class ADefaultEnemy* Enemy;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TArray<FVector> PathPoints;
-	int32 NextPathPoint;
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "EnemyMovement")
+	float Distance;
 };

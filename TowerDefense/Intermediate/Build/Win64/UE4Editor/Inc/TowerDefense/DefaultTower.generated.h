@@ -23,7 +23,7 @@ struct FHitResult;
 	DECLARE_FUNCTION(execTowerSelected); \
 	DECLARE_FUNCTION(execIncreaseFireRate); \
 	DECLARE_FUNCTION(execIncreaseRange); \
-	DECLARE_FUNCTION(execIncreaseFireDamageRating); \
+	DECLARE_FUNCTION(execIncreaseFireDamage); \
 	DECLARE_FUNCTION(execIncreaseDamage); \
 	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execGetNewTarget); \
@@ -36,7 +36,7 @@ struct FHitResult;
 	DECLARE_FUNCTION(execTowerSelected); \
 	DECLARE_FUNCTION(execIncreaseFireRate); \
 	DECLARE_FUNCTION(execIncreaseRange); \
-	DECLARE_FUNCTION(execIncreaseFireDamageRating); \
+	DECLARE_FUNCTION(execIncreaseFireDamage); \
 	DECLARE_FUNCTION(execIncreaseDamage); \
 	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execGetNewTarget); \

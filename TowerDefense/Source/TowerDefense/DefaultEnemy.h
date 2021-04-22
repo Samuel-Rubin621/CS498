@@ -28,13 +28,16 @@ public:
 	// Sets default values for this character's properties
 	ADefaultEnemy();
 
+	UFUNCTION()
+	void Initialize(class USplineComponent* SplinePath);
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status) { EnemyMovementStatus = Status; }
 	FORCEINLINE EEnemyMovementStatus GetEnemyMovementStatus() { return EnemyMovementStatus; }
 
-	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	void ApplyDamageFromProjectile(int32 Damage, int32 FireDamage);
 
 	UFUNCTION()
 	void Death();
@@ -66,4 +69,10 @@ public:
 	class AEnemyAIController* EnemyAIController;
 	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
 	EEnemyMovementStatus EnemyMovementStatus;
+
+	// Spline component variables used for moving along the spline in the controller class
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
+	USplineComponent* Path;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
+	FVector LastSplinePointLocation;
 };

@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UComboBoxString_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower_NoRegister();
 // End Cross Module References
@@ -114,6 +115,10 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TurretImage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TurretImage;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TargetingTypeSelection_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TargetingTypeSelection;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
 #endif
@@ -230,6 +235,17 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_TurretImage = { "TurretImage", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, TurretImage), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_TurretImage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_TurretImage_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_TargetingTypeSelection_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TowerPanel" },
+		{ "Comment", "// Dropdown list for changing the targeting type of the tower\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+		{ "ToolTip", "Dropdown list for changing the targeting type of the tower" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_TargetingTypeSelection = { "TargetingTypeSelection", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, TargetingTypeSelection), Z_Construct_UClass_UComboBoxString_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_TargetingTypeSelection_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_TargetingTypeSelection_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_GameMode_MetaData[] = {
 		{ "Category", "References" },
 		{ "ModuleRelativePath", "UI/TowerPanel.h" },
@@ -254,6 +270,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_CannonImage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_CatapultImage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_TurretImage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_TargetingTypeSelection,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_GameMode,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_SelectedTower,
 	};
@@ -284,7 +301,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UTowerPanel, 1008814861);
+	IMPLEMENT_CLASS(UTowerPanel, 2678503733);
 	template<> TOWERDEFENSE_API UClass* StaticClass<UTowerPanel>()
 	{
 		return UTowerPanel::StaticClass();

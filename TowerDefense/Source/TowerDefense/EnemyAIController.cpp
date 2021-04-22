@@ -2,61 +2,43 @@
 
 
 #include "EnemyAIController.h"
-#include "Path.h"
 #include "DefaultEnemy.h"
 #include "TowerDefenseGameMode.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/World.h"
+#include "Components/SplineComponent.h"
 
 AEnemyAIController::AEnemyAIController()
 {
 	// We need this AIController to run its Tick method.
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Setup default variable values
+	Distance = 0;
 }
 
 void AEnemyAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
 }
 
 void AEnemyAIController::OnPossess(APawn* ControlledPawn)
 {
 	Super::OnPossess(ControlledPawn);
 	
-	// Set the reference to the Enemy.
+	// Set the reference to the Enemy
 	Enemy = Cast<ADefaultEnemy>(GetCharacter());
-	NextPathPoint = 1;
-	FTimerDelegate TimerDelegate;
-	TimerDelegate.BindUFunction(this, FName("MoveToNextPathPoint"), NextPathPoint);
-
-	FTimerHandle UnusedHandle;
-	GetWorldTimerManager().SetTimer(UnusedHandle, TimerDelegate, 0.1f, false);
 }
 
 void AEnemyAIController::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-}
 
-FRotator AEnemyAIController::GetControlRotation() const
-{
-	if (GetPawn() == nullptr) return FRotator(0.0f, 0.0f, 0.0f);
+	Distance += (Enemy->GetCharacterMovement()->MaxWalkSpeed * DeltaSeconds);
+	Enemy->SetActorLocation(Enemy->Path->GetLocationAtDistanceAlongSpline(Distance, ESplineCoordinateSpace::World));
 
-	return FRotator(0.0f, GetPawn()->GetActorRotation().Yaw, 0.0f);
-}
-
-void AEnemyAIController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result)
-{
-	Super::OnMoveCompleted(RequestID, Result);
-
-	NextPathPoint++;
-	if (Enemy->EnemyMovementStatus != EEnemyMovementStatus::EMS_Dead && NextPathPoint < PathPoints.Num())
-	{
-		MoveToNextPathPoint(NextPathPoint);
-	}
-	else
+	if (Enemy->LastSplinePointLocation == Enemy->GetActorLocation())
 	{
 		ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 		GameMode->DecreaseLives(Enemy->EnemyDamage);
@@ -64,9 +46,4 @@ void AEnemyAIController::OnMoveCompleted(FAIRequestID RequestID, const FPathFoll
 		Enemy->Destroy();
 		Destroy();
 	}
-}
-
-void AEnemyAIController::MoveToNextPathPoint(int32 NextLocation)
-{
-	MoveToLocation(PathPoints[NextLocation]);
 }

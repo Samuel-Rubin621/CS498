@@ -18,9 +18,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultEnemy();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	ENGINE_API UClass* Z_Construct_UClass_USplineComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_AEnemyAIController_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
 	static UEnum* EEnemyMovementStatus_StaticEnum()
 	{
@@ -94,11 +96,20 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		P_THIS->Death();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ADefaultEnemy::execInitialize)
+	{
+		P_GET_OBJECT(USplineComponent,Z_Param_SplinePath);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Initialize(Z_Param_SplinePath);
+		P_NATIVE_END;
+	}
 	void ADefaultEnemy::StaticRegisterNativesADefaultEnemy()
 	{
 		UClass* Class = ADefaultEnemy::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Death", &ADefaultEnemy::execDeath },
+			{ "Initialize", &ADefaultEnemy::execInitialize },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -121,6 +132,46 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultEnemy_Death_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics
+	{
+		struct DefaultEnemy_eventInitialize_Parms
+		{
+			USplineComponent* SplinePath;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SplinePath_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SplinePath;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::NewProp_SplinePath_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::NewProp_SplinePath = { "SplinePath", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultEnemy_eventInitialize_Parms, SplinePath), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::NewProp_SplinePath_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::NewProp_SplinePath_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::NewProp_SplinePath,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultEnemy, nullptr, "Initialize", nullptr, nullptr, sizeof(DefaultEnemy_eventInitialize_Parms), Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultEnemy_Initialize()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultEnemy_Initialize_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -168,6 +219,14 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyMovementStatus_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_EnemyMovementStatus;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Path_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Path;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LastSplinePointLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_LastSplinePointLocation;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -178,6 +237,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultEnemy_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADefaultEnemy_Death, "Death" }, // 3280357702
+		{ &Z_Construct_UFunction_ADefaultEnemy_Initialize, "Initialize" }, // 3676631606
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::Class_MetaDataParams[] = {
@@ -251,6 +311,23 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMovementStatus = { "EnemyMovementStatus", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyMovementStatus), Z_Construct_UEnum_TowerDefense_EEnemyMovementStatus, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMovementStatus_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMovementStatus_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_Path_MetaData[] = {
+		{ "Category", "Enemy | Movement" },
+		{ "Comment", "// Spline component variables used for moving along the spline in the controller class\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+		{ "ToolTip", "Spline component variables used for moving along the spline in the controller class" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_Path = { "Path", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, Path), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_Path_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_Path_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_LastSplinePointLocation_MetaData[] = {
+		{ "Category", "Enemy | Movement" },
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_LastSplinePointLocation = { "LastSplinePointLocation", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, LastSplinePointLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_LastSplinePointLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_LastSplinePointLocation_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultEnemy_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision,
@@ -261,6 +338,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyAIController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMovementStatus_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMovementStatus,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_Path,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_LastSplinePointLocation,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultEnemy_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultEnemy>::IsAbstract,
@@ -289,7 +368,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultEnemy, 2772131018);
+	IMPLEMENT_CLASS(ADefaultEnemy, 3672842372);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultEnemy>()
 	{
 		return ADefaultEnemy::StaticClass();

@@ -31,7 +31,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefense_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xF090F6AD,
+				0x817EB577,
 				0x4A139535,
 				METADATA_PARAMS(nullptr, 0)
 			};

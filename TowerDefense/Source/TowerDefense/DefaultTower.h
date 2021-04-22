@@ -57,7 +57,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void IncreaseDamage(int32 Value);
 	UFUNCTION(BlueprintCallable)
-	void IncreaseFireDamageRating(int32 Value);
+	void IncreaseFireDamage(int32 Value);
 	UFUNCTION(BlueprintCallable)
 	void IncreaseRange(float Value);
 	UFUNCTION(BlueprintCallable)
@@ -76,6 +76,8 @@ public:
 	class UStaticMeshComponent* TowerMesh;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
 	class USphereComponent* TowerRangeSphere;
+
+	// Variables for projectile spawning
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
 	USphereComponent* FiringLocation;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
@@ -87,7 +89,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 Damage;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 FireDamageRating;
+	int32 FireDamage;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 FireRate;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")

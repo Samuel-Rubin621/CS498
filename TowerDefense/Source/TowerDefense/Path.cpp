@@ -35,14 +35,6 @@ void APath::BeginPlay()
 		GameMode->EndRound.AddDynamic(this, &APath::PreloadNextRound);
 	}
 
-	// Get spline path to pass to enemy
-	int32 NumberOfSplinePoints = SplinePath->GetNumberOfSplinePoints();
-
-	for (int i = 0; i < NumberOfSplinePoints; i++)
-	{
-		PathPoints.Add(SplinePath->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World));
-	}
-
 	PreloadNextRound(1);
 }
 
@@ -120,10 +112,20 @@ void APath::SpawnEnemy(FEnemyData EnemySpawningData)
 
 		if (World)
 		{
-			ADefaultEnemy* EnemySpawned = World->SpawnActor<ADefaultEnemy>(EnemySpawningData.ClassToSpawn,
-				SplinePath->GetLocationAtSplinePoint(0, ESplineCoordinateSpace::World), FRotator(0.f), SpawnParams);
-			EnemySpawned->EnemyAIController->PathPoints = PathPoints;
-			GameMode->EnemiesSpawnedThisRound.Add(EnemySpawned);
+			// Begin spawning an enemy
+			FTransform SpawnLocation = FTransform(SplinePath->GetLocationAtSplinePoint(0, ESplineCoordinateSpace::World));
+			ADefaultEnemy* SpawnedEnemy = World->SpawnActorDeferred<ADefaultEnemy>(EnemySpawningData.ClassToSpawn, SpawnLocation);
+
+			// Send a reference to the spline to the spawned enemy
+			SpawnedEnemy->Initialize(SplinePath);
+
+			// Finish spawning the enemy after passing in the spline
+			SpawnedEnemy->FinishSpawning(SpawnLocation);
+
+			// Add the enemy to a list of enemies stored in the gamemode to keep track of whether the round should end
+			GameMode->EnemiesSpawnedThisRound.Add(SpawnedEnemy);
+
+			// Decrememnt the total amount of enemies to spawn to know when all enemies have been spawned
 			TotalToSpawnThisRound--;
 			if (TotalToSpawnThisRound <= 0)
 			{

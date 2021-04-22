@@ -64,14 +64,11 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class USplineComponent* SplinePath;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Path")
-	TArray<FVector> PathPoints;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Wave | Spawning")
 	class UDataTable* RoundDataTable;

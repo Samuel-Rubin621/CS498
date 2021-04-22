@@ -9,6 +9,7 @@
 #include "Components/TextBlock.h"
 #include "Engine/Texture2D.h"
 #include "TowerDefense/DefaultTower.h"
+#include "Components/ComboBoxString.h"
 #include "TowerPanel.generated.h"
 
 /**
@@ -60,8 +61,12 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	UTexture2D* TurretImage;
 
+	// Dropdown list for changing the targeting type of the tower
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UComboBoxString* TargetingTypeSelection;
+
 	UPROPERTY(BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;
 	UPROPERTY(BlueprintReadOnly, Category = "References")
-	class ADefaultTower* SelectedTower;
+	ADefaultTower* SelectedTower;
 };

@@ -24,7 +24,6 @@ void EmptyLinkFunctionForGeneratedCodePath() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_USplineComponent_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 // End Cross Module References
 class UScriptStruct* FEnemyData::StaticStruct()
@@ -443,11 +442,6 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_PathPoints_Inner;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PathPoints_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_PathPoints;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RoundDataTable_MetaData[];
 #endif
@@ -499,7 +493,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		{ "ModuleRelativePath", "Path.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APath_Statics::NewProp_SplinePath = { "SplinePath", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APath, SplinePath), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APath_Statics::NewProp_SplinePath_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APath_Statics::NewProp_SplinePath_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APath_Statics::NewProp_SplinePath = { "SplinePath", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APath, SplinePath), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APath_Statics::NewProp_SplinePath_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APath_Statics::NewProp_SplinePath_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APath_Statics::NewProp_GameMode_MetaData[] = {
 		{ "Category", "References" },
@@ -507,14 +501,6 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APath_Statics::NewProp_GameMode = { "GameMode", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APath, GameMode), Z_Construct_UClass_ATowerDefenseGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APath_Statics::NewProp_GameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APath_Statics::NewProp_GameMode_MetaData)) };
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_APath_Statics::NewProp_PathPoints_Inner = { "PathPoints", nullptr, (EPropertyFlags)0x0000000000020000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APath_Statics::NewProp_PathPoints_MetaData[] = {
-		{ "Category", "Path" },
-		{ "ModuleRelativePath", "Path.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APath_Statics::NewProp_PathPoints = { "PathPoints", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APath, PathPoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_APath_Statics::NewProp_PathPoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APath_Statics::NewProp_PathPoints_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APath_Statics::NewProp_RoundDataTable_MetaData[] = {
 		{ "Category", "Wave | Spawning" },
@@ -562,8 +548,6 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APath_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_SplinePath,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_GameMode,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_PathPoints_Inner,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_PathPoints,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_RoundDataTable,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_TotalToSpawnThisRound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APath_Statics::NewProp_Enemy1,
@@ -598,7 +582,7 @@ static struct FScriptStruct_TowerDefense_StaticRegisterNativesFRoundInformation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APath, 3625601566);
+	IMPLEMENT_CLASS(APath, 3234877816);
 	template<> TOWERDEFENSE_API UClass* StaticClass<APath>()
 	{
 		return APath::StaticClass();

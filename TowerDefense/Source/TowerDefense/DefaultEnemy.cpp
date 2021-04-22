@@ -2,12 +2,11 @@
 
 
 #include "DefaultEnemy.h"
-#include "Kismet/GameplayStatics.h"
-#include "DefaultStartEnd.h"
 #include "EnemyAIController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
 #include "TowerDefenseGameMode.h"
+#include "Components/SplineComponent.h"
 
 // Sets default values
 ADefaultEnemy::ADefaultEnemy()
@@ -23,6 +22,12 @@ ADefaultEnemy::ADefaultEnemy()
 	GetCapsuleComponent()->SetCapsuleSize(10.f, 10.f, true);
 	EnemyDamage = 1;
 	EnemyMaxHealth = 1;
+}
+
+void ADefaultEnemy::Initialize(USplineComponent* SplinePath)
+{
+	Path = SplinePath;
+	LastSplinePointLocation = Path->GetLocationAtSplinePoint(Path->GetNumberOfSplinePoints() - 1, ESplineCoordinateSpace::World);
 }
 
 // Called when the game starts or when spawned
@@ -45,14 +50,14 @@ void ADefaultEnemy::Tick(float DeltaTime)
 
 }
 
-float ADefaultEnemy::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser)
+void ADefaultEnemy::ApplyDamageFromProjectile(int32 Damage, int32 FireDamage)
 {
-	EnemyCurrentHealth -= DamageAmount;
+	EnemyCurrentHealth -= (Damage + FireDamage);
+
 	if (EnemyCurrentHealth <= 0)
 	{
 		Death();
 	}
-	return DamageAmount;
 }
 
 void ADefaultEnemy::Death()

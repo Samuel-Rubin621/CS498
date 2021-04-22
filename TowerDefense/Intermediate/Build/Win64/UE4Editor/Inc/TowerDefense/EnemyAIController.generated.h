@@ -14,16 +14,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define TOWERDEFENSE_EnemyAIController_generated_h
 
 #define TowerDefense_Source_TowerDefense_EnemyAIController_h_15_SPARSE_DATA
-#define TowerDefense_Source_TowerDefense_EnemyAIController_h_15_RPC_WRAPPERS \
- \
-	DECLARE_FUNCTION(execMoveToNextPathPoint);
-
-
-#define TowerDefense_Source_TowerDefense_EnemyAIController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execMoveToNextPathPoint);
-
-
+#define TowerDefense_Source_TowerDefense_EnemyAIController_h_15_RPC_WRAPPERS
+#define TowerDefense_Source_TowerDefense_EnemyAIController_h_15_RPC_WRAPPERS_NO_PURE_DECLS
 #define TowerDefense_Source_TowerDefense_EnemyAIController_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAEnemyAIController(); \

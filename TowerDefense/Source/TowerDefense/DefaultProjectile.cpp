@@ -4,9 +4,6 @@
 #include "DefaultProjectile.h"
 #include "Components/SphereComponent.h"
 #include "DefaultEnemy.h"
-#include "Kismet/GameplayStatics.h"
-#include "GameFramework/DamageType.h"
-#include "AIController.h"
 
 // Sets default values
 ADefaultProjectile::ADefaultProjectile()
@@ -21,16 +18,17 @@ ADefaultProjectile::ADefaultProjectile()
 	OverlapSphere->SetupAttachment(GetRootComponent());
 }
 
+void ADefaultProjectile::Initialize(int32 TowerDamage, int32 TowerFireDamage, FVector LocationOfTarget)
+{
+	Damage = TowerDamage;
+	FireDamage = TowerFireDamage;
+	EnemyLocation = LocationOfTarget;
+}
+
 // Called when the game starts or when spawned
 void ADefaultProjectile::BeginPlay()
 {
 	Super::BeginPlay();
-
-	AIController = Cast<AAIController>(GetController());
-	if (AIController)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController is valid!"));
-	}
 
 	OverlapSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultProjectile::OnProjectileOverlapBegin);
 }
@@ -52,11 +50,8 @@ void ADefaultProjectile::OnProjectileOverlapBegin(UPrimitiveComponent* Overlappe
 	ADefaultEnemy* OverlappingEnemy = Cast<ADefaultEnemy>(OtherActor);
 	if (OverlappingEnemy)
 	{
-		if (DamageTypeClass)
-		{
-			UGameplayStatics::ApplyDamage(OverlappingEnemy, Damage, AIController, this, DamageTypeClass);
-			Destroy();
-		}
+		OverlappingEnemy->ApplyDamageFromProjectile(Damage, FireDamage);
+		Destroy();
 	}
 }
 

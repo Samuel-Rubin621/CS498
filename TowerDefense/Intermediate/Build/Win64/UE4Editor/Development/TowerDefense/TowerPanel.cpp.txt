@@ -118,6 +118,8 @@ F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextWidg
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextBlock.generated.h
 E:\CS498\TowerDefense\Source\TowerDefense/DefaultTower.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\DefaultTower.generated.h
+F:\Epic Games\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/ComboBoxString.h
+F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ComboBoxString.generated.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerPanel.generated.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h

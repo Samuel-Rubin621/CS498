@@ -11,6 +11,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UPrimitiveComponent;
 class AActor;
 struct FHitResult;
+struct FVector;
 #ifdef TOWERDEFENSE_DefaultProjectile_generated_h
 #error "DefaultProjectile.generated.h already included, missing '#pragma once' in DefaultProjectile.h"
 #endif
@@ -19,12 +20,14 @@ struct FHitResult;
 #define TowerDefense_Source_TowerDefense_DefaultProjectile_h_12_SPARSE_DATA
 #define TowerDefense_Source_TowerDefense_DefaultProjectile_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execOnProjectileOverlapBegin);
+	DECLARE_FUNCTION(execOnProjectileOverlapBegin); \
+	DECLARE_FUNCTION(execInitialize);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultProjectile_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnProjectileOverlapBegin);
+	DECLARE_FUNCTION(execOnProjectileOverlapBegin); \
+	DECLARE_FUNCTION(execInitialize);
 
 
 #define TowerDefense_Source_TowerDefense_DefaultProjectile_h_12_INCLASS_NO_PURE_DECLS \

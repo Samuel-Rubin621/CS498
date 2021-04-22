@@ -15,6 +15,9 @@ public:
 	// Sets default values for this actor's properties
 	ADefaultProjectile();
 
+	UFUNCTION()
+	void Initialize(int32 TowerDamage, int32 TowerFireDamage, FVector LocationOfTarget);
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -34,17 +37,15 @@ public:
 	class USphereComponent* OverlapSphere;
 
 	// Declaration of projectile combat variables
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Projectile | Combat")
-	float Damage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile | Combat")
-	TSubclassOf<UDamageType> DamageTypeClass;
+	UPROPERTY()
+	int32 Damage;
+	UPROPERTY()
+	int32 FireDamage;
 
 	// Movement variables
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Projectile | AI")
-	class AAIController* AIController;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Projectile | AI")
+	UPROPERTY(BlueprintReadOnly)
 	FVector EnemyLocation;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Projectile | AI")
+	UPROPERTY(BlueprintReadOnly)
 	float ProjectileSpeed;
 
 };

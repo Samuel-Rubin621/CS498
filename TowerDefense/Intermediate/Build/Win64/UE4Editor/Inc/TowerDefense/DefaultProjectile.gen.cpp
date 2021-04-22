@@ -17,15 +17,12 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultProjectile();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
-	AIMODULE_API UClass* Z_Construct_UClass_AAIController_NoRegister();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
 	DEFINE_FUNCTION(ADefaultProjectile::execOnProjectileOverlapBegin)
 	{
@@ -40,13 +37,64 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		P_THIS->OnProjectileOverlapBegin(Z_Param_OverlappedComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ADefaultProjectile::execInitialize)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_TowerDamage);
+		P_GET_PROPERTY(FIntProperty,Z_Param_TowerFireDamage);
+		P_GET_STRUCT(FVector,Z_Param_LocationOfTarget);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Initialize(Z_Param_TowerDamage,Z_Param_TowerFireDamage,Z_Param_LocationOfTarget);
+		P_NATIVE_END;
+	}
 	void ADefaultProjectile::StaticRegisterNativesADefaultProjectile()
 	{
 		UClass* Class = ADefaultProjectile::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "Initialize", &ADefaultProjectile::execInitialize },
 			{ "OnProjectileOverlapBegin", &ADefaultProjectile::execOnProjectileOverlapBegin },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics
+	{
+		struct DefaultProjectile_eventInitialize_Parms
+		{
+			int32 TowerDamage;
+			int32 TowerFireDamage;
+			FVector LocationOfTarget;
+		};
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_TowerDamage;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_TowerFireDamage;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_LocationOfTarget;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::NewProp_TowerDamage = { "TowerDamage", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultProjectile_eventInitialize_Parms, TowerDamage), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::NewProp_TowerFireDamage = { "TowerFireDamage", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultProjectile_eventInitialize_Parms, TowerFireDamage), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::NewProp_LocationOfTarget = { "LocationOfTarget", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultProjectile_eventInitialize_Parms, LocationOfTarget), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::NewProp_TowerDamage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::NewProp_TowerFireDamage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::NewProp_LocationOfTarget,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultProjectile.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultProjectile, nullptr, "Initialize", nullptr, nullptr, sizeof(DefaultProjectile_eventInitialize_Parms), Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultProjectile_Initialize()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultProjectile_Initialize_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADefaultProjectile_OnProjectileOverlapBegin_Statics
 	{
@@ -153,15 +201,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Damage;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Damage;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageTypeClass_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireDamage_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_DamageTypeClass;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AIController_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AIController;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_FireDamage;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyLocation_MetaData[];
 #endif
@@ -179,6 +223,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_TowerDefense,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultProjectile_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADefaultProjectile_Initialize, "Initialize" }, // 3100019283
 		{ &Z_Construct_UFunction_ADefaultProjectile_OnProjectileOverlapBegin, "OnProjectileOverlapBegin" }, // 831973480
 	};
 #if WITH_METADATA
@@ -208,49 +253,39 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_OverlapSphere = { "OverlapSphere", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, OverlapSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_OverlapSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_OverlapSphere_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage_MetaData[] = {
-		{ "Category", "Projectile | Combat" },
 		{ "Comment", "// Declaration of projectile combat variables\n" },
 		{ "ModuleRelativePath", "DefaultProjectile.h" },
 		{ "ToolTip", "Declaration of projectile combat variables" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, Damage), METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, Damage), METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_DamageTypeClass_MetaData[] = {
-		{ "Category", "Projectile | Combat" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_FireDamage_MetaData[] = {
 		{ "ModuleRelativePath", "DefaultProjectile.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_DamageTypeClass = { "DamageTypeClass", nullptr, (EPropertyFlags)0x0014000000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, DamageTypeClass), Z_Construct_UClass_UDamageType_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_DamageTypeClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_DamageTypeClass_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_FireDamage = { "FireDamage", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, FireDamage), METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_FireDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_FireDamage_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AIController_MetaData[] = {
-		{ "Category", "Projectile | AI" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation_MetaData[] = {
+		{ "Category", "DefaultProjectile" },
 		{ "Comment", "// Movement variables\n" },
 		{ "ModuleRelativePath", "DefaultProjectile.h" },
 		{ "ToolTip", "Movement variables" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AIController = { "AIController", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, AIController), Z_Construct_UClass_AAIController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AIController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AIController_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation_MetaData[] = {
-		{ "Category", "Projectile | AI" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation = { "EnemyLocation", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, EnemyLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation = { "EnemyLocation", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, EnemyLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed_MetaData[] = {
-		{ "Category", "Projectile | AI" },
+		{ "Category", "DefaultProjectile" },
 		{ "ModuleRelativePath", "DefaultProjectile.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed = { "ProjectileSpeed", nullptr, (EPropertyFlags)0x0010000000010015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, ProjectileSpeed), METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed = { "ProjectileSpeed", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultProjectile, ProjectileSpeed), METADATA_PARAMS(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultProjectile_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_OverlapSphere,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_Damage,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_DamageTypeClass,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AIController,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_FireDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_EnemyLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileSpeed,
 	};
@@ -281,7 +316,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultProjectile, 1042215034);
+	IMPLEMENT_CLASS(ADefaultProjectile, 1747839992);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultProjectile>()
 	{
 		return ADefaultProjectile::StaticClass();
