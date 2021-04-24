@@ -53,16 +53,6 @@ public:
 
 	FORCEINLINE void ReloadingDone() { bReloading = false; }
 
-	// Functions for increasing stats
-	UFUNCTION(BlueprintCallable)
-	void IncreaseDamage(int32 Value);
-	UFUNCTION(BlueprintCallable)
-	void IncreaseFireDamage(int32 Value);
-	UFUNCTION(BlueprintCallable)
-	void IncreaseRange(float Value);
-	UFUNCTION(BlueprintCallable)
-	void IncreaseFireRate(float Value);
-
 	UFUNCTION()
 	void TowerSelected(AActor* TouchedActor, FKey ButtonPressed);
 
@@ -91,7 +81,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 FireDamage;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 FireRate;
+	float FireRate;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 TowerCost;
 

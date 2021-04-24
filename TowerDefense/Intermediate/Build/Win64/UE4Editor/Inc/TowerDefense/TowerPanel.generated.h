@@ -16,11 +16,19 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_SPARSE_DATA
 #define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execIncreaseFireRate); \
+	DECLARE_FUNCTION(execIncreaseRange); \
+	DECLARE_FUNCTION(execIncreaseFireDamage); \
+	DECLARE_FUNCTION(execIncreaseDamage); \
 	DECLARE_FUNCTION(execCloseMenuButtonClicked);
 
 
 #define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execIncreaseFireRate); \
+	DECLARE_FUNCTION(execIncreaseRange); \
+	DECLARE_FUNCTION(execIncreaseFireDamage); \
+	DECLARE_FUNCTION(execIncreaseDamage); \
 	DECLARE_FUNCTION(execCloseMenuButtonClicked);
 
 

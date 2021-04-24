@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define TOWERDEFENSE_TowerDefensePlayerController_generated_h
 
 #define TowerDefense_Source_TowerDefense_TowerDefensePlayerController_h_12_SPARSE_DATA
-#define TowerDefense_Source_TowerDefense_TowerDefensePlayerController_h_12_RPC_WRAPPERS
-#define TowerDefense_Source_TowerDefense_TowerDefensePlayerController_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define TowerDefense_Source_TowerDefense_TowerDefensePlayerController_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execCheatCodeAddMoney);
+
+
+#define TowerDefense_Source_TowerDefense_TowerDefensePlayerController_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execCheatCodeAddMoney);
+
+
 #define TowerDefense_Source_TowerDefense_TowerDefensePlayerController_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATowerDefensePlayerController(); \

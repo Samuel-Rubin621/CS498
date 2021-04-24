@@ -33,10 +33,20 @@ public:
 	void SetTowerImage();
 	void SetTowerDetailsTextComponents();
 
+	// Functions for increasing tower stats
+	UFUNCTION()
+	void IncreaseDamage();
+	UFUNCTION()
+	void IncreaseFireDamage();
+	UFUNCTION()
+	void IncreaseRange();
+	UFUNCTION()
+	void IncreaseFireRate();
+
 	/***** Only variables declared beyond this point! *****/
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	class UButton* CloseMenuButton;
+	UButton* CloseMenuButton;
 
 	// Text blocks displaying the tower information
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
@@ -59,6 +69,26 @@ public:
 	UTexture2D* CatapultImage;
 	UPROPERTY(EditDefaultsOnly)
 	UTexture2D* TurretImage;
+
+	// Tower upgrade button variables
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UButton* IncreaseDamageButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UButton* IncreaseFireDamageButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UButton* IncreaseRangeButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UButton* IncreaseFireRateButton;
+
+	// Tower upgrade costs that can be changed in the editor
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	int32 DamageIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	int32 FireDamageIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	int32 RangeIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	int32 FireRateIncreaseCost;
 
 	UPROPERTY(BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;

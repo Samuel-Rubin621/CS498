@@ -21,10 +21,6 @@ struct FHitResult;
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_34_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execTowerSelected); \
-	DECLARE_FUNCTION(execIncreaseFireRate); \
-	DECLARE_FUNCTION(execIncreaseRange); \
-	DECLARE_FUNCTION(execIncreaseFireDamage); \
-	DECLARE_FUNCTION(execIncreaseDamage); \
 	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execGetNewTarget); \
 	DECLARE_FUNCTION(execOnRangeOverlapEnd); \
@@ -34,10 +30,6 @@ struct FHitResult;
 #define TowerDefense_Source_TowerDefense_DefaultTower_h_34_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execTowerSelected); \
-	DECLARE_FUNCTION(execIncreaseFireRate); \
-	DECLARE_FUNCTION(execIncreaseRange); \
-	DECLARE_FUNCTION(execIncreaseFireDamage); \
-	DECLARE_FUNCTION(execIncreaseDamage); \
 	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execGetNewTarget); \
 	DECLARE_FUNCTION(execOnRangeOverlapEnd); \

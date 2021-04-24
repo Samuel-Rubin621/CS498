@@ -18,9 +18,46 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefensePlayerPawn_NoRegister();
+	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ATowerDefensePlayerController::execCheatCodeAddMoney)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CheatCodeAddMoney();
+		P_NATIVE_END;
+	}
 	void ATowerDefensePlayerController::StaticRegisterNativesATowerDefensePlayerController()
 	{
+		UClass* Class = ATowerDefensePlayerController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "CheatCodeAddMoney", &ATowerDefensePlayerController::execCheatCodeAddMoney },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// End PlayerController interface\n" },
+		{ "ModuleRelativePath", "TowerDefensePlayerController.h" },
+		{ "ToolTip", "End PlayerController interface" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATowerDefensePlayerController, nullptr, "CheatCodeAddMoney", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ATowerDefensePlayerController_NoRegister()
 	{
@@ -29,6 +66,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 	struct Z_Construct_UClass_ATowerDefensePlayerController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -36,6 +74,10 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ControlledPawn_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ControlledPawn;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxZoomIn_MetaData[];
 #endif
@@ -69,6 +111,9 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 		(UObject* (*)())Z_Construct_UClass_APlayerController,
 		(UObject* (*)())Z_Construct_UPackage__Script_TowerDefense,
 	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ATowerDefensePlayerController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ATowerDefensePlayerController_CheatCodeAddMoney, "CheatCodeAddMoney" }, // 3778572538
+	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayerController_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Collision Rendering Utilities|Transformation" },
@@ -82,6 +127,13 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn = { "ControlledPawn", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayerController, ControlledPawn), Z_Construct_UClass_ATowerDefensePlayerPawn_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode_MetaData[] = {
+		{ "Category", "References" },
+		{ "ModuleRelativePath", "TowerDefensePlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode = { "GameMode", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayerController, GameMode), Z_Construct_UClass_ATowerDefenseGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_MaxZoomIn_MetaData[] = {
 		{ "Category", "Controller" },
@@ -128,6 +180,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ZoomRate = { "ZoomRate", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayerController, ZoomRate), METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ZoomRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ZoomRate_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATowerDefensePlayerController_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_MaxZoomIn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_MaxZoomOut,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_bRightMouseDown,
@@ -143,11 +196,11 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ATowerDefensePlayerController_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::PropPointers),
 		0,
 		0x008002A4u,
@@ -162,7 +215,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATowerDefensePlayerController, 3758440908);
+	IMPLEMENT_CLASS(ATowerDefensePlayerController, 2393529073);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ATowerDefensePlayerController>()
 	{
 		return ATowerDefensePlayerController::StaticClass();

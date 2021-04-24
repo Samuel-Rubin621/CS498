@@ -8,6 +8,7 @@
 #include "TowerDefensePlayerPawn.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
+#include "TowerDefenseGameMode.h"
 
 ATowerDefensePlayerController::ATowerDefensePlayerController()
 {
@@ -27,6 +28,7 @@ void ATowerDefensePlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
+	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 	ControlledPawn = (ATowerDefensePlayerPawn*)AController::GetPawn();
 }
 
@@ -49,7 +51,17 @@ void ATowerDefensePlayerController::SetupInputComponent()
 	InputComponent->BindAxis("LookAround", this, &ATowerDefensePlayerController::LookAround);
 	InputComponent->BindAxis("Zoom", this, &ATowerDefensePlayerController::Zoom);
 
+	// Cheat used for debugging
+	InputComponent->BindAction("CheatAddMoney", IE_Pressed, this, &ATowerDefensePlayerController::CheatCodeAddMoney);
+
 }
+
+void ATowerDefensePlayerController::CheatCodeAddMoney()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Using cheat to add money!"));
+	GameMode->Money += 10000;
+}
+
 
 void ATowerDefensePlayerController::RightMouseDown()
 {
@@ -105,6 +117,7 @@ void ATowerDefensePlayerController::Zoom(float Value)
 {
 	if (Value != 0)
 	{
-		ControlledPawn->CameraBoom->TargetArmLength = FMath::Clamp((ControlledPawn->CameraBoom->TargetArmLength + (Value * ZoomRate)), MaxZoomIn, MaxZoomOut);
+		ControlledPawn->CameraBoom->TargetArmLength = FMath::Clamp((ControlledPawn->CameraBoom->TargetArmLength
+			+ (Value * ZoomRate)), MaxZoomIn, MaxZoomOut);
 	}
 }

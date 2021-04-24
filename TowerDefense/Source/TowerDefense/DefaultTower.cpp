@@ -30,7 +30,7 @@ ADefaultTower::ADefaultTower()
 
 	Damage = 100;
 	FireDamage = 0;
-	FireRate = 100;
+	FireRate = 100.f;
 
 	bNoOverlappingEnemies = true;
 	bReloading = false;
@@ -200,26 +200,6 @@ void ADefaultTower::Shoot()
 		FTimerHandle UnusedHandle;
 		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, float(200 / FireRate), false, -1.f);
 	}
-}
-
-void ADefaultTower::IncreaseDamage(int32 Value)
-{
-	Damage += Value;
-}
-
-void ADefaultTower::IncreaseFireDamage(int32 Value)
-{
-	FireDamage += Value;
-}
-
-void ADefaultTower::IncreaseRange(float Value)
-{
-	TowerRangeSphere->SetSphereRadius(TowerRangeSphere->GetScaledSphereRadius() + Value);
-}
-
-void ADefaultTower::IncreaseFireRate(float Value)
-{
-	FireRate -= Value;
 }
 
 void ADefaultTower::TowerSelected(AActor* TouchedActor, FKey ButtonPressed)

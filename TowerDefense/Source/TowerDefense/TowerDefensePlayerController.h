@@ -33,9 +33,15 @@ protected:
 	virtual void SetupInputComponent() override;
 	// End PlayerController interface
 
+	UFUNCTION()
+	void CheatCodeAddMoney();
+
 public:
 	UPROPERTY()
 	class ATowerDefensePlayerPawn* ControlledPawn;
+
+	UPROPERTY(BlueprintReadOnly, Category = "References")
+	class ATowerDefenseGameMode* GameMode;
 
 	// Variables for using the mouse to zoom and look around
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
