@@ -79,7 +79,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	int32 Damage;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 FireDamage;
+	int32 FireDamageChance;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
 	float FireRate;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
@@ -98,11 +98,12 @@ public:
 
 	UPROPERTY()
 	TSubclassOf<ADefaultEnemy> EnemyFilter;
-	UPROPERTY()
+
+	// Boolean values for checking
 	bool bNoOverlappingEnemies;
-	UPROPERTY()
+	bool bMoreThanOneOverlappingEnemy;
 	bool bReloading;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")
+	UPROPERTY(BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;
 };

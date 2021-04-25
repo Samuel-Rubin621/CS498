@@ -17,28 +17,33 @@ void UTowerPanel::NativeConstruct()
 
 	// Bind all the buttons to functions to create functionality for button clicks
 	CloseMenuButton->OnClicked.AddDynamic(this, &UTowerPanel::CloseMenuButtonClicked);
+
+	// Bind buttons for increasing tower stats
 	IncreaseDamageButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseDamage);
-	IncreaseFireDamageButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseFireDamage);
+	IncreaseFireDamageButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseFireDamageChance);
 	IncreaseRangeButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseRange);
 	IncreaseFireRateButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseFireRate);
 
+	//Bind buttons for changing the targetting type of the tower
+	FirstButton->OnClicked.AddDynamic(this, &UTowerPanel::SetTargetingFirst);
+	LastButton->OnClicked.AddDynamic(this, &UTowerPanel::SetTargetingLast);
+	StrongestButton->OnClicked.AddDynamic(this, &UTowerPanel::SetTargetingStrong);
+	WeakestButton->OnClicked.AddDynamic(this, &UTowerPanel::SetTargetingWeak);
+
 	// Set the tooltips to display when hovering over different on-screen text
 	DamageText->SetToolTipText(FText::FromString("This is the damage of the tower."));
-	FireDamageText->SetToolTipText(FText::FromString("This is the chance of inflicting fire damage."));
+	FireDamageChanceText->SetToolTipText(FText::FromString("This is the chance of inflicting fire damage."));
 	RangeText->SetToolTipText(FText::FromString("This is the tower range."));
 	FireRateText->SetToolTipText(FText::FromString("This is the tower fire rate."));
 }
 
-void UTowerPanel::CloseMenuButtonClicked()
-{
-	SetVisibility(ESlateVisibility::Hidden);
-}
-
+#pragma region Setup Widget Display
 void UTowerPanel::SetupTowerWidgetInformation(ADefaultTower* TowerOnTile)
 {
 	SelectedTower = TowerOnTile;
 	SetTowerImage();
 	SetTowerDetailsTextComponents();
+	SetTargetingButtons();
 }
 
 void UTowerPanel::SetTowerImage()
@@ -68,11 +73,42 @@ void UTowerPanel::SetTowerImage()
 void UTowerPanel::SetTowerDetailsTextComponents()
 {
 	DamageText->SetText(FText::FromString(FString::FromInt(SelectedTower->Damage)));
-	FireDamageText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireDamage)));
+	FireDamageChanceText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireDamageChance) + "%"));
 	RangeText->SetText(FText::FromString(FString::FromInt(SelectedTower->TowerRangeSphere->GetUnscaledSphereRadius())));
 	FireRateText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireRate)));
 }
 
+void UTowerPanel::SetTargetingButtons()
+{
+	FirstButton->SetIsEnabled(true);
+	LastButton->SetIsEnabled(true);
+	StrongestButton->SetIsEnabled(true);
+	WeakestButton->SetIsEnabled(true);
+
+	if (SelectedTower)
+	{
+		switch (SelectedTower->TowerTargeting)
+		{
+		case ETowerPositionTargeting::TPT_First:
+			FirstButton->SetIsEnabled(false);
+			break;
+		case ETowerPositionTargeting::TPT_Last:
+			LastButton->SetIsEnabled(false);
+			break;
+		case ETowerPositionTargeting::TPT_Strongest:
+			StrongestButton->SetIsEnabled(false);
+			break;
+		case ETowerPositionTargeting::TPT_Weakest:
+			WeakestButton->SetIsEnabled(false);
+			break;
+		default:
+			break;
+		}
+	}
+}
+#pragma endregion
+
+#pragma region Increase Tower Stats
 void UTowerPanel::IncreaseDamage()
 {
 	if (GameMode->CheckCurrentMoney(DamageIncreaseCost))
@@ -83,12 +119,13 @@ void UTowerPanel::IncreaseDamage()
 	}
 }
 
-void UTowerPanel::IncreaseFireDamage()
+void UTowerPanel::IncreaseFireDamageChance()
 {
-	if (GameMode->CheckCurrentMoney(FireDamageIncreaseCost))
+	if (GameMode->CheckCurrentMoney(FireDamageIncreaseCost) && SelectedTower->FireDamageChance < 100)
 	{
 		GameMode->DecreaseMoney(FireDamageIncreaseCost);
-		SelectedTower->FireDamage += 10;
+		SelectedTower->FireDamageChance += 10;
+		if (SelectedTower->FireDamageChance > 100) SelectedTower->FireDamageChance = 100;
 		SetTowerDetailsTextComponents();
 	}
 }
@@ -112,3 +149,4 @@ void UTowerPanel::IncreaseFireRate()
 		SetTowerDetailsTextComponents();
 	}
 }
+#pragma endregion

@@ -37,7 +37,7 @@ public:
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status) { EnemyMovementStatus = Status; }
 	FORCEINLINE EEnemyMovementStatus GetEnemyMovementStatus() { return EnemyMovementStatus; }
 
-	void ApplyDamageFromProjectile(int32 Damage, int32 FireDamage);
+	void ApplyDamageFromProjectile(int32 Damage, bool bApplyFireDamage);
 
 	UFUNCTION()
 	void Death();

@@ -29,7 +29,7 @@ ADefaultTower::ADefaultTower()
 	FiringLocation->SetupAttachment(GetRootComponent());
 
 	Damage = 100;
-	FireDamage = 0;
+	FireDamageChance = 0;
 	FireRate = 100.f;
 
 	bNoOverlappingEnemies = true;
@@ -48,6 +48,9 @@ void ADefaultTower::BeginPlay()
 	TowerRangeSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapBegin);
 	TowerRangeSphere->OnComponentEndOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapEnd);
 	OnClicked.AddDynamic(this, &ADefaultTower::TowerSelected);
+
+	TowerTargeting = ETowerPositionTargeting::TPT_First;
+	bMoreThanOneOverlappingEnemy = false;
 }
 
 // Called every frame
@@ -57,6 +60,11 @@ void ADefaultTower::Tick(float DeltaTime)
 
 	if (CurrentTargetEnemy)
 	{
+		if (TowerTargeting == ETowerPositionTargeting::TPT_First || TowerTargeting == ETowerPositionTargeting::TPT_Last)
+		{
+			GetNewTarget();
+		}
+
 		FRotator LookAtRotation = FRotator(0.f, UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), CurrentTargetEnemy->GetActorLocation()).Yaw - 90.f, 0.f);
 		SetActorRotation(LookAtRotation, ETeleportType::None);
 
@@ -83,21 +91,21 @@ void ADefaultTower::OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent
 	}
 	else
 	{
-		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OtherActor);
-		if (NewTargetEnemy)
+		ADefaultEnemy* PossibleNewTarget = Cast<ADefaultEnemy>(OtherActor);
+		if (PossibleNewTarget)
 		{
 			switch (TowerTargeting)
 			{
 			case ETowerPositionTargeting::TPT_Strongest:
-				if (NewTargetEnemy->EnemyMaxHealth > CurrentTargetEnemy->EnemyMaxHealth)
+				if (PossibleNewTarget->EnemyMaxHealth > CurrentTargetEnemy->EnemyMaxHealth)
 				{
-					CurrentTargetEnemy = NewTargetEnemy;
+					CurrentTargetEnemy = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Weakest:
-				if (NewTargetEnemy->EnemyMaxHealth < CurrentTargetEnemy->EnemyMaxHealth)
+				if (PossibleNewTarget->EnemyMaxHealth < CurrentTargetEnemy->EnemyMaxHealth)
 				{
-					CurrentTargetEnemy = NewTargetEnemy;
+					CurrentTargetEnemy = PossibleNewTarget;
 				}
 				break;
 			default:
@@ -118,6 +126,7 @@ void ADefaultTower::OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 			if (ExitingEnemy == CurrentTargetEnemy)
 			{
 				CurrentTargetEnemy = nullptr;
+				GetNewTarget();
 			}
 		}
 	}
@@ -143,42 +152,42 @@ void ADefaultTower::GetNewTarget()
 	}
 	else if (OverlappingEnemies.Num() > 1)
 	{
-		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
+		ADefaultEnemy* NewTarget = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		for (int i = 1; i < OverlappingEnemies.Num(); i++)
 		{
-			ADefaultEnemy* PotentialTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[i]);
+			ADefaultEnemy* PossibleNewTarget = Cast<ADefaultEnemy>(OverlappingEnemies[i]);
 
 			switch (TowerTargeting)
-			{/*
+			{
 			case ETowerPositionTargeting::TPT_First:
-				if ()
+				if (PossibleNewTarget->EnemyAIController->Distance > NewTarget->EnemyAIController->Distance)
 				{
-					
+					NewTarget = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Last:
-				if ()
+				if (PossibleNewTarget->EnemyAIController->Distance < NewTarget->EnemyAIController->Distance)
 				{
-					
+					NewTarget = PossibleNewTarget;
 				}
-				break;*/
+				break;
 			case ETowerPositionTargeting::TPT_Strongest:
-				if (PotentialTargetEnemy->EnemyMaxHealth > NewTargetEnemy->EnemyMaxHealth)
+				if (PossibleNewTarget->EnemyMaxHealth > NewTarget->EnemyMaxHealth)
 				{
-					NewTargetEnemy = PotentialTargetEnemy;
+					NewTarget = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Weakest:
-				if (PotentialTargetEnemy->EnemyMaxHealth < NewTargetEnemy->EnemyMaxHealth)
+				if (PossibleNewTarget->EnemyMaxHealth < NewTarget->EnemyMaxHealth)
 				{
-					NewTargetEnemy = PotentialTargetEnemy;
+					NewTarget = PossibleNewTarget;
 				}
 				break;
 			default:
 				break;
 			}
 		}
-		CurrentTargetEnemy = NewTargetEnemy;
+		CurrentTargetEnemy = NewTarget;
 	}
 }
 
@@ -192,9 +201,14 @@ void ADefaultTower::Shoot()
 		}
 		bReloading = true;
 
+		bool bApplyFireDamage = false;
+		if (FMath::RandRange(0, 100) >= 100 - FireDamageChance) bApplyFireDamage = true;
+
+		
+
 		FTransform SpawnLocation = FTransform(FiringLocation->GetComponentLocation());
 		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActorDeferred<ADefaultProjectile>(Projectile, SpawnLocation);
-		SpawnedProjectile->Initialize(Damage, FireDamage, CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation());
+		SpawnedProjectile->Initialize(Damage, CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation(), bApplyFireDamage);
 		SpawnedProjectile->FinishSpawning(SpawnLocation);
 
 		FTimerHandle UnusedHandle;

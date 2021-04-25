@@ -24,6 +24,34 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UTowerPanel::execSetTargetingWeak)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTargetingWeak();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UTowerPanel::execSetTargetingStrong)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTargetingStrong();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UTowerPanel::execSetTargetingLast)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTargetingLast();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UTowerPanel::execSetTargetingFirst)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTargetingFirst();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UTowerPanel::execIncreaseFireRate)
 	{
 		P_FINISH;
@@ -38,11 +66,11 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		P_THIS->IncreaseRange();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UTowerPanel::execIncreaseFireDamage)
+	DEFINE_FUNCTION(UTowerPanel::execIncreaseFireDamageChance)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->IncreaseFireDamage();
+		P_THIS->IncreaseFireDamageChance();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UTowerPanel::execIncreaseDamage)
@@ -65,9 +93,13 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CloseMenuButtonClicked", &UTowerPanel::execCloseMenuButtonClicked },
 			{ "IncreaseDamage", &UTowerPanel::execIncreaseDamage },
-			{ "IncreaseFireDamage", &UTowerPanel::execIncreaseFireDamage },
+			{ "IncreaseFireDamageChance", &UTowerPanel::execIncreaseFireDamageChance },
 			{ "IncreaseFireRate", &UTowerPanel::execIncreaseFireRate },
 			{ "IncreaseRange", &UTowerPanel::execIncreaseRange },
+			{ "SetTargetingFirst", &UTowerPanel::execSetTargetingFirst },
+			{ "SetTargetingLast", &UTowerPanel::execSetTargetingLast },
+			{ "SetTargetingStrong", &UTowerPanel::execSetTargetingStrong },
+			{ "SetTargetingWeak", &UTowerPanel::execSetTargetingWeak },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -119,7 +151,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage_Statics
+	struct Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance_Statics
 	{
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -127,17 +159,17 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "UI/TowerPanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTowerPanel, nullptr, "IncreaseFireDamage", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTowerPanel, nullptr, "IncreaseFireDamageChance", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -185,6 +217,96 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UTowerPanel_SetTargetingFirst_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTowerPanel_SetTargetingFirst_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Functions for setting the tower targeting type and disabling the appropriate button\n" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+		{ "ToolTip", "Functions for setting the tower targeting type and disabling the appropriate button" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UTowerPanel_SetTargetingFirst_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTowerPanel, nullptr, "SetTargetingFirst", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTowerPanel_SetTargetingFirst_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTowerPanel_SetTargetingFirst_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTowerPanel_SetTargetingFirst()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UTowerPanel_SetTargetingFirst_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UTowerPanel_SetTargetingLast_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTowerPanel_SetTargetingLast_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UTowerPanel_SetTargetingLast_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTowerPanel, nullptr, "SetTargetingLast", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTowerPanel_SetTargetingLast_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTowerPanel_SetTargetingLast_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTowerPanel_SetTargetingLast()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UTowerPanel_SetTargetingLast_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UTowerPanel_SetTargetingStrong_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTowerPanel_SetTargetingStrong_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UTowerPanel_SetTargetingStrong_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTowerPanel, nullptr, "SetTargetingStrong", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTowerPanel_SetTargetingStrong_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTowerPanel_SetTargetingStrong_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTowerPanel_SetTargetingStrong()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UTowerPanel_SetTargetingStrong_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UTowerPanel_SetTargetingWeak_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTowerPanel_SetTargetingWeak_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UTowerPanel_SetTargetingWeak_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTowerPanel, nullptr, "SetTargetingWeak", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTowerPanel_SetTargetingWeak_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTowerPanel_SetTargetingWeak_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTowerPanel_SetTargetingWeak()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UTowerPanel_SetTargetingWeak_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UTowerPanel_NoRegister()
 	{
 		return UTowerPanel::StaticClass();
@@ -213,9 +335,9 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireRateText;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireDamageText_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireDamageChanceText_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireDamageText;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireDamageChanceText;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TowerImage_MetaData[];
 #endif
@@ -253,6 +375,22 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_IncreaseFireRateButton;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FirstButton_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FirstButton;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LastButton_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_LastButton;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StrongestButton_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StrongestButton;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WeakestButton_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_WeakestButton;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageIncreaseCost_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_DamageIncreaseCost;
@@ -287,9 +425,13 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UTowerPanel_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UTowerPanel_CloseMenuButtonClicked, "CloseMenuButtonClicked" }, // 2941571367
 		{ &Z_Construct_UFunction_UTowerPanel_IncreaseDamage, "IncreaseDamage" }, // 1104397183
-		{ &Z_Construct_UFunction_UTowerPanel_IncreaseFireDamage, "IncreaseFireDamage" }, // 1009963260
+		{ &Z_Construct_UFunction_UTowerPanel_IncreaseFireDamageChance, "IncreaseFireDamageChance" }, // 85674813
 		{ &Z_Construct_UFunction_UTowerPanel_IncreaseFireRate, "IncreaseFireRate" }, // 3458625295
 		{ &Z_Construct_UFunction_UTowerPanel_IncreaseRange, "IncreaseRange" }, // 2900987014
+		{ &Z_Construct_UFunction_UTowerPanel_SetTargetingFirst, "SetTargetingFirst" }, // 2268556787
+		{ &Z_Construct_UFunction_UTowerPanel_SetTargetingLast, "SetTargetingLast" }, // 3946544982
+		{ &Z_Construct_UFunction_UTowerPanel_SetTargetingStrong, "SetTargetingStrong" }, // 3833188678
+		{ &Z_Construct_UFunction_UTowerPanel_SetTargetingWeak, "SetTargetingWeak" }, // 3368140310
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::Class_MetaDataParams[] = {
@@ -340,14 +482,14 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText = { "FireRateText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, FireRateText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageChanceText_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "TowerPanel" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "UI/TowerPanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText = { "FireDamageText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, FireDamageText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageChanceText = { "FireDamageChanceText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, FireDamageChanceText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageChanceText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageChanceText_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_TowerImage_MetaData[] = {
 		{ "BindWidget", "" },
@@ -426,6 +568,44 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_IncreaseFireRateButton = { "IncreaseFireRateButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, IncreaseFireRateButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_IncreaseFireRateButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_IncreaseFireRateButton_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_FirstButton_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TowerPanel" },
+		{ "Comment", "// Tower targetting type button variables\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+		{ "ToolTip", "Tower targetting type button variables" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_FirstButton = { "FirstButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, FirstButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FirstButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_FirstButton_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_LastButton_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TowerPanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_LastButton = { "LastButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, LastButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_LastButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_LastButton_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_StrongestButton_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TowerPanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_StrongestButton = { "StrongestButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, StrongestButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_StrongestButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_StrongestButton_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_WeakestButton_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TowerPanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_WeakestButton = { "WeakestButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, WeakestButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_WeakestButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_WeakestButton_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_DamageIncreaseCost_MetaData[] = {
 		{ "Category", "TowerPanel" },
 		{ "Comment", "// Tower upgrade costs that can be changed in the editor\n" },
@@ -458,7 +638,9 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTowerPanel_Statics::NewProp_GameMode_MetaData[] = {
 		{ "Category", "References" },
+		{ "Comment", "// Reference variables\n" },
 		{ "ModuleRelativePath", "UI/TowerPanel.h" },
+		{ "ToolTip", "Reference variables" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTowerPanel_Statics::NewProp_GameMode = { "GameMode", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTowerPanel, GameMode), Z_Construct_UClass_ATowerDefenseGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTowerPanel_Statics::NewProp_GameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTowerPanel_Statics::NewProp_GameMode_MetaData)) };
@@ -474,7 +656,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_DamageText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_RangeText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireRateText,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageChanceText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_TowerImage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_BallistaImage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_CannonImage,
@@ -484,6 +666,10 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_IncreaseFireDamageButton,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_IncreaseRangeButton,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_IncreaseFireRateButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FirstButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_LastButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_StrongestButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_WeakestButton,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_DamageIncreaseCost,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_FireDamageIncreaseCost,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTowerPanel_Statics::NewProp_RangeIncreaseCost,
@@ -518,7 +704,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerPanel() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UTowerPanel, 2841079037);
+	IMPLEMENT_CLASS(UTowerPanel, 1214303051);
 	template<> TOWERDEFENSE_API UClass* StaticClass<UTowerPanel>()
 	{
 		return UTowerPanel::StaticClass();

@@ -18,10 +18,10 @@ ADefaultProjectile::ADefaultProjectile()
 	OverlapSphere->SetupAttachment(GetRootComponent());
 }
 
-void ADefaultProjectile::Initialize(int32 TowerDamage, int32 TowerFireDamage, FVector LocationOfTarget)
+void ADefaultProjectile::Initialize(int32 TowerDamage, FVector LocationOfTarget, bool bFireDamage)
 {
 	Damage = TowerDamage;
-	FireDamage = TowerFireDamage;
+	bApplyFireDamage = bFireDamage;
 	EnemyLocation = LocationOfTarget;
 }
 
@@ -50,7 +50,7 @@ void ADefaultProjectile::OnProjectileOverlapBegin(UPrimitiveComponent* Overlappe
 	ADefaultEnemy* OverlappingEnemy = Cast<ADefaultEnemy>(OtherActor);
 	if (OverlappingEnemy)
 	{
-		OverlappingEnemy->ApplyDamageFromProjectile(Damage, FireDamage);
+		OverlappingEnemy->ApplyDamageFromProjectile(Damage, bApplyFireDamage);
 		Destroy();
 	}
 }

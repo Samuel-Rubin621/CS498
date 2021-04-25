@@ -56,13 +56,6 @@ void ATowerDefensePlayerController::SetupInputComponent()
 
 }
 
-void ATowerDefensePlayerController::CheatCodeAddMoney()
-{
-	UE_LOG(LogTemp, Warning, TEXT("Using cheat to add money!"));
-	GameMode->Money += 10000;
-}
-
-
 void ATowerDefensePlayerController::RightMouseDown()
 {
 	bRightMouseDown = true;
@@ -74,7 +67,7 @@ void ATowerDefensePlayerController::RightMouseUp()
 {
 	bShowMouseCursor = true;
 	bRightMouseDown = false;
-	UWidgetBlueprintLibrary::SetInputMode_GameAndUI(this);
+	UWidgetBlueprintLibrary::SetInputMode_GameAndUIEx(this);
 }
 
 void ATowerDefensePlayerController::LookAround(float Value)
@@ -120,4 +113,10 @@ void ATowerDefensePlayerController::Zoom(float Value)
 		ControlledPawn->CameraBoom->TargetArmLength = FMath::Clamp((ControlledPawn->CameraBoom->TargetArmLength
 			+ (Value * ZoomRate)), MaxZoomIn, MaxZoomOut);
 	}
+}
+
+void ATowerDefensePlayerController::CheatCodeAddMoney()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Using cheat to add money!"));
+	GameMode->Money += 10000;
 }

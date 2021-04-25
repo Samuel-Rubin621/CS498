@@ -16,7 +16,7 @@ public:
 	ADefaultProjectile();
 
 	UFUNCTION()
-	void Initialize(int32 TowerDamage, int32 TowerFireDamage, FVector LocationOfTarget);
+	void Initialize(int32 TowerDamage, FVector LocationOfTarget, bool bApplyFireDamage);
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -40,7 +40,7 @@ public:
 	UPROPERTY()
 	int32 Damage;
 	UPROPERTY()
-	int32 FireDamage;
+	bool bApplyFireDamage;
 
 	// Movement variables
 	UPROPERTY(BlueprintReadOnly)

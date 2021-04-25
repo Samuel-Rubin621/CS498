@@ -50,9 +50,10 @@ void ADefaultEnemy::Tick(float DeltaTime)
 
 }
 
-void ADefaultEnemy::ApplyDamageFromProjectile(int32 Damage, int32 FireDamage)
+void ADefaultEnemy::ApplyDamageFromProjectile(int32 Damage, bool bApplyFireDamage)
 {
-	EnemyCurrentHealth -= (Damage + FireDamage);
+	if (bApplyFireDamage) EnemyCurrentHealth -= (Damage + 20);
+	else EnemyCurrentHealth -= Damage;
 
 	if (EnemyCurrentHealth <= 0)
 	{
