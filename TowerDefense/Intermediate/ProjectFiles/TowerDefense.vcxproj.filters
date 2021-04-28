@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{575DD517-ED75-4C58-9657-E1A9B7A7FDEC}</UniqueIdentifier>
+      <UniqueIdentifier>{EB01DB2A-4E5A-4A1C-B315-C3E0DF72E2A0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{A96AE00D-EC91-4584-ACAD-02DED714A926}</UniqueIdentifier>
+      <UniqueIdentifier>{1CEDFA44-09C4-4C89-9CD7-814C143B357F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{F1881D2B-7E50-473D-9E5D-392C2265709B}</UniqueIdentifier>
+      <UniqueIdentifier>{68D6C2B5-E086-4F4F-B693-AE567BC8E327}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -66,6 +66,12 @@
       <Filter>Source\TowerDefense</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\DefaultTower.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\Enemy.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\Enemy.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\EnemyAIController.cpp">
@@ -108,7 +114,7 @@
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <Filter Include="Source\TowerDefense\UI">
-      <UniqueIdentifier>{BEE72866-8BF9-4B47-8117-97D00E2A3AE3}</UniqueIdentifier>
+      <UniqueIdentifier>{DD5B5947-A7B8-46F2-95D7-069C3BB8EA4D}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\UI\InGameHUD.cpp">
       <Filter>Source\TowerDefense\UI</Filter>
@@ -158,6 +164,5 @@
     <ClInclude Include="..\..\Source\TowerDefense\UI\TowerPanel.h">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClInclude>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

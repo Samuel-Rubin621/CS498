@@ -54,6 +54,15 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
 	class USphereComponent* EnemyBodyCollision;
 
+	// Variables for emitters
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy | Particles")
+	class UParticleSystem* FireParticles;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Particles")
+	class USceneComponent* FireParticlesSpawnLocation;
+	class UParticleSystemComponent* SpawnedParticles;
+	FTimerHandle FireParticlesTimerHandle;
+	FTimerDelegate EndFireEmitter;
+
 	// Declaration of enemy statistics
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
 	int32 EnemyDamage;

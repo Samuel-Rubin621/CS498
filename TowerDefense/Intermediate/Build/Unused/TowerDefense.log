@@ -2,11 +2,11 @@
   Building TowerDefenseEditor...
   Using Visual Studio 2019 14.28.29914 toolchain (F:\Microsoft\Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 4 actions with 12 processes...
-    [1/4] DefaultProjectile.cpp
-    [2/4] UE4Editor-TowerDefense-0013.lib
-       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.exp
-    [3/4] UE4Editor-TowerDefense-0013.dll
-       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.suppressed.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0013.suppressed.exp
+    [1/4] DefaultEnemy.cpp
+    [2/4] UE4Editor-TowerDefense-0001.lib
+       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.exp
+    [3/4] UE4Editor-TowerDefense-0001.dll
+       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.suppressed.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0001.suppressed.exp
     [4/4] TowerDefenseEditor.target
   Total time in Parallel executor: 2.14 seconds
-  Total execution time: 2.87 seconds
+  Total execution time: 2.70 seconds

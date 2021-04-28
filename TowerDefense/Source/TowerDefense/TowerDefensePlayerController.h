@@ -43,6 +43,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy")
+	class UParticleSystem* FireParticles;
+
 	// Variables for using the mouse to zoom and look around
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
 	float MaxZoomIn;

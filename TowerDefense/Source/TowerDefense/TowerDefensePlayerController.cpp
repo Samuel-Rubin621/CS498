@@ -9,6 +9,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "TowerDefenseGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 ATowerDefensePlayerController::ATowerDefensePlayerController()
 {
@@ -117,6 +118,5 @@ void ATowerDefensePlayerController::Zoom(float Value)
 
 void ATowerDefensePlayerController::CheatCodeAddMoney()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Using cheat to add money!"));
-	GameMode->Money += 10000;
+	GameMode->IncreaseMoney(10000);
 }

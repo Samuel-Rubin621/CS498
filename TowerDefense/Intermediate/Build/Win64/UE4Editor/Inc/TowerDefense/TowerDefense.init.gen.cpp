@@ -31,8 +31,8 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefense_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x6E6F6745,
-				0x4A139535,
+				0x725D97D7,
+				0xCF71C0D8,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

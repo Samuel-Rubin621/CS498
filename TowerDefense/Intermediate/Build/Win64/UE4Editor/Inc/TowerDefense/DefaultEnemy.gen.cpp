@@ -21,6 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	ENGINE_API UClass* Z_Construct_UClass_USplineComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_AEnemyAIController_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
@@ -195,6 +197,14 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EnemyBodyCollision;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireParticles_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireParticles;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireParticlesSpawnLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireParticlesSpawnLocation;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyDamage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_EnemyDamage;
@@ -265,6 +275,23 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision = { "EnemyBodyCollision", nullptr, (EPropertyFlags)0x001000000009001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, EnemyBodyCollision), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticles_MetaData[] = {
+		{ "Category", "Enemy | Particles" },
+		{ "Comment", "// Variables for emitters\n" },
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+		{ "ToolTip", "Variables for emitters" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticles = { "FireParticles", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, FireParticles), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticles_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticles_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticlesSpawnLocation_MetaData[] = {
+		{ "Category", "Enemy | Particles" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultEnemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticlesSpawnLocation = { "FireParticlesSpawnLocation", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultEnemy, FireParticlesSpawnLocation), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticlesSpawnLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticlesSpawnLocation_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyDamage_MetaData[] = {
 		{ "Category", "Enemy | Statistics" },
 		{ "Comment", "// Declaration of enemy statistics\n" },
@@ -331,6 +358,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultEnemy_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyBodyCollision,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticles,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_FireParticlesSpawnLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyMaxHealth,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultEnemy_Statics::NewProp_EnemyCurrentHealth,
@@ -368,7 +397,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultEnemy, 3672842372);
+	IMPLEMENT_CLASS(ADefaultEnemy, 1019172062);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ADefaultEnemy>()
 	{
 		return ADefaultEnemy::StaticClass();

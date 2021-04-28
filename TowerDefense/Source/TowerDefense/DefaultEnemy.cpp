@@ -7,6 +7,11 @@
 #include "Components/SphereComponent.h"
 #include "TowerDefenseGameMode.h"
 #include "Components/SplineComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Components/SceneComponent.h"
+#include "Engine/World.h"
+#include "Particles/ParticleSystem.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 ADefaultEnemy::ADefaultEnemy()
@@ -14,10 +19,12 @@ ADefaultEnemy::ADefaultEnemy()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	EnemyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EnemyMesh"));
+	EnemyMesh = CreateDefaultSubobject<UStaticMeshComponent>("EnemyMesh");
 	EnemyMesh->SetupAttachment(GetRootComponent());
-	EnemyBodyCollision = CreateDefaultSubobject<USphereComponent>(TEXT("EnemyBodyCollision"));
+	EnemyBodyCollision = CreateDefaultSubobject<USphereComponent>("EnemyBodyCollision");
 	EnemyBodyCollision->SetupAttachment(EnemyMesh);
+	FireParticlesSpawnLocation = CreateDefaultSubobject<USceneComponent>("EmitterAttachPoint");
+	FireParticlesSpawnLocation->SetupAttachment(EnemyMesh);
 
 	GetCapsuleComponent()->SetCapsuleSize(10.f, 10.f, true);
 	EnemyDamage = 1;
@@ -39,6 +46,15 @@ void ADefaultEnemy::BeginPlay()
 
 	EnemyAIController = Cast<AEnemyAIController>(GetController());
 
+	EndFireEmitter.BindLambda([&]()
+	{
+		if (SpawnedParticles)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("SpawnedParticles is valid!"));
+			SpawnedParticles->Deactivate();
+		}
+	});
+
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 }
@@ -52,11 +68,31 @@ void ADefaultEnemy::Tick(float DeltaTime)
 
 void ADefaultEnemy::ApplyDamageFromProjectile(int32 Damage, bool bApplyFireDamage)
 {
-	if (bApplyFireDamage) EnemyCurrentHealth -= (Damage + 20);
+	if (bApplyFireDamage)
+	{
+		if (FireParticles)
+		{
+			if (!SpawnedParticles)
+			{
+				SpawnedParticles = UGameplayStatics::SpawnEmitterAttached(FireParticles,
+					FireParticlesSpawnLocation, FName("EmitterAttachPosition"));
+
+				GetWorld()->GetTimerManager().SetTimer(FireParticlesTimerHandle, EndFireEmitter, 5.f, false);
+			}
+			else
+			{
+				SpawnedParticles->Activate();
+				GetWorld()->GetTimerManager().ClearTimer(FireParticlesTimerHandle);
+				GetWorld()->GetTimerManager().SetTimer(FireParticlesTimerHandle, EndFireEmitter, 5.f, false);
+			}
+		}
+		EnemyCurrentHealth -= (Damage + 20);
+	}
 	else EnemyCurrentHealth -= Damage;
 
 	if (EnemyCurrentHealth <= 0)
 	{
+		GetWorld()->GetTimerManager().ClearAllTimersForObject(this);
 		Death();
 	}
 }
