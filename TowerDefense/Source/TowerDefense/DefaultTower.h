@@ -40,21 +40,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//Functions called when actors overlap with TowerRangeSphere
-	UFUNCTION()
-	virtual void OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	UFUNCTION()
-	virtual void OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	// Functions called when actors overlap with TowerRangeSphere
+	UFUNCTION() virtual void OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION() virtual void OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
-	UFUNCTION()
-	void GetNewTarget();
-	UFUNCTION()
-	void Shoot();
+	UFUNCTION() void GetNewTarget();
+	UFUNCTION() void Shoot();
 
 	FORCEINLINE void ReloadingDone() { bReloading = false; }
 
-	UFUNCTION()
-	void TowerSelected(AActor* TouchedActor, FKey ButtonPressed);
+	UFUNCTION() void TowerSelected(AActor* TouchedActor, FKey ButtonPressed);
 
 protected:
 	// Called when the game starts or when spawned
@@ -62,48 +57,44 @@ protected:
 
 public:
 	// Declaration of tower components
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
-	class UStaticMeshComponent* TowerMesh;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
-	class USphereComponent* TowerRangeSphere;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes") class UStaticMeshComponent* TowerMesh;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes") class USphereComponent* TowerRangeSphere;
 
 	// Variables for projectile spawning
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
-	USphereComponent* FiringLocation;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
-	TSubclassOf<class ADefaultProjectile> Projectile;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes")
-	class USoundCue* ShootingSound;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes") USphereComponent* FiringLocation;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes") TSubclassOf<class ADefaultProjectile> Projectile;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Attributes") class USoundCue* ShootingSound;
 
-	// Declaration of tower statistics
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 Damage;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 FireDamageChance;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	float FireRate;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics")
-	int32 TowerCost;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 TowerCost;
+
+	// Base tower stats that can be set for each tower subclass
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 Damage;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 FireDamageChance;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float FireRate;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float Range;
+
+	// Max tower stats that can be set for each tower subclass
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 MaxDamage;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 MaxFireDamageChance;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float MaxFireRate;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float MaxRange;
+
 
 	// Declaration of target
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
-	class ADefaultEnemy* CurrentTargetEnemy;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat") class ADefaultEnemy* CurrentTargetEnemy;
 
 	// Declaration of enum variables
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat")
-	ETowerPositionTargeting TowerTargeting;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Combat")
-	ETowerType TowerType;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Tower | Combat") ETowerPositionTargeting TowerTargeting;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Combat") ETowerType TowerType;
 
+	// Used for ensuring that only objects inheriting from ADefaultEnemy can be used as targets
+	UPROPERTY() TSubclassOf<ADefaultEnemy> EnemyFilter;
 
-	UPROPERTY()
-	TSubclassOf<ADefaultEnemy> EnemyFilter;
-
-	// Boolean values for checking
+	// Boolean values for target checking
 	bool bNoOverlappingEnemies;
 	bool bMoreThanOneOverlappingEnemy;
 	bool bReloading;
 
-	UPROPERTY(BlueprintReadOnly, Category = "References")
-	class ATowerDefenseGameMode* GameMode;
+	UPROPERTY(BlueprintReadOnly, Category = "References") class ATowerDefenseGameMode* GameMode;
 };

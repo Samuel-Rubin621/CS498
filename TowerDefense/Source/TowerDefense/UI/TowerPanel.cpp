@@ -76,6 +76,18 @@ void UTowerPanel::SetTowerDetailsTextComponents()
 	FireDamageChanceText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireDamageChance) + "%"));
 	RangeText->SetText(FText::FromString(FString::FromInt(SelectedTower->TowerRangeSphere->GetUnscaledSphereRadius())));
 	FireRateText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireRate)));
+
+	if (SelectedTower->Damage >= SelectedTower->MaxDamage) IncreaseDamageText->SetText(FText::FromString("MAX"));
+	else IncreaseDamageText->SetText(FText::FromString("+ $" + FString::FromInt(DamageIncreaseCost)));
+	
+	if (SelectedTower->FireDamageChance >= SelectedTower->MaxFireDamageChance) IncreaseFireDamageChanceText->SetText(FText::FromString("MAX"));
+	else IncreaseFireDamageChanceText->SetText(FText::FromString("+ $" + FString::FromInt(FireDamageIncreaseCost)));
+
+	if (SelectedTower->Range >= SelectedTower->MaxRange) IncreaseRangeText->SetText(FText::FromString("MAX"));
+	else IncreaseRangeText->SetText(FText::FromString("+ $" + FString::FromInt(RangeIncreaseCost)));
+
+	if (SelectedTower->FireRate >= SelectedTower->MaxFireRate) IncreaseFireRateText->SetText(FText::FromString("MAX"));
+	else IncreaseFireRateText->SetText(FText::FromString("+ $" + FString::FromInt(FireRateIncreaseCost)));
 }
 
 void UTowerPanel::SetTargetingButtons()
@@ -111,7 +123,7 @@ void UTowerPanel::SetTargetingButtons()
 #pragma region Increase Tower Stats
 void UTowerPanel::IncreaseDamage()
 {
-	if (GameMode->CheckCurrentMoney(DamageIncreaseCost))
+	if (GameMode->CheckCurrentMoney(DamageIncreaseCost) && SelectedTower->Damage < SelectedTower->MaxDamage)
 	{
 		GameMode->DecreaseMoney(DamageIncreaseCost);
 		SelectedTower->Damage += 10;
@@ -121,7 +133,7 @@ void UTowerPanel::IncreaseDamage()
 
 void UTowerPanel::IncreaseFireDamageChance()
 {
-	if (GameMode->CheckCurrentMoney(FireDamageIncreaseCost) && SelectedTower->FireDamageChance < 100)
+	if (GameMode->CheckCurrentMoney(FireDamageIncreaseCost) && SelectedTower->FireDamageChance < SelectedTower->MaxFireDamageChance)
 	{
 		GameMode->DecreaseMoney(FireDamageIncreaseCost);
 		SelectedTower->FireDamageChance += 10;
@@ -132,17 +144,18 @@ void UTowerPanel::IncreaseFireDamageChance()
 
 void UTowerPanel::IncreaseRange()
 {
-	if (GameMode->CheckCurrentMoney(RangeIncreaseCost))
+	if (GameMode->CheckCurrentMoney(RangeIncreaseCost) && SelectedTower->Range < SelectedTower->MaxRange)
 	{
 		GameMode->DecreaseMoney(RangeIncreaseCost);
-		SelectedTower->TowerRangeSphere->SetSphereRadius(SelectedTower->TowerRangeSphere->GetScaledSphereRadius() + 100);
+		SelectedTower->Range += 100;
+		SelectedTower->TowerRangeSphere->SetSphereRadius(SelectedTower->Range);
 		SetTowerDetailsTextComponents();
 	}
 }
 
 void UTowerPanel::IncreaseFireRate()
 {
-	if (GameMode->CheckCurrentMoney(FireRateIncreaseCost))
+	if (GameMode->CheckCurrentMoney(FireRateIncreaseCost) && SelectedTower->FireRate < SelectedTower->MaxFireRate)
 	{
 		GameMode->DecreaseMoney(FireRateIncreaseCost);
 		SelectedTower->FireRate += 10;

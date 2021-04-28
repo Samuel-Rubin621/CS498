@@ -47,64 +47,47 @@ public:
 
 	/***** Only variables declared beyond this point! *****/
 
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* CloseMenuButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* CloseMenuButton;
 
 	// Text blocks displaying the tower information
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UTextBlock* DamageText;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UTextBlock* RangeText;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UTextBlock* FireRateText;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UTextBlock* FireDamageChanceText;
-
-	// Image variables
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UImage* TowerImage;
-	UPROPERTY(EditDefaultsOnly)
-	UTexture2D* BallistaImage;
-	UPROPERTY(EditDefaultsOnly)
-	UTexture2D* CannonImage;
-	UPROPERTY(EditDefaultsOnly)
-	UTexture2D* CatapultImage;
-	UPROPERTY(EditDefaultsOnly)
-	UTexture2D* TurretImage;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* DamageText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* FireDamageChanceText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* RangeText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* FireRateText;
 
 	// Tower upgrade button variables
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* IncreaseDamageButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* IncreaseFireDamageButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* IncreaseRangeButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* IncreaseFireRateButton;
-
-	// Tower targetting type button variables
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* FirstButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* LastButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* StrongestButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* WeakestButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseDamageButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseFireDamageButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseRangeButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseFireRateButton;
 
 	// Tower upgrade costs that can be changed in the editor
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	int32 DamageIncreaseCost;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	int32 FireDamageIncreaseCost;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	int32 RangeIncreaseCost;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	int32 FireRateIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 DamageIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 FireDamageIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 RangeIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 FireRateIncreaseCost;
+
+	// Tower upgrade cost text variables to indicate if the tower can be upgraded
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseDamageText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseFireDamageChanceText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseRangeText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseFireRateText;
+
+	// Image variable that gets changed to display an image of the selected tower
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UImage* TowerImage;
+
+	UPROPERTY(EditDefaultsOnly) UTexture2D* BallistaImage;
+	UPROPERTY(EditDefaultsOnly) UTexture2D* CannonImage;
+	UPROPERTY(EditDefaultsOnly) UTexture2D* CatapultImage;
+	UPROPERTY(EditDefaultsOnly) UTexture2D* TurretImage;
+
+	// Tower targetting type button variables
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* FirstButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* LastButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* StrongestButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* WeakestButton;
 
 	// Reference variables
-	UPROPERTY(BlueprintReadOnly, Category = "References")
-	class ATowerDefenseGameMode* GameMode;
-	UPROPERTY(BlueprintReadOnly, Category = "References")
-	ADefaultTower* SelectedTower;
+	UPROPERTY(BlueprintReadOnly, Category = "References") class ATowerDefenseGameMode* GameMode;
+	UPROPERTY(BlueprintReadOnly, Category = "References") ADefaultTower* SelectedTower;
 };

@@ -20,20 +20,14 @@ ADefaultTower::ADefaultTower()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	TowerMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TowerMesh"));
+	TowerMesh = CreateDefaultSubobject<UStaticMeshComponent>("TowerMesh");
 	RootComponent = TowerMesh;
-	TowerRangeSphere = CreateDefaultSubobject<USphereComponent>(TEXT("TowerRangeSphere"));
+
+	TowerRangeSphere = CreateDefaultSubobject<USphereComponent>("TowerRangeSphere");
 	TowerRangeSphere->SetupAttachment(GetRootComponent());
-	TowerRangeSphere->SetSphereRadius(1000.f);
-	FiringLocation = CreateDefaultSubobject<USphereComponent>(TEXT("FiringLocation"));
+
+	FiringLocation = CreateDefaultSubobject<USphereComponent>("FiringLocation");
 	FiringLocation->SetupAttachment(GetRootComponent());
-
-	Damage = 100;
-	FireDamageChance = 0;
-	FireRate = 100.f;
-
-	bNoOverlappingEnemies = true;
-	bReloading = false;
 }
 
 // Called when the game starts or when spawned
@@ -45,12 +39,15 @@ void ADefaultTower::BeginPlay()
 
 	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 
+	TowerRangeSphere->SetSphereRadius(Range);
 	TowerRangeSphere->OnComponentBeginOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapBegin);
 	TowerRangeSphere->OnComponentEndOverlap.AddDynamic(this, &ADefaultTower::OnRangeOverlapEnd);
 	OnClicked.AddDynamic(this, &ADefaultTower::TowerSelected);
 
 	TowerTargeting = ETowerPositionTargeting::TPT_First;
 	bMoreThanOneOverlappingEnemy = false;
+	bNoOverlappingEnemies = true;
+	bReloading = false;
 }
 
 // Called every frame
