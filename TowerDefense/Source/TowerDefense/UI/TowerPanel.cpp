@@ -20,7 +20,7 @@ void UTowerPanel::NativeConstruct()
 
 	// Bind buttons for increasing tower stats
 	IncreaseDamageButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseDamage);
-	IncreaseFireDamageButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseFireDamageChance);
+	IncreaseFireChanceButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseFireDamageChance);
 	IncreaseRangeButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseRange);
 	IncreaseFireRateButton->OnClicked.AddDynamic(this, &UTowerPanel::IncreaseFireRate);
 
@@ -32,7 +32,7 @@ void UTowerPanel::NativeConstruct()
 
 	// Set the tooltips to display when hovering over different on-screen text
 	DamageText->SetToolTipText(FText::FromString("This is the damage of the tower."));
-	FireDamageChanceText->SetToolTipText(FText::FromString("This is the chance of inflicting fire damage."));
+	FireChanceText->SetToolTipText(FText::FromString("This is the chance of inflicting fire damage."));
 	RangeText->SetToolTipText(FText::FromString("This is the tower range."));
 	FireRateText->SetToolTipText(FText::FromString("This is the tower fire rate."));
 }
@@ -42,7 +42,7 @@ void UTowerPanel::SetupTowerWidgetInformation(ADefaultTower* TowerOnTile)
 {
 	SelectedTower = TowerOnTile;
 	SetTowerImage();
-	SetTowerDetailsTextComponents();
+	SetTowerDetails();
 	SetTargetingButtons();
 }
 
@@ -54,15 +54,19 @@ void UTowerPanel::SetTowerImage()
 		{
 		case ETowerType::TT_Ballista:
 			TowerImage->SetBrushFromTexture(BallistaImage);
+			TowerName->SetText(FText::FromString("Ballista"));
 			break;
 		case ETowerType::TT_Cannon:
 			TowerImage->SetBrushFromTexture(CannonImage);
+			TowerName->SetText(FText::FromString("Cannon"));
 			break;
 		case ETowerType::TT_Catapult:
 			TowerImage->SetBrushFromTexture(CatapultImage);
+			TowerName->SetText(FText::FromString("Catapult"));
 			break;
 		case ETowerType::TT_Turret:
 			TowerImage->SetBrushFromTexture(TurretImage);
+			TowerName->SetText(FText::FromString("Turret"));
 			break;
 		default:
 			break;
@@ -70,24 +74,29 @@ void UTowerPanel::SetTowerImage()
 	}
 }
 
-void UTowerPanel::SetTowerDetailsTextComponents()
+void UTowerPanel::SetTowerDetails()
 {
 	DamageText->SetText(FText::FromString(FString::FromInt(SelectedTower->Damage)));
-	FireDamageChanceText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireDamageChance) + "%"));
-	RangeText->SetText(FText::FromString(FString::FromInt(SelectedTower->TowerRangeSphere->GetUnscaledSphereRadius())));
+	FireChanceText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireChance) + "%"));
 	FireRateText->SetText(FText::FromString(FString::FromInt(SelectedTower->FireRate)));
+	RangeText->SetText(FText::FromString(FString::FromInt(SelectedTower->Range)));
 
 	if (SelectedTower->Damage >= SelectedTower->MaxDamage) IncreaseDamageText->SetText(FText::FromString("MAX"));
 	else IncreaseDamageText->SetText(FText::FromString("+ $" + FString::FromInt(DamageIncreaseCost)));
 	
-	if (SelectedTower->FireDamageChance >= SelectedTower->MaxFireDamageChance) IncreaseFireDamageChanceText->SetText(FText::FromString("MAX"));
-	else IncreaseFireDamageChanceText->SetText(FText::FromString("+ $" + FString::FromInt(FireDamageIncreaseCost)));
+	if (SelectedTower->FireChance >= SelectedTower->MaxFireChance) IncreaseFireDamageChanceText->SetText(FText::FromString("MAX"));
+	else IncreaseFireDamageChanceText->SetText(FText::FromString("+ $" + FString::FromInt(FireChanceIncreaseCost)));
+
+	if (SelectedTower->FireRate >= SelectedTower->MaxFireRate) IncreaseFireRateText->SetText(FText::FromString("MAX"));
+	else IncreaseFireRateText->SetText(FText::FromString("+ $" + FString::FromInt(FireRateIncreaseCost)));
 
 	if (SelectedTower->Range >= SelectedTower->MaxRange) IncreaseRangeText->SetText(FText::FromString("MAX"));
 	else IncreaseRangeText->SetText(FText::FromString("+ $" + FString::FromInt(RangeIncreaseCost)));
 
-	if (SelectedTower->FireRate >= SelectedTower->MaxFireRate) IncreaseFireRateText->SetText(FText::FromString("MAX"));
-	else IncreaseFireRateText->SetText(FText::FromString("+ $" + FString::FromInt(FireRateIncreaseCost)));
+	DamageProgressBar->SetPercent((float)SelectedTower->Damage / (float)SelectedTower->MaxDamage);
+	FireChanceProgressBar->SetPercent((float)SelectedTower->FireChance / (float)SelectedTower->MaxFireChance);
+	FireRateProgressBar->SetPercent(SelectedTower->FireRate / SelectedTower->MaxFireRate);
+	RangeProgressBar->SetPercent(SelectedTower->Range / SelectedTower->MaxRange);
 }
 
 void UTowerPanel::SetTargetingButtons()
@@ -127,18 +136,18 @@ void UTowerPanel::IncreaseDamage()
 	{
 		GameMode->DecreaseMoney(DamageIncreaseCost);
 		SelectedTower->Damage += 10;
-		SetTowerDetailsTextComponents();
+		SetTowerDetails();
 	}
 }
 
 void UTowerPanel::IncreaseFireDamageChance()
 {
-	if (GameMode->CheckCurrentMoney(FireDamageIncreaseCost) && SelectedTower->FireDamageChance < SelectedTower->MaxFireDamageChance)
+	if (GameMode->CheckCurrentMoney(FireChanceIncreaseCost) && SelectedTower->FireChance < SelectedTower->MaxFireChance)
 	{
-		GameMode->DecreaseMoney(FireDamageIncreaseCost);
-		SelectedTower->FireDamageChance += 10;
-		if (SelectedTower->FireDamageChance > 100) SelectedTower->FireDamageChance = 100;
-		SetTowerDetailsTextComponents();
+		GameMode->DecreaseMoney(FireChanceIncreaseCost);
+		SelectedTower->FireChance += 10;
+		if (SelectedTower->FireChance > 100) SelectedTower->FireChance = 100;
+		SetTowerDetails();
 	}
 }
 
@@ -149,7 +158,7 @@ void UTowerPanel::IncreaseRange()
 		GameMode->DecreaseMoney(RangeIncreaseCost);
 		SelectedTower->Range += 100;
 		SelectedTower->TowerRangeSphere->SetSphereRadius(SelectedTower->Range);
-		SetTowerDetailsTextComponents();
+		SetTowerDetails();
 	}
 }
 
@@ -159,7 +168,7 @@ void UTowerPanel::IncreaseFireRate()
 	{
 		GameMode->DecreaseMoney(FireRateIncreaseCost);
 		SelectedTower->FireRate += 10;
-		SetTowerDetailsTextComponents();
+		SetTowerDetails();
 	}
 }
 #pragma endregion

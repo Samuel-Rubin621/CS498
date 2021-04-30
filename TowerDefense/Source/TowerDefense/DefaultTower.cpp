@@ -199,9 +199,7 @@ void ADefaultTower::Shoot()
 		bReloading = true;
 
 		bool bApplyFireDamage = false;
-		if (FMath::RandRange(0, 100) >= 100 - FireDamageChance) bApplyFireDamage = true;
-
-		
+		if (FMath::RandRange(0, 100) >= 100 - FireChance) bApplyFireDamage = true;
 
 		FTransform SpawnLocation = FTransform(FiringLocation->GetComponentLocation());
 		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActorDeferred<ADefaultProjectile>(Projectile, SpawnLocation);

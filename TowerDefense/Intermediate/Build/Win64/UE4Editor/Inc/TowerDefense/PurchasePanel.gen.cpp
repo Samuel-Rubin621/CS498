@@ -18,6 +18,8 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ADefaultTower_NoRegister();
@@ -280,6 +282,38 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TurretButton;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DamageText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireChanceText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireChanceText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireRateText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireRateText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RangeText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RangeText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageProgressBar_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DamageProgressBar;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireChanceProgressBar_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireChanceProgressBar;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireRateProgressBar_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireRateProgressBar;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RangeProgressBar_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RangeProgressBar;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
@@ -331,7 +365,7 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		{ "ToolTip", "** Only variables declared beyond this point! ****" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_PurchaseButton = { "PurchaseButton", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, PurchaseButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_PurchaseButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_PurchaseButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_PurchaseButton = { "PurchaseButton", nullptr, (EPropertyFlags)0x001000000008000c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, PurchaseButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_PurchaseButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_PurchaseButton_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -340,7 +374,7 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton = { "CloseMenuButton", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, CloseMenuButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton = { "CloseMenuButton", nullptr, (EPropertyFlags)0x001000000008000c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, CloseMenuButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CloseMenuButton_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -349,7 +383,7 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton = { "BallistaButton", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, BallistaButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton = { "BallistaButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, BallistaButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_BallistaButton_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -358,7 +392,7 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton = { "CannonButton", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, CannonButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton = { "CannonButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, CannonButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -367,7 +401,7 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton = { "CatapultButton", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, CatapultButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton = { "CatapultButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, CatapultButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -376,7 +410,81 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton = { "TurretButton", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, TurretButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton = { "TurretButton", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, TurretButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageText_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "Comment", "// Text blocks displaying the tower information\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+		{ "ToolTip", "Text blocks displaying the tower information" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageText = { "DamageText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, DamageText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceText_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceText = { "FireChanceText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, FireChanceText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateText_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateText = { "FireRateText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, FireRateText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeText_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeText = { "RangeText", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, RangeText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageProgressBar_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageProgressBar = { "DamageProgressBar", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, DamageProgressBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageProgressBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageProgressBar_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceProgressBar_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceProgressBar = { "FireChanceProgressBar", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, FireChanceProgressBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceProgressBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceProgressBar_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateProgressBar_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateProgressBar = { "FireRateProgressBar", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, FireRateProgressBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateProgressBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateProgressBar_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeProgressBar_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PurchasePanel" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PurchasePanel.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeProgressBar = { "RangeProgressBar", nullptr, (EPropertyFlags)0x001000000008001c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPurchasePanel, RangeProgressBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeProgressBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeProgressBar_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPurchasePanel_Statics::NewProp_GameMode_MetaData[] = {
 		{ "Category", "References" },
@@ -413,6 +521,14 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CannonButton,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_CatapultButton,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TurretButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_DamageProgressBar,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireChanceProgressBar,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_FireRateProgressBar,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_RangeProgressBar,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_GameMode,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_SelectedTower,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPurchasePanel_Statics::NewProp_TowerClasses_Inner,
@@ -446,7 +562,7 @@ void EmptyLinkFunctionForGeneratedCodePurchasePanel() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPurchasePanel, 4102191896);
+	IMPLEMENT_CLASS(UPurchasePanel, 3068171243);
 	template<> TOWERDEFENSE_API UClass* StaticClass<UPurchasePanel>()
 	{
 		return UPurchasePanel::StaticClass();

@@ -4,6 +4,7 @@
 #include "PurchasePanel.h"
 #include "TowerDefense/TowerDefenseGameMode.h"
 #include "TowerDefense/DefaultGridTile.h"
+#include "TowerDefense/DefaultTower.h"
 
 UPurchasePanel::UPurchasePanel(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -88,14 +89,37 @@ void UPurchasePanel::TurretSelected()
 
 void UPurchasePanel::TowerSelected()
 {
-	if (GameMode)
+	if (SelectedTower)
 	{
-		PurchaseButton->SetIsEnabled(GameMode->CheckCurrentMoney(SelectedTower->GetDefaultObject<ADefaultTower>()->TowerCost));
+		DamageText->SetText(FText::FromString(FString::FromInt(SelectedTower->GetDefaultObject<ADefaultTower>()->Damage)));
+		FireChanceText->SetText(FText::FromString(FString::FromInt(SelectedTower->GetDefaultObject<ADefaultTower>()->FireChance) + "%"));
+		FireRateText->SetText(FText::FromString(FString::FromInt(SelectedTower->GetDefaultObject<ADefaultTower>()->FireRate)));
+		RangeText->SetText(FText::FromString(FString::FromInt(SelectedTower->GetDefaultObject<ADefaultTower>()->Range)));
+
+		DamageProgressBar->SetPercent((float)SelectedTower->GetDefaultObject<ADefaultTower>()->Damage / (float)SelectedTower->GetDefaultObject<ADefaultTower>()->MaxDamage);
+		FireChanceProgressBar->SetPercent((float)SelectedTower->GetDefaultObject<ADefaultTower>()->FireChance / (float)SelectedTower->GetDefaultObject<ADefaultTower>()->MaxFireChance);
+		FireRateProgressBar->SetPercent(SelectedTower->GetDefaultObject<ADefaultTower>()->FireRate / SelectedTower->GetDefaultObject<ADefaultTower>()->MaxFireRate);
+		RangeProgressBar->SetPercent(SelectedTower->GetDefaultObject<ADefaultTower>()->Range / SelectedTower->GetDefaultObject<ADefaultTower>()->MaxRange);
+	
+		if (GameMode)
+		{
+			PurchaseButton->SetIsEnabled(GameMode->CheckCurrentMoney(SelectedTower->GetDefaultObject<ADefaultTower>()->TowerCost));
+		}
 	}
 }
 
 void UPurchasePanel::RefreshWidget(ADefaultGridTile* PassedInTile)
 {
+	DamageText->SetText(FText::FromString("N/A"));
+	FireChanceText->SetText(FText::FromString("N/A"));
+	FireRateText->SetText(FText::FromString("N/A"));
+	RangeText->SetText(FText::FromString("N/A"));
+
+	DamageProgressBar->SetPercent(0.f);
+	FireChanceProgressBar->SetPercent(0.f);
+	FireRateProgressBar->SetPercent(0.f);
+	RangeProgressBar->SetPercent(0.f);
+
 	PurchaseButton->SetIsEnabled(false);
 	SelectedTower = nullptr;
 	SelectedTile = PassedInTile;

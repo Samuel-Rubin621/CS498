@@ -70,13 +70,13 @@ public:
 
 	// Base tower stats that can be set for each tower subclass
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 Damage;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 FireDamageChance;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 FireChance;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float FireRate;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float Range;
 
 	// Max tower stats that can be set for each tower subclass
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 MaxDamage;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 MaxFireDamageChance;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") int32 MaxFireChance;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float MaxFireRate;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tower | Statistics") float MaxRange;
 

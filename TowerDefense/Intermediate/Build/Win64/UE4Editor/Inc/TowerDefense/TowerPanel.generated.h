@@ -13,8 +13,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define TOWERDEFENSE_TowerPanel_generated_h
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_SPARSE_DATA
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_RPC_WRAPPERS \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_SPARSE_DATA
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execSetTargetingWeak); \
 	DECLARE_FUNCTION(execSetTargetingStrong); \
@@ -27,7 +27,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execCloseMenuButtonClicked);
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetTargetingWeak); \
 	DECLARE_FUNCTION(execSetTargetingStrong); \
@@ -40,7 +40,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execCloseMenuButtonClicked);
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_INCLASS_NO_PURE_DECLS \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUTowerPanel(); \
 	friend struct Z_Construct_UClass_UTowerPanel_Statics; \
@@ -49,7 +49,7 @@ public: \
 	DECLARE_SERIALIZER(UTowerPanel)
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_INCLASS \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_INCLASS \
 private: \
 	static void StaticRegisterNativesUTowerPanel(); \
 	friend struct Z_Construct_UClass_UTowerPanel_Statics; \
@@ -58,7 +58,7 @@ public: \
 	DECLARE_SERIALIZER(UTowerPanel)
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_STANDARD_CONSTRUCTORS \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTowerPanel(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTowerPanel) \
@@ -71,7 +71,7 @@ private: \
 public:
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_ENHANCED_CONSTRUCTORS \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UTowerPanel(UTowerPanel&&); \
@@ -82,28 +82,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UTowerPanel); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTowerPanel)
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_PRIVATE_PROPERTY_OFFSET
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_18_PROLOG
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_GENERATED_BODY_LEGACY \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_PRIVATE_PROPERTY_OFFSET
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_19_PROLOG
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_PRIVATE_PROPERTY_OFFSET \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_SPARSE_DATA \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_RPC_WRAPPERS \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_INCLASS \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_STANDARD_CONSTRUCTORS \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_PRIVATE_PROPERTY_OFFSET \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_SPARSE_DATA \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_RPC_WRAPPERS \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_INCLASS \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_GENERATED_BODY \
+#define TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_PRIVATE_PROPERTY_OFFSET \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_SPARSE_DATA \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_INCLASS_NO_PURE_DECLS \
-	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_21_ENHANCED_CONSTRUCTORS \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_PRIVATE_PROPERTY_OFFSET \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_SPARSE_DATA \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_INCLASS_NO_PURE_DECLS \
+	TowerDefense_Source_TowerDefense_UI_TowerPanel_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

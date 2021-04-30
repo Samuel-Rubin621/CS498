@@ -8,6 +8,7 @@
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "Engine/Texture2D.h"
+#include "Components/ProgressBar.h"
 #include "TowerDefense/DefaultTower.h"
 #include "Components/ComboBoxString.h"
 #include "TowerPanel.generated.h"
@@ -27,7 +28,7 @@ public:
 	// Functions for setting up the information on the widget using the passed in tower reference
 	void SetupTowerWidgetInformation(ADefaultTower* TowerOnTile);
 	void SetTowerImage();
-	void SetTowerDetailsTextComponents();
+	void SetTowerDetails();
 	void SetTargetingButtons();
 
 	// Function delegates for pressing a button on the widget
@@ -48,30 +49,36 @@ public:
 	/***** Only variables declared beyond this point! *****/
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* CloseMenuButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* TowerName;
 
 	// Text blocks displaying the tower information
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* DamageText;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* FireDamageChanceText;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* RangeText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* FireChanceText;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* FireRateText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* RangeText;
+
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UProgressBar* DamageProgressBar;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UProgressBar* FireChanceProgressBar;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UProgressBar* FireRateProgressBar;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UProgressBar* RangeProgressBar;
 
 	// Tower upgrade button variables
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseDamageButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseFireDamageButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseRangeButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseFireChanceButton;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseFireRateButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* IncreaseRangeButton;
 
 	// Tower upgrade costs that can be changed in the editor
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 DamageIncreaseCost;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 FireDamageIncreaseCost;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 RangeIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 FireChanceIncreaseCost;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 FireRateIncreaseCost;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite) int32 RangeIncreaseCost;
 
 	// Tower upgrade cost text variables to indicate if the tower can be upgraded
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseDamageText;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseFireDamageChanceText;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseRangeText;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseFireRateText;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UTextBlock* IncreaseRangeText;
 
 	// Image variable that gets changed to display an image of the selected tower
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UImage* TowerImage;
