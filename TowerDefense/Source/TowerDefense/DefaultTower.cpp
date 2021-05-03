@@ -59,6 +59,7 @@ void ADefaultTower::Tick(float DeltaTime)
 	{
 		if (TowerTargeting == ETowerPositionTargeting::TPT_First || TowerTargeting == ETowerPositionTargeting::TPT_Last)
 		{
+			// Constantly check to see if the targeted enemy needs to change
 			GetNewTarget();
 		}
 
@@ -67,6 +68,7 @@ void ADefaultTower::Tick(float DeltaTime)
 
 		if (!bReloading)
 		{
+			// If the timer has expired, the tower can shoot at the target enemy
 			Shoot();
 		}
 	}
@@ -81,7 +83,8 @@ void ADefaultTower::OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent
 	if (!CurrentTargetEnemy)
 	{
 		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OtherActor);
-		if (NewTargetEnemy)
+
+		if (NewTargetEnemy)// Make sure the entered actor is of class ADefaultEnemy
 		{
 			CurrentTargetEnemy = NewTargetEnemy;
 		}
@@ -89,23 +92,26 @@ void ADefaultTower::OnRangeOverlapBegin(UPrimitiveComponent* OverlappedComponent
 	else
 	{
 		ADefaultEnemy* PossibleNewTarget = Cast<ADefaultEnemy>(OtherActor);
-		if (PossibleNewTarget)
+
+		if (PossibleNewTarget) // Make sure the entered actor is of class ADefaultEnemy
 		{
 			switch (TowerTargeting)
 			{
 			case ETowerPositionTargeting::TPT_Strongest:
 				if (PossibleNewTarget->EnemyMaxHealth > CurrentTargetEnemy->EnemyMaxHealth)
 				{
+					// Set new target if the entered enemy has a higher max health and targeting type is strongest
 					CurrentTargetEnemy = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Weakest:
 				if (PossibleNewTarget->EnemyMaxHealth < CurrentTargetEnemy->EnemyMaxHealth)
 				{
+					// Set new target if the entered enemy has a lower max health and targeting type is weakest
 					CurrentTargetEnemy = PossibleNewTarget;
 				}
 				break;
-			default:
+			default: // If targeting type is not strongest or weakest, nothing will happen
 				;
 			}
 		}
@@ -132,15 +138,18 @@ void ADefaultTower::OnRangeOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void ADefaultTower::GetNewTarget()
 {
+	// Get all overlapping actors of class ADefaultEnemy
 	TArray<AActor*> OverlappingEnemies;
 	GetOverlappingActors(OverlappingEnemies, ADefaultEnemy::StaticClass());
 
 	if (OverlappingEnemies.Num() == 0)
 	{
+		// If no overlapping enemies, set boolean to stop checking for enemies
 		bNoOverlappingEnemies = true;
 	}
 	else if (OverlappingEnemies.Num() == 1)
 	{
+		// If only one overlapping enemy, set it as the target
 		ADefaultEnemy* NewTargetEnemy = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		if (NewTargetEnemy)
 		{
@@ -149,6 +158,7 @@ void ADefaultTower::GetNewTarget()
 	}
 	else if (OverlappingEnemies.Num() > 1)
 	{
+		// If more than one overlapping enemy, detmine which enemy to set as the target
 		ADefaultEnemy* NewTarget = Cast<ADefaultEnemy>(OverlappingEnemies[0]);
 		for (int i = 1; i < OverlappingEnemies.Num(); i++)
 		{
@@ -159,28 +169,32 @@ void ADefaultTower::GetNewTarget()
 			case ETowerPositionTargeting::TPT_First:
 				if (PossibleNewTarget->EnemyAIController->Distance > NewTarget->EnemyAIController->Distance)
 				{
+					// Set target if furthest along the path and targeting type is first
 					NewTarget = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Last:
 				if (PossibleNewTarget->EnemyAIController->Distance < NewTarget->EnemyAIController->Distance)
 				{
+					// Set target if least furthest along the path and targeting type is last
 					NewTarget = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Strongest:
 				if (PossibleNewTarget->EnemyMaxHealth > NewTarget->EnemyMaxHealth)
 				{
+					// Set target max health is higher than the current target and targeting type is strongest
 					NewTarget = PossibleNewTarget;
 				}
 				break;
 			case ETowerPositionTargeting::TPT_Weakest:
 				if (PossibleNewTarget->EnemyMaxHealth < NewTarget->EnemyMaxHealth)
 				{
+					// Set target if max health is lower than the current target and targeting type is weakest
 					NewTarget = PossibleNewTarget;
 				}
 				break;
-			default:
+			default: // Default should never execute
 				break;
 			}
 		}
@@ -190,22 +204,26 @@ void ADefaultTower::GetNewTarget()
 
 void ADefaultTower::Shoot()
 {
-	if (Projectile)
+	if (Projectile) // Check if projectile is valid
 	{
 		if (ShootingSound)
 		{
+			// If the tower has a shooting sound, play the shooting sound
 			UGameplayStatics::PlaySound2D(this, ShootingSound);
 		}
 		bReloading = true;
 
 		bool bApplyFireDamage = false;
-		if (FMath::RandRange(0, 100) >= 100 - FireChance) bApplyFireDamage = true;
+		if (FMath::RandRange(0, 100) >= 100 - FireChance) bApplyFireDamage = true; // Generate a random number to determine if fire damage should be applied
 
 		FTransform SpawnLocation = FTransform(FiringLocation->GetComponentLocation());
 		ADefaultProjectile* SpawnedProjectile = GetWorld()->SpawnActorDeferred<ADefaultProjectile>(Projectile, SpawnLocation);
+
+		// Pass in values to the projectile before finishing the spawn
 		SpawnedProjectile->Initialize(Damage, CurrentTargetEnemy->EnemyBodyCollision->GetComponentLocation(), bApplyFireDamage);
 		SpawnedProjectile->FinishSpawning(SpawnLocation);
 
+		// Set delay before the tower is able to fire again
 		FTimerHandle UnusedHandle;
 		GetWorldTimerManager().SetTimer(UnusedHandle, this, &ADefaultTower::ReloadingDone, float(200 / FireRate), false, -1.f);
 	}
@@ -213,6 +231,7 @@ void ADefaultTower::Shoot()
 
 void ADefaultTower::TowerSelected(AActor* TouchedActor, FKey ButtonPressed)
 {
+	// If tower is selected, setup the tower details panel and hide the purchase panel
 	UScreenOverlay* ScreenOverlay = GameMode->ScreenOverlay;
 	ScreenOverlay->PurchasePanel->SetVisibility(ESlateVisibility::Hidden);
 	ScreenOverlay->TowerPanel->SetupTowerWidgetInformation(this);

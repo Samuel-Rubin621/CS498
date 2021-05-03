@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Runtime/UMG/Public/UMG.h"
+#include "Components/Button.h"
 #include "MainMenu.generated.h"
 
 /**
@@ -19,22 +20,15 @@ public:
 
 	virtual void NativeConstruct() override;
 
-	UFUNCTION()
-	void OnPlayButtonPressed();
-	UFUNCTION()
-	void OnSettingsButtonPressed();
-	UFUNCTION()
-	void OnExitButtonPressed();
+	UFUNCTION() void OnPlayButtonPressed();
+	UFUNCTION() void OnSettingsButtonPressed();
+	UFUNCTION() void OnExitButtonPressed();
 
 	/***** Only variables declared beyond this point! *****/
 
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	class UButton* PlayButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* OptionsButton;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
-	UButton* QuitButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* PlayButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* OptionsButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* QuitButton;
 
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<UUserWidget> SettingsWidget;
+	UPROPERTY(EditDefaultsOnly) TSubclassOf<UUserWidget> SettingsWidget;
 };

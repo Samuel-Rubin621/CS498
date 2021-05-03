@@ -7,6 +7,7 @@
 #include "Runtime/UMG/Public/UMG.h"
 #include "TowerPanel.h"
 #include "PurchasePanel.h"
+#include "PauseMenu.h"
 #include "ScreenOverlay.generated.h"
 
 UCLASS()
@@ -18,24 +19,17 @@ public:
 
 	virtual void NativeConstruct() override;
 
-	UFUNCTION()
-	void StartRound();
-	UFUNCTION()
-	void EndRound(int32 Round);
+	UFUNCTION() void StartRound();
+	UFUNCTION() void EndRound(int32 Round);
 
 	/***** Only variables declared beyond this point! *****/
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	class UButton* StartRoundButton;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	class ULives* LivesWidget;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	class UMoney* MoneyWidget;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	class UPurchasePanel* PurchasePanel;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	class UTowerPanel* TowerPanel;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget)) class UButton* StartRoundButton;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget)) class ULives* LivesWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget)) class UMoney* MoneyWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget)) class UPurchasePanel* PurchasePanel;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget)) class UTowerPanel* TowerPanel;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget)) class UPauseMenu* PauseMenu;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References")
-	class ATowerDefenseGameMode* GameMode;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "References") class ATowerDefenseGameMode* GameMode;
 };

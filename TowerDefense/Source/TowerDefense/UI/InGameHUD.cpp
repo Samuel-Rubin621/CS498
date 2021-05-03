@@ -2,6 +2,7 @@
 
 
 #include "InGameHUD.h"
+#include "ScreenOverlay.h"
 
 AInGameHUD::AInGameHUD()
 {

@@ -21,3 +21,10 @@ void USettingsMenu::OnMainMenuButtonPressed()
 	RemoveFromParent();
 	MainMenu->AddToViewport();
 }
+
+void USettingsMenu::SetScreenResolution()
+{
+	
+}
+
+

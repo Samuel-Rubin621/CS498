@@ -2,7 +2,6 @@
 
 #include "TowerDefensePlayerController.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
-#include "Runtime/Engine/Classes/Components/DecalComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Engine/World.h"
 #include "TowerDefensePlayerPawn.h"
@@ -10,6 +9,7 @@
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "TowerDefenseGameMode.h"
 #include "Kismet/GameplayStatics.h"
+#include "UI/ScreenOverlay.h"
 
 ATowerDefensePlayerController::ATowerDefensePlayerController()
 {
@@ -30,6 +30,7 @@ void ATowerDefensePlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
+
 	ControlledPawn = (ATowerDefensePlayerPawn*)AController::GetPawn();
 }
 
@@ -46,6 +47,7 @@ void ATowerDefensePlayerController::SetupInputComponent()
 
 	InputComponent->BindAction("RightMouseButton", IE_Pressed, this, &ATowerDefensePlayerController::RightMouseDown);
 	InputComponent->BindAction("RightMouseButton", IE_Released, this, &ATowerDefensePlayerController::RightMouseUp);
+	InputComponent->BindAction("PauseMenu", IE_Pressed, this, &ATowerDefensePlayerController::PauseMenu);
 
 	InputComponent->BindAxis("MoveForward", this, &ATowerDefensePlayerController::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &ATowerDefensePlayerController::MoveRight);
@@ -54,7 +56,20 @@ void ATowerDefensePlayerController::SetupInputComponent()
 
 	// Cheat used for debugging
 	InputComponent->BindAction("CheatAddMoney", IE_Pressed, this, &ATowerDefensePlayerController::CheatCodeAddMoney);
+}
 
+void ATowerDefensePlayerController::PauseMenu()
+{
+	if (PauseMenuReference)
+	{
+		if (PauseMenuReference->IsVisible()) PauseMenuReference->SetVisibility(ESlateVisibility::Hidden);
+		else PauseMenuReference->SetVisibility(ESlateVisibility::Visible);
+	}
+	else
+	{
+		PauseMenuReference = GameMode->ScreenOverlay->PauseMenu;
+		PauseMenu();
+	}
 }
 
 void ATowerDefensePlayerController::RightMouseDown()

@@ -18,6 +18,7 @@ void UScreenOverlay::NativeConstruct()
 
 	PurchasePanel->SetVisibility(ESlateVisibility::Hidden);
 	TowerPanel->SetVisibility(ESlateVisibility::Hidden);
+	PauseMenu->SetVisibility(ESlateVisibility::Hidden);
 
 	StartRoundButton->OnClicked.AddDynamic(this, &UScreenOverlay::StartRound);
 	GameMode->EndRound.AddDynamic(this, &UScreenOverlay::EndRound);

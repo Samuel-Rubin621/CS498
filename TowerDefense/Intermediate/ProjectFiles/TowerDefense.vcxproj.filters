@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{EB01DB2A-4E5A-4A1C-B315-C3E0DF72E2A0}</UniqueIdentifier>
+      <UniqueIdentifier>{61D45A9E-D69D-4664-AD2B-E5B8401212F4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{1CEDFA44-09C4-4C89-9CD7-814C143B357F}</UniqueIdentifier>
+      <UniqueIdentifier>{2B5A5B34-6E09-4D95-AB01-E437FEC85E4C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{68D6C2B5-E086-4F4F-B693-AE567BC8E327}</UniqueIdentifier>
+      <UniqueIdentifier>{83FC1B6E-4182-489F-97F7-FD3A16BF7C4A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -114,7 +114,7 @@
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <Filter Include="Source\TowerDefense\UI">
-      <UniqueIdentifier>{DD5B5947-A7B8-46F2-95D7-069C3BB8EA4D}</UniqueIdentifier>
+      <UniqueIdentifier>{2FA74BCF-AEE1-406A-8E0B-DE5C7D71361B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\UI\InGameHUD.cpp">
       <Filter>Source\TowerDefense\UI</Filter>
@@ -138,6 +138,12 @@
       <Filter>Source\TowerDefense\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TowerDefense\UI\Money.h">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\UI\PauseMenu.cpp">
+      <Filter>Source\TowerDefense\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\UI\PauseMenu.h">
       <Filter>Source\TowerDefense\UI</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TowerDefense\UI\PurchasePanel.cpp">

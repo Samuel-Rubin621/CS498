@@ -28,8 +28,7 @@ public:
 	// Sets default values for this character's properties
 	ADefaultEnemy();
 
-	UFUNCTION()
-	void Initialize(class USplineComponent* SplinePath);
+	UFUNCTION() void Initialize(class USplineComponent* SplinePath);
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -39,8 +38,7 @@ public:
 
 	void ApplyDamageFromProjectile(int32 Damage, bool bApplyFireDamage);
 
-	UFUNCTION()
-	void Death();
+	UFUNCTION() void Death();
 
 protected:
 	// Called when the game starts or when spawned
@@ -49,39 +47,29 @@ protected:
 public:
 	
 	// Default enemy properties
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
-	class UStaticMeshComponent* EnemyMesh;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy")
-	class USphereComponent* EnemyBodyCollision;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy") class UStaticMeshComponent* EnemyMesh;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy") class USphereComponent* EnemyBodyCollision;
 
 	// Variables for emitters
-	UPROPERTY(EditDefaultsOnly, Category = "Enemy | Particles")
-	class UParticleSystem* FireParticles;
-	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Particles")
-	class USceneComponent* FireParticlesSpawnLocation;
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy | Particles") class UParticleSystem* FireParticles;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Particles") class USceneComponent* FireParticlesSpawnLocation;
 	class UParticleSystemComponent* SpawnedParticles;
 	FTimerHandle FireParticlesTimerHandle;
 	FTimerDelegate EndFireEmitter;
 
 	// Declaration of enemy statistics
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	int32 EnemyDamage;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	float EnemyMaxHealth;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics")
-	float EnemyCurrentHealth;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics")
-	int32 EnemyValue;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics") int32 EnemyDamage;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics") float EnemyMaxHealth;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Enemy | Statistics") float EnemyCurrentHealth;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy | Statistics") int32 EnemyValue;
 
 	// Variables for movement
-	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
-	class AEnemyAIController* EnemyAIController;
-	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
-	EEnemyMovementStatus EnemyMovementStatus;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement") class AEnemyAIController* EnemyAIController;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement") EEnemyMovementStatus EnemyMovementStatus;
 
 	// Spline component variables used for moving along the spline in the controller class
-	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
-	USplineComponent* Path;
-	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement")
-	FVector LastSplinePointLocation;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement") USplineComponent* Path;
+	UPROPERTY(BlueprintReadOnly, Category = "Enemy | Movement") FVector LastSplinePointLocation;
+
+	bool bEnemyIsDead;
 };

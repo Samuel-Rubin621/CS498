@@ -106,6 +106,7 @@ F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DynamicP
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintGeneratedClass.generated.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetComponent.generated.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\InGameHUD.generated.h
 E:\CS498\TowerDefense\Source\TowerDefense\UI\ScreenOverlay.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime/UMG/Public/UMG.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
@@ -1014,5 +1015,6 @@ E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\Defaul
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TowerPanel.generated.h
 E:\CS498\TowerDefense\Source\TowerDefense\UI\PurchasePanel.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\PurchasePanel.generated.h
+E:\CS498\TowerDefense\Source\TowerDefense\UI\PauseMenu.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\PauseMenu.generated.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\ScreenOverlay.generated.h
-E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\InGameHUD.generated.h

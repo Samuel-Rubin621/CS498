@@ -18,7 +18,6 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	UPackage* Z_Construct_UPackage__Script_TowerDefense();
 	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefensePlayerPawn_NoRegister();
-	TOWERDEFENSE_API UClass* Z_Construct_UClass_ATowerDefenseGameMode_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ATowerDefensePlayerController::execCheatCodeAddMoney)
@@ -76,10 +75,6 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ControlledPawn;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameMode_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameMode;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireParticles_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireParticles;
@@ -133,13 +128,6 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn = { "ControlledPawn", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayerController, ControlledPawn), Z_Construct_UClass_ATowerDefensePlayerPawn_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode_MetaData[] = {
-		{ "Category", "References" },
-		{ "ModuleRelativePath", "TowerDefensePlayerController.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode = { "GameMode", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayerController, GameMode), Z_Construct_UClass_ATowerDefenseGameMode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_FireParticles_MetaData[] = {
 		{ "Category", "Enemy" },
 		{ "ModuleRelativePath", "TowerDefensePlayerController.h" },
@@ -192,7 +180,6 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ZoomRate = { "ZoomRate", nullptr, (EPropertyFlags)0x0010000000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATowerDefensePlayerController, ZoomRate), METADATA_PARAMS(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ZoomRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ZoomRate_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATowerDefensePlayerController_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_ControlledPawn,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_GameMode,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_FireParticles,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_MaxZoomIn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATowerDefensePlayerController_Statics::NewProp_MaxZoomOut,
@@ -228,7 +215,7 @@ void EmptyLinkFunctionForGeneratedCodeTowerDefensePlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATowerDefensePlayerController, 1639517167);
+	IMPLEMENT_CLASS(ATowerDefensePlayerController, 3853645688);
 	template<> TOWERDEFENSE_API UClass* StaticClass<ATowerDefensePlayerController>()
 	{
 		return ATowerDefensePlayerController::StaticClass();

@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
 #include "Components/WidgetComponent.h"
-#include "ScreenOverlay.h"
 #include "InGameHUD.generated.h"
 
 /**
@@ -25,8 +24,7 @@ public:
 
 	virtual void Tick(float DeltaSeconds) override;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
-	TSubclassOf<UUserWidget> ScreenOverlayClass;
+	UPROPERTY(EditDefaultsOnly, Category = "Widgets") TSubclassOf<UUserWidget> ScreenOverlayClass;
 
-	UScreenOverlay* ScreenOverlay;
+	class UScreenOverlay* ScreenOverlay;
 };

@@ -29,6 +29,7 @@ ADefaultEnemy::ADefaultEnemy()
 	GetCapsuleComponent()->SetCapsuleSize(10.f, 10.f, true);
 	EnemyDamage = 1;
 	EnemyMaxHealth = 1;
+	bEnemyIsDead = false;
 }
 
 void ADefaultEnemy::Initialize(USplineComponent* SplinePath)
@@ -48,7 +49,7 @@ void ADefaultEnemy::BeginPlay()
 
 	EndFireEmitter.BindLambda([&]()
 	{
-		if (SpawnedParticles)
+		if (SpawnedParticles && !bEnemyIsDead)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("SpawnedParticles is valid!"));
 			SpawnedParticles->Deactivate();
@@ -92,13 +93,14 @@ void ADefaultEnemy::ApplyDamageFromProjectile(int32 Damage, bool bApplyFireDamag
 
 	if (EnemyCurrentHealth <= 0)
 	{
-		GetWorld()->GetTimerManager().ClearAllTimersForObject(this);
 		Death();
 	}
 }
 
 void ADefaultEnemy::Death()
 {
+	bEnemyIsDead = true;
+	GetWorld()->GetTimerManager().ClearTimer(FireParticlesTimerHandle);
 	ATowerDefenseGameMode* GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 	GameMode->IncreaseMoney(EnemyValue);
 	GameMode->RemoveEnemyFromList(this);

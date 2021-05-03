@@ -14,6 +14,8 @@ class ATowerDefensePlayerController : public APlayerController
 public:
 	ATowerDefensePlayerController();
 
+	void PauseMenu();
+
 	// Movement functions
 	void RightMouseDown();
 	void RightMouseUp();
@@ -33,32 +35,23 @@ protected:
 	virtual void SetupInputComponent() override;
 	// End PlayerController interface
 
-	UFUNCTION()
-	void CheatCodeAddMoney();
+	UFUNCTION() void CheatCodeAddMoney();
 
 public:
-	UPROPERTY()
-	class ATowerDefensePlayerPawn* ControlledPawn;
+	UPROPERTY() class ATowerDefensePlayerPawn* ControlledPawn;
 
-	UPROPERTY(BlueprintReadOnly, Category = "References")
 	class ATowerDefenseGameMode* GameMode;
+	class UPauseMenu* PauseMenuReference;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Enemy")
-	class UParticleSystem* FireParticles;
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy") class UParticleSystem* FireParticles;
 
 	// Variables for using the mouse to zoom and look around
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
-	float MaxZoomIn;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller")
-	float MaxZoomOut;
-	UPROPERTY()
-	bool bRightMouseDown;
-	UPROPERTY()
-	float MouseX;
-	UPROPERTY()
-	float MouseY;
-	UPROPERTY()
-	float ZoomRate;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller") float MaxZoomIn;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller") float MaxZoomOut;
+	UPROPERTY() bool bRightMouseDown;
+	UPROPERTY() float MouseX;
+	UPROPERTY() float MouseY;
+	UPROPERTY() float ZoomRate;
 };
 
 
