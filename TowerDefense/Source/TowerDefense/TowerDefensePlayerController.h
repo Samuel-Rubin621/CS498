@@ -19,23 +19,18 @@ public:
 	// Movement functions
 	void RightMouseDown();
 	void RightMouseUp();
-
-	// Functions for moving around the word using WASD
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void LookAround(float Value);
 	void Zoom(float Value);
 
+	void CheatCodeAddMoney();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	// Begin PlayerController interface
 	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
-	// End PlayerController interface
-
-	UFUNCTION() void CheatCodeAddMoney();
 
 public:
 	UPROPERTY() class ATowerDefensePlayerPawn* ControlledPawn;
@@ -43,15 +38,13 @@ public:
 	class ATowerDefenseGameMode* GameMode;
 	class UPauseMenu* PauseMenuReference;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Enemy") class UParticleSystem* FireParticles;
-
 	// Variables for using the mouse to zoom and look around
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller") float MaxZoomIn;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller") float MaxZoomOut;
-	UPROPERTY() bool bRightMouseDown;
-	UPROPERTY() float MouseX;
-	UPROPERTY() float MouseY;
-	UPROPERTY() float ZoomRate;
+	bool bRightMouseDown;
+	float MouseX;
+	float MouseY;
+	float ZoomRate;
 };
 
 

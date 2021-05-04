@@ -1,15 +1,13 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "TowerDefensePlayerController.h"
-#include "Blueprint/AIBlueprintHelperLibrary.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
-#include "Engine/World.h"
 #include "TowerDefensePlayerPawn.h"
+#include "TowerDefenseGameMode.h"
+#include "UI/ScreenOverlay.h"
+#include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
-#include "TowerDefenseGameMode.h"
-#include "Kismet/GameplayStatics.h"
-#include "UI/ScreenOverlay.h"
 
 ATowerDefensePlayerController::ATowerDefensePlayerController()
 {
@@ -72,6 +70,9 @@ void ATowerDefensePlayerController::PauseMenu()
 	}
 }
 
+#pragma region Movement
+
+// Execute when the right mouse button is clicked
 void ATowerDefensePlayerController::RightMouseDown()
 {
 	bRightMouseDown = true;
@@ -79,6 +80,7 @@ void ATowerDefensePlayerController::RightMouseDown()
 	GetMousePosition(MouseX, MouseY);
 }
 
+// Execute when the right mouse button is released
 void ATowerDefensePlayerController::RightMouseUp()
 {
 	bShowMouseCursor = true;
@@ -130,7 +132,16 @@ void ATowerDefensePlayerController::Zoom(float Value)
 			+ (Value * ZoomRate)), MaxZoomIn, MaxZoomOut);
 	}
 }
+#pragma endregion
 
+
+
+
+
+
+
+
+// Cheat to give money to the player
 void ATowerDefensePlayerController::CheatCodeAddMoney()
 {
 	GameMode->IncreaseMoney(10000);

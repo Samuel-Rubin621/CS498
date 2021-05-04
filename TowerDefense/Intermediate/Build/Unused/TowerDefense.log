@@ -1,7 +1,13 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\CS498).
   Building TowerDefenseEditor...
   Using Visual Studio 2019 14.28.29914 toolchain (F:\Microsoft\Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 1 action with 12 processes...
-    [1/1] TowerDefenseEditor.target
-  Total time in Parallel executor: 0.21 seconds
-  Total execution time: 0.84 seconds
+  Building 5 actions with 12 processes...
+    [1/5] DefaultEnemy.cpp
+    [2/5] DefaultTower.cpp
+    [3/5] UE4Editor-TowerDefense-0068.lib
+       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0068.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0068.exp
+    [4/5] UE4Editor-TowerDefense-0068.dll
+       Creating library E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0068.suppressed.lib and object E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Development\TowerDefense\UE4Editor-TowerDefense-0068.suppressed.exp
+    [5/5] TowerDefenseEditor.target
+  Total time in Parallel executor: 12.83 seconds
+  Total execution time: 13.66 seconds

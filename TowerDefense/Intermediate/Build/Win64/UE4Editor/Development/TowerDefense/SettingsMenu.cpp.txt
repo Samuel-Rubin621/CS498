@@ -1008,6 +1008,8 @@ F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\MovieScene\M
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UMGSequenceTickManager.generated.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UMGSequencePlayer.generated.h
 E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\MainMenu.generated.h
+E:\CS498\TowerDefense\Source\TowerDefense/TD_GameInstance.h
+E:\CS498\TowerDefense\Intermediate\Build\Win64\UE4Editor\Inc\TowerDefense\TD_GameInstance.generated.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/SoundClass.h
 F:\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\AudioDynamicParameter.h
 F:\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SoundClass.generated.h

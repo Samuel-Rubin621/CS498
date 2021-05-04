@@ -18,9 +18,11 @@ public:
 
 	virtual void NativeConstruct() override;
 
+	void InitializeDefaults();
+
 	UFUNCTION() void OnMainMenuButtonPressed();
 
-	UFUNCTION() void OnScreenResolutionChanged(FString SelectedItem, ESelectInfo::Type SelectionType);
+	UFUNCTION() void OnScreenResolutionChanged(FString ScreenResolution, ESelectInfo::Type SelectionType);
 
 	UFUNCTION() void OnMusicVolumeChanged(float Value);
 	UFUNCTION() void OnSFXVolumeChanged(float Value);
@@ -45,4 +47,5 @@ public:
 	UPROPERTY(EditDefaultsOnly) TSubclassOf<UUserWidget> MainMenuWidget;
 	class ATowerDefenseGameMode* GameMode;
 	class UMainMenu* MainMenu;
+	class UTD_GameInstance* GameInstance;
 };

@@ -42,7 +42,6 @@ void ADefaultEnemy::Initialize(USplineComponent* SplinePath)
 void ADefaultEnemy::BeginPlay()
 {
 	Super::BeginPlay();
-	AActor::SetFolderPath("Enemies");
 	EnemyCurrentHealth = EnemyMaxHealth;
 
 	EnemyAIController = Cast<AEnemyAIController>(GetController());

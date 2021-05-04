@@ -1,0 +1,273 @@
+{
+	"manifestChunkId": -1,
+	"pluginName": "NativizedAssets",
+	"outputDir": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game",
+	"moduleDependencies": [
+		"Package'/Script/CoreUObject'",
+		"Package'/Script/Engine'",
+		"Package'/Script/SlateCore'",
+		"Package'/Script/MagicLeapARPin'",
+		"Package'/Script/NavigationSystem'",
+		"Package'/Script/TowerDefense'",
+		"Package'/Script/UMG'",
+		"Package'/Script/MovieScene'",
+		"Package'/Script/MovieSceneTracks'",
+		"Package'/Script/AnimGraphRuntime'",
+		"Package'/Script/ClothingSystemRuntimeNv'",
+		"Package'/Script/PhysicsCore'",
+		"Package'/Script/Landscape'",
+		"Package'/Script/StaticMeshDescription'",
+		"Package'/Script/MeshDescription'",
+		"Package'/Script/InputCore'",
+		"Package'/Script/AudioExtensions'",
+		"Package'/Script/AudioPlatformConfiguration'",
+		"Package'/Script/AIModule'",
+		"Package'/Script/GameplayTasks'",
+		"Package'/Script/GameplayTags'",
+		"Package'/Script/ClothingSystemRuntimeInterface'",
+		"Package'/Script/PropertyAccess'",
+		"Package'/Script/PropertyPath'",
+		"Package'/Script/Slate'",
+		"Package'/Script/AudioMixer'"
+	],
+	"convertedAssets":
+	{
+		"/Game/ProIconPack/UI/Enums/E_Sizes.E_Sizes":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedEnum'",
+			"targetObjPath": "/Game/ProIconPack/UI/Enums/E_Sizes.E_Sizes",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/E_Sizes__pf1973725292.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/E_Sizes__pf1973725292.cpp"
+		},
+		"/Game/ProIconPack/UI/Enums/E_IconBaseTypes.E_IconBaseTypes":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedEnum'",
+			"targetObjPath": "/Game/ProIconPack/UI/Enums/E_IconBaseTypes.E_IconBaseTypes",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/E_IconBaseTypes__pf1973725292.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/E_IconBaseTypes__pf1973725292.cpp"
+		},
+		"/Game/ProIconPack/UI/Enums/E_GlassMaskTypes.E_GlassMaskTypes":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedEnum'",
+			"targetObjPath": "/Game/ProIconPack/UI/Enums/E_GlassMaskTypes.E_GlassMaskTypes",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/E_GlassMaskTypes__pf1973725292.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/E_GlassMaskTypes__pf1973725292.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Enum_Themes.Enum_Themes":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedEnum'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Enum_Themes.Enum_Themes",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Enum_Themes__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Enum_Themes__pf3140832796.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Struct_Yellow.Struct_Yellow":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedStruct'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Struct_Yellow.Struct_Yellow",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Struct_Yellow__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Struct_Yellow__pf3140832796.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Struct_Red.Struct_Red":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedStruct'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Struct_Red.Struct_Red",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Struct_Red__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Struct_Red__pf3140832796.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Struct_Purple.Struct_Purple":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedStruct'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Struct_Purple.Struct_Purple",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Struct_Purple__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Struct_Purple__pf3140832796.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Struct_Pink.Struct_Pink":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedStruct'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Struct_Pink.Struct_Pink",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Struct_Pink__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Struct_Pink__pf3140832796.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Struct_Green.Struct_Green":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedStruct'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Struct_Green.Struct_Green",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Struct_Green__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Struct_Green__pf3140832796.cpp"
+		},
+		"/Game/flat_dark_themed_gui/theme_colors/Struct_Black.Struct_Black":
+		{
+			"assetType": "Class'/Script/Engine.UserDefinedStruct'",
+			"targetObjPath": "/Game/flat_dark_themed_gui/theme_colors/Struct_Black.Struct_Black",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Struct_Black__pf3140832796.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Struct_Black__pf3140832796.cpp"
+		},
+		"/MagicLeapPassableWorld/MagicLeapARPinInfoActor.MagicLeapARPinInfoActor_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/MagicLeapPassableWorld/MagicLeapARPinInfoActor.MagicLeapARPinInfoActor_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/MagicLeapARPinInfoActor__pf2635949152.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/MagicLeapARPinInfoActor__pf2635949152.cpp"
+		},
+		"/Game/UserInterface/BP_TowerPanel.BP_TowerPanel_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_TowerPanel.BP_TowerPanel_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_TowerPanel__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_TowerPanel__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_PurchasePanel.BP_PurchasePanel_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_PurchasePanel.BP_PurchasePanel_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_PurchasePanel__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_PurchasePanel__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_PauseMenu.BP_PauseMenu_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_PauseMenu.BP_PauseMenu_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_PauseMenu__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_PauseMenu__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_Money.BP_Money_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_Money.BP_Money_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_Money__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_Money__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_Lives.BP_Lives_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_Lives.BP_Lives_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_Lives__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_Lives__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_ScreenOverlay.BP_ScreenOverlay_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_ScreenOverlay.BP_ScreenOverlay_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_ScreenOverlay__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_ScreenOverlay__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_Settings.BP_Settings_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_Settings.BP_Settings_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_Settings__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_Settings__pf3166771619.cpp"
+		},
+		"/Game/UserInterface/BP_MainMenu.BP_MainMenu_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/BP_MainMenu.BP_MainMenu_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_MainMenu__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_MainMenu__pf3166771619.cpp"
+		},
+		"/Engine/EngineSky/BP_Sky_Sphere.BP_Sky_Sphere_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Engine/EngineSky/BP_Sky_Sphere.BP_Sky_Sphere_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_Sky_Sphere__pf1379775596.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_Sky_Sphere__pf1379775596.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_WallSconce.Blueprint_WallSconce_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_WallSconce.Blueprint_WallSconce_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_WallSconce__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_WallSconce__pf1079297466.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_Effect_Steam.Blueprint_Effect_Steam_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_Effect_Steam.Blueprint_Effect_Steam_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_Effect_Steam__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_Effect_Steam__pf1079297466.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_Effect_Sparks.Blueprint_Effect_Sparks_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_Effect_Sparks.Blueprint_Effect_Sparks_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_Effect_Sparks__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_Effect_Sparks__pf1079297466.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_Effect_Smoke.Blueprint_Effect_Smoke_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_Effect_Smoke.Blueprint_Effect_Smoke_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_Effect_Smoke__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_Effect_Smoke__pf1079297466.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_Effect_Fire.Blueprint_Effect_Fire_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_Effect_Fire.Blueprint_Effect_Fire_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_Effect_Fire__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_Effect_Fire__pf1079297466.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_CeilingLight.Blueprint_CeilingLight_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_CeilingLight.Blueprint_CeilingLight_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_CeilingLight__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_CeilingLight__pf1079297466.cpp"
+		},
+		"/Game/StarterContent/Blueprints/BP_LightStudio.BP_LightStudio_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/BP_LightStudio.BP_LightStudio_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/BP_LightStudio__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/BP_LightStudio__pf1079297466.cpp"
+		},
+		"/Game/UserInterface/EnemyDamagePopup.EnemyDamagePopup_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/UserInterface/EnemyDamagePopup.EnemyDamagePopup_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/EnemyDamagePopup__pf3166771619.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/EnemyDamagePopup__pf3166771619.cpp"
+		},
+		"/Game/StarterContent/Blueprints/Blueprint_Effect_Explosion.Blueprint_Effect_Explosion_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/StarterContent/Blueprints/Blueprint_Effect_Explosion.Blueprint_Effect_Explosion_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/Blueprint_Effect_Explosion__pf1079297466.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/Blueprint_Effect_Explosion__pf1079297466.cpp"
+		},
+		"/Game/ProIconPack/UI/WB_Icon_Base.WB_Icon_Base_C":
+		{
+			"assetType": "Class'/Script/UMGEditor.WidgetBlueprint'",
+			"targetObjPath": "/Game/ProIconPack/UI/WB_Icon_Base.WB_Icon_Base_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/WB_Icon_Base__pf2787112053.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/WB_Icon_Base__pf2787112053.cpp"
+		},
+		"/Game/Mannequin/Animations/ThirdPerson_AnimBP.ThirdPerson_AnimBP_C":
+		{
+			"assetType": "Class'/Script/Engine.AnimBlueprint'",
+			"targetObjPath": "/Game/Mannequin/Animations/ThirdPerson_AnimBP.ThirdPerson_AnimBP_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/ThirdPerson_AnimBP__pf2404374163.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/ThirdPerson_AnimBP__pf2404374163.cpp"
+		},
+		"/Game/Enemies/Classes/TestEnemy.TestEnemy_C":
+		{
+			"assetType": "Class'/Script/Engine.Blueprint'",
+			"targetObjPath": "/Game/Enemies/Classes/TestEnemy.TestEnemy_C",
+			"generatedHeaderPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Public/TestEnemy__pf2487122693.h",
+			"generatedCppPath": "E:/CS498/TowerDefense/Intermediate/Plugins/NativizedAssets/Windows/Game/Source/NativizedAssets/Private/TestEnemy__pf2487122693.cpp"
+		}
+	},
+	"unconvertedDependencies":
+	{
+	},
+	"nativizationOptions":
+	{
+		"platformName": "WindowsNoEditor",
+		"serverOnlyPlatform": false,
+		"clientOnlyPlatform": false,
+		"bExcludeMonolithicHeaders": false,
+		"excludedModules": [],
+		"excludedAssets": [],
+		"excludedFolderPaths": []
+	}
+}

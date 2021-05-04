@@ -54,9 +54,6 @@ public:
 	TArray<ADefaultEnemy*> EnemiesSpawnedThisRound;
 	bool bActiveRound;
 	bool bDoneSpawning;
-
-	float Volume_Music;
-	float Volume_SFX;
 };
 
 

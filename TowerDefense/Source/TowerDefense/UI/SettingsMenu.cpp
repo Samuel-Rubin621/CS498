@@ -3,6 +3,7 @@
 
 #include "SettingsMenu.h"
 #include "MainMenu.h"
+#include "TowerDefense/TD_GameInstance.h"
 #include "Engine/Engine.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/ComboBoxString.h"
@@ -17,11 +18,26 @@ USettingsMenu::USettingsMenu(const FObjectInitializer& ObjectInitializer) : Supe
 
 void USettingsMenu::NativeConstruct()
 {
+	GameInstance = Cast<UTD_GameInstance>(GetGameInstance());
+	InitializeDefaults();
+
 	MainMenuButton->OnClicked.AddDynamic(this, &USettingsMenu::OnMainMenuButtonPressed);
+
 	ScreenResolutionDropDown->OnSelectionChanged.AddDynamic(this, &USettingsMenu::OnScreenResolutionChanged);
 
 	Slider_Music->OnValueChanged.AddDynamic(this, &USettingsMenu::OnMusicVolumeChanged);
 	Slider_SFX->OnValueChanged.AddDynamic(this, &USettingsMenu::OnSFXVolumeChanged);
+}
+
+void USettingsMenu::InitializeDefaults()
+{
+	ScreenResolutionDropDown->SetSelectedOption(GameInstance->ScreenResolution);
+
+	Slider_Music->SetValue(GameInstance->Volume_Music);
+	PB_Music->SetPercent(GameInstance->Volume_Music);
+
+	Slider_SFX->SetValue(GameInstance->Volume_SFX);
+	PB_SFX->SetPercent(GameInstance->Volume_SFX);
 }
 
 void USettingsMenu::OnMainMenuButtonPressed()
@@ -30,38 +46,16 @@ void USettingsMenu::OnMainMenuButtonPressed()
 	SetVisibility(ESlateVisibility::Hidden);
 }
 
-void USettingsMenu::OnScreenResolutionChanged(FString SelectedItem, ESelectInfo::Type SelectionType)
+void USettingsMenu::OnScreenResolutionChanged(FString ScreenResolution, ESelectInfo::Type SelectionType)
 {
-	FString Resolution;
-
-	int OptionIndex = ScreenResolutionDropDown->FindOptionIndex(SelectedItem);
-	switch (OptionIndex)
-	{
-	case 0:
-		Resolution = "720x480";
-		break;
-	case 1:
-		Resolution = "1280x720";
-		break;
-	case 2:
-		Resolution = "1920x1080";
-		break;
-	case 3:
-		Resolution = "2560x1440";
-		break;
-	default:
-		break;
-	}
-
-	if (Resolution != "")
-	{
-		FString Final = "r.SetRes " + Resolution;
-		if (GEngine) GEngine->Exec(GetWorld(), *Final);
-	}
+	GameInstance->ScreenResolution = ScreenResolution;
+	FString Final = "r.SetRes " + ScreenResolution;
+	if (GEngine) GEngine->Exec(GetWorld(), *Final);
 }
 
 void USettingsMenu::OnMusicVolumeChanged(float Value)
 {
+	GameInstance->Volume_Music = Value;
 	UGameplayStatics::SetSoundMixClassOverride(GetWorld(), SM_Music, SC_Music, Value, 1.0f, 0.0f, true);
 	UGameplayStatics::PushSoundMixModifier(GetWorld(), SM_Music);
 	
@@ -70,6 +64,7 @@ void USettingsMenu::OnMusicVolumeChanged(float Value)
 
 void USettingsMenu::OnSFXVolumeChanged(float Value)
 {
+	GameInstance->Volume_SFX = Value;
 	UGameplayStatics::SetSoundMixClassOverride(GetWorld(), SM_SFX, SC_SFX, Value, 1.0f, 0.0f, true);
 	UGameplayStatics::PushSoundMixModifier(GetWorld(), SM_SFX);
 

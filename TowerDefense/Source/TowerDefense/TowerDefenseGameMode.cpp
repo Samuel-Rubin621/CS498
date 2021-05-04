@@ -25,9 +25,6 @@ ATowerDefenseGameMode::ATowerDefenseGameMode()
 	Round = 0;
 	bDoneSpawning = false;
 	bActiveRound = false;
-
-	Volume_Music = 0.5f;
-	Volume_SFX = 0.5f;
 }
 
 // Called when the game starts or when spawned

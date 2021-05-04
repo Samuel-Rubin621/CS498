@@ -35,8 +35,6 @@ void ADefaultTower::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AActor::SetFolderPath("Towers");
-
 	GameMode = (ATowerDefenseGameMode*)GetWorld()->GetAuthGameMode();
 
 	TowerRangeSphere->SetSphereRadius(Range);

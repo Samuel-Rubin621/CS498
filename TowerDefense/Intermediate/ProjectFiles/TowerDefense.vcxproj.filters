@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TowerDefense.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{61D45A9E-D69D-4664-AD2B-E5B8401212F4}</UniqueIdentifier>
+      <UniqueIdentifier>{EB3B742F-43B4-42BA-A854-7BD76200EBA2}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TowerDefense.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,9 @@
     <None Include="..\..\Source\TowerDefenseEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\TowerDefense.png" />
     <Filter Include="Config">
-      <UniqueIdentifier>{2B5A5B34-6E09-4D95-AB01-E437FEC85E4C}</UniqueIdentifier>
+      <UniqueIdentifier>{FDD2D723-AC01-4D1B-B757-D3296B5F8994}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +31,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TowerDefense">
-      <UniqueIdentifier>{83FC1B6E-4182-489F-97F7-FD3A16BF7C4A}</UniqueIdentifier>
+      <UniqueIdentifier>{443C7892-6D70-4E02-BAF7-B3A5966BBDF1}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\DefaultEnemy.cpp">
       <Filter>Source\TowerDefense</Filter>
@@ -86,6 +87,12 @@
     <ClInclude Include="..\..\Source\TowerDefense\Path.h">
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\TowerDefense\TD_GameInstance.cpp">
+      <Filter>Source\TowerDefense</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TowerDefense\TD_GameInstance.h">
+      <Filter>Source\TowerDefense</Filter>
+    </ClInclude>
     <None Include="..\..\Source\TowerDefense\TowerDefense.Build.cs">
       <Filter>Source\TowerDefense</Filter>
     </None>
@@ -114,7 +121,7 @@
       <Filter>Source\TowerDefense</Filter>
     </ClInclude>
     <Filter Include="Source\TowerDefense\UI">
-      <UniqueIdentifier>{2FA74BCF-AEE1-406A-8E0B-DE5C7D71361B}</UniqueIdentifier>
+      <UniqueIdentifier>{709F46C2-4363-4F7A-A570-0CAEC4315856}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TowerDefense\UI\InGameHUD.cpp">
       <Filter>Source\TowerDefense\UI</Filter>
