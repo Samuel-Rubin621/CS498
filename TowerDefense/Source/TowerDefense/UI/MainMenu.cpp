@@ -12,9 +12,17 @@ UMainMenu::UMainMenu(const FObjectInitializer& ObjectInitializer) : Super(Object
 
 void UMainMenu::NativeConstruct()
 {
+	FString SetResolution = "r.SetRes 1280x720";
+	if (GEngine) GEngine->Exec(GetWorld(), *SetResolution);
+
 	PlayButton->OnClicked.AddDynamic(this, &UMainMenu::OnPlayButtonPressed);
 	OptionsButton->OnClicked.AddDynamic(this, &UMainMenu::OnSettingsButtonPressed);
 	QuitButton->OnClicked.AddDynamic(this, &UMainMenu::OnExitButtonPressed);
+
+	SettingsMenu = CreateWidget<USettingsMenu>(GetWorld(), SettingsWidget);
+	SettingsMenu->AddToViewport();
+	SettingsMenu->SetVisibility(ESlateVisibility::Hidden);
+	SettingsMenu->MainMenu = this;
 }
 
 void UMainMenu::OnPlayButtonPressed()
@@ -24,9 +32,8 @@ void UMainMenu::OnPlayButtonPressed()
 
 void UMainMenu::OnSettingsButtonPressed()
 {
-	USettingsMenu* SettingsMenu = CreateWidget<USettingsMenu>(GetWorld(), SettingsWidget);
-	RemoveFromParent();
-	SettingsMenu->AddToViewport();
+	SettingsMenu->SetVisibility(ESlateVisibility::Visible);
+	this->SetVisibility(ESlateVisibility::Hidden);
 }
 
 void UMainMenu::OnExitButtonPressed()

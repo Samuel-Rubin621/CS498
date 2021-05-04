@@ -21,62 +21,42 @@ public:
 	ATowerDefenseGameMode();
 
 	// Functions for lives
-	UFUNCTION(BlueprintCallable)
-	void DecreaseLives(int32 Value);
-	UFUNCTION(BlueprintCallable)
-	void IncreaseLives(int32 Value);
-	UFUNCTION(BlueprintCallable)
-	void GameOver();
+	UFUNCTION(BlueprintCallable) void DecreaseLives(int32 Value);
+	UFUNCTION(BlueprintCallable) void IncreaseLives(int32 Value);
+	UFUNCTION(BlueprintCallable) void GameOver();
 
 	// Functions for money
-	UFUNCTION(BlueprintCallable)
-	void DecreaseMoney(int32 Value);
-	UFUNCTION(BlueprintCallable)
-	void IncreaseMoney(int32 Value);
-	UFUNCTION(BlueprintCallable)
-	bool CheckCurrentMoney(int32 value);
+	UFUNCTION(BlueprintCallable) void DecreaseMoney(int32 Value);
+	UFUNCTION(BlueprintCallable) void IncreaseMoney(int32 Value);
+	UFUNCTION(BlueprintCallable) bool CheckCurrentMoney(int32 value);
 
 	// Functions for handling rounds
-	UFUNCTION()
-	void StartRound();
-	UFUNCTION(BlueprintCallable)
-	void RemoveEnemyFromList(ADefaultEnemy* EnemyToRemove);
-	UFUNCTION()
-	void EndOfRound();
+	UFUNCTION() void StartRound();
+	UFUNCTION(BlueprintCallable) void RemoveEnemyFromList(ADefaultEnemy* EnemyToRemove);
+	UFUNCTION() void EndOfRound();
 
 	// Events fired from the game mode
-	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
-	FOnMoneyChange SetMoneyText;
-	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
-	FOnLivesChange SetLivesText;
-	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
-	FOnRoundBegin StartNextRound;
-	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
-	FOnRoundCompletion EndRound;
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers") FOnMoneyChange SetMoneyText;
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers") FOnLivesChange SetLivesText;
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers") FOnRoundBegin StartNextRound;
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers") FOnRoundCompletion EndRound;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
-	int32 Lives;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
-	int32 Money;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
-	int32 Round;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Variables") int32 Lives;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Variables") int32 Money;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables") int32 Round;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Reference")
 	class UScreenOverlay* ScreenOverlay;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
-	bool bActiveRound;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
-	bool bDoneSpawning;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Rounds")
 	TArray<ADefaultEnemy*> EnemiesSpawnedThisRound;
+	bool bActiveRound;
+	bool bDoneSpawning;
 
-
+	float Volume_Music;
+	float Volume_SFX;
 };
 
 

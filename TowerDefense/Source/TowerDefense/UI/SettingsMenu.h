@@ -6,17 +6,6 @@
 #include "Blueprint/UserWidget.h"
 #include "SettingsMenu.generated.h"
 
-UENUM(BlueprintType)
-enum class EScreenResolution :uint8
-{
-	ESR_480		UMETA(DisplayName = "720x480"),
-	ESR_720		UMETA(DisplayName = "1280x720"),
-	ESR_1080	UMETA(DisplayName = "1920x1080"),
-	ESR_1440	UMETA(DisplayName = "2560x1440"),
-
-	ESR_MAX		UMETA(DisplayName = "DefaultMAX")
-};
-
 /**
  * 
  */
@@ -31,14 +20,29 @@ public:
 
 	UFUNCTION() void OnMainMenuButtonPressed();
 
-	UFUNCTION() void SetScreenResolution();
+	UFUNCTION() void OnScreenResolutionChanged(FString SelectedItem, ESelectInfo::Type SelectionType);
+
+	UFUNCTION() void OnMusicVolumeChanged(float Value);
+	UFUNCTION() void OnSFXVolumeChanged(float Value);
 
 	/***** Only variables declared beyond this point! *****/
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) class UComboBoxString* ScreenResolutionDropDown;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) class USlider* VolumeSlider;
-	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) class UProgressBar* VolumeBar;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) class UButton* MainMenuButton;
 
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) class UProgressBar* PB_Music;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))	    UProgressBar* PB_SFX;
+
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) class USlider* Slider_Music;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))		USlider* Slider_SFX;
+
+	UPROPERTY(EditDefaultsOnly)	class USoundClass* SC_Music;
+	UPROPERTY(EditDefaultsOnly)		  USoundClass* SC_SFX;
+
+	UPROPERTY(EditDefaultsOnly)	class USoundMix* SM_Music;
+	UPROPERTY(EditDefaultsOnly)		  USoundMix* SM_SFX;
+
 	UPROPERTY(EditDefaultsOnly) TSubclassOf<UUserWidget> MainMenuWidget;
+	class ATowerDefenseGameMode* GameMode;
+	class UMainMenu* MainMenu;
 };

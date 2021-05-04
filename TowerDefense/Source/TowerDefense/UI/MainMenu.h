@@ -29,6 +29,8 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* PlayButton;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* OptionsButton;
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget)) UButton* QuitButton;
+	
+	class USettingsMenu* SettingsMenu;
 
 	UPROPERTY(EditDefaultsOnly) TSubclassOf<UUserWidget> SettingsWidget;
 };

@@ -65,7 +65,7 @@ void ATowerDefensePlayerController::PauseMenu()
 		if (PauseMenuReference->IsVisible()) PauseMenuReference->SetVisibility(ESlateVisibility::Hidden);
 		else PauseMenuReference->SetVisibility(ESlateVisibility::Visible);
 	}
-	else
+	else if (GameMode->ScreenOverlay)
 	{
 		PauseMenuReference = GameMode->ScreenOverlay->PauseMenu;
 		PauseMenu();
